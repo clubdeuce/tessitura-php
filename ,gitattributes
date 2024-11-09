@@ -1,0 +1,9 @@
+# https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
+
+# A list of files and folders those will be excluded from archives and the
+# Composer package (for purposes of making it smaller).
+/.editorconfig export-ignore
+/.gitattributes export-ignore
+/.idea export-ignore
+/.vscode export-ignore
+/tests export-ignore
