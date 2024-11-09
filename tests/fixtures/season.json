@@ -1,0 +1,40 @@
+{
+  "ConfirmationNoticeFormat": null,
+  "CreatedDateTime": "2024-01-19T13:02:24.803-05:00",
+  "CreateLocation": "ECarr513",
+  "CreatedBy": "ecarr   ",
+  "DefaultIndicator": false,
+  "Description": "2024/2025 Opera",
+  "DisplayInSeasonOverview": true,
+  "EndDateTime": "2025-06-30T23:59:59-04:00",
+  "FYear": 2025,
+  "Id": 194,
+  "Inactive": false,
+  "UpdatedDateTime": "2024-03-25T12:34:48.977-04:00",
+  "UpdatedBy": "ecarr   ",
+  "RenewalNoticeFormat": null,
+  "StartDateTime": "2024-07-01T00:00:00-04:00",
+  "SubscriptionFund1": null,
+  "SubscriptionFund2": null,
+  "Type": {
+    "BusinessUnit": {
+      "Description": "Michigan Opera Theatre",
+      "Id": 1,
+      "Inactive": false
+    },
+    "CreatedDateTime": "2001-08-27T11:32:58.593-04:00",
+    "CreateLocation": "MOT-TES1",
+    "CreatedBy": "admin   ",
+    "Description": "Opera",
+    "Id": 1,
+    "Inactive": false,
+    "UpdatedDateTime": "2016-01-15T10:09:25.14-05:00",
+    "UpdatedBy": "dbo     "
+  },
+  "YearlySeason": null,
+  "ControlGroup": {
+    "Description": "(Default Control Group)",
+    "Id": -1,
+    "Inactive": false
+  }
+}

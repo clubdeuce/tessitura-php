@@ -1,0 +1,31 @@
+{
+  "Premiere": null,
+  "Production": {
+    "Id": 1512,
+    "Description": "La Traviata"
+  },
+  "Id": 4848,
+  "Season": {
+    "Id": 194,
+    "Description": "2024/2025 Opera",
+    "FYear": 2025,
+    "Inactive": false
+  },
+  "CreatedDateTime": "2024-01-19T13:03:18.337-05:00",
+  "CreateLocation": "ECarr513",
+  "CreatedBy": "ecarr",
+  "UpdatedDateTime": "2024-01-19T13:03:18.337-05:00",
+  "UpdatedBy": "ecarr",
+  "Description": "La Traviata",
+  "Fulltext": "La Traviata",
+  "FulltextCompleteDateTime": "2024-01-20T03:00:20.97-05:00",
+  "FulltextRequestDateTime": "2024-01-19T13:03:18.337-05:00",
+  "ShortName": null,
+  "Text1": null,
+  "Text2": null,
+  "Text3": null,
+  "Text4": null,
+  "InventoryType": "S",
+  "FirstPerformanceDate": "2024-10-19T19:30:00-04:00",
+  "LastPerformanceDate": "2024-10-27T14:30:00-04:00"
+}

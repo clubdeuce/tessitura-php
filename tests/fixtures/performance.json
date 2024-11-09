@@ -1,0 +1,69 @@
+{
+  "PerformanceId": 4849,
+  "PerformanceCode": "LA TRAV A",
+  "PerformanceDate": "2024-10-19T19:30:00-04:00",
+  "Facility": {
+    "Id": 47,
+    "Description": "Detroit Opera House"
+  },
+  "FacilityDescription": "Detroit Opera House",
+  "PerformanceDescription": "La Traviata",
+  "PerformanceShortName": "La Traviata",
+  "ProductionSeason": {
+    "Id": 4848,
+    "Description": "La Traviata"
+  },
+  "BusinessUnitId": 1,
+  "ZoneMap": {
+    "Id": 298,
+    "Description": "FY25 DOH Rescale"
+  },
+  "ZoneMapDescription": "FY25 DOH Rescale",
+  "AvailSaleIndicator": "Y",
+  "ConstituentInterestWeight": null,
+  "Season": {
+    "Id": 194,
+    "Description": "2024/2025 Opera",
+    "FYear": 2025,
+    "Inactive": false
+  },
+  "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+  "PublishClientEndDate": "2024-10-19T21:00:00-04:00",
+  "PublishWebApiStartDate": null,
+  "PublishWebApiEndDate": null,
+  "DoorsOpen": null,
+  "DoorsClose": null,
+  "Duration": null,
+  "SalesNotes": null,
+  "SalesNotesRequired": false,
+  "Text1": null,
+  "Text2": null,
+  "Text3": null,
+  "Text4": null,
+  "RankType": {
+    "Id": 1,
+    "Description": "Default TR_RANK_TYPE"
+  },
+  "RankTypeDescription": "Default TR_RANK_TYPE",
+  "PerformanceType": {
+    "Id": 1,
+    "Description": "Default TR_PERF_TYPE",
+    "Inactive": false
+  },
+  "PerformanceStatus": {
+    "Id": 1,
+    "Description": "On Sale"
+  },
+  "PerformanceStatusDescription": "On Sale",
+  "TimeSlot": {
+    "Id": 1,
+    "Description": "Evening"
+  },
+  "TimeSlotDescription": "Evening",
+  "ModeOfSale": null,
+  "ModeOfSaleDescription": null,
+  "ModeOfSaleStartDate": null,
+  "ModeOfSaleEndDate": null,
+  "IsRestricted": false,
+  "ValidCountries": null
+}

@@ -1,0 +1,4694 @@
+[
+  {
+    "PerformanceId": 4849,
+    "PerformanceCode": "LA TRAV A",
+    "PerformanceDate": "2024-10-19T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "La Traviata",
+    "PerformanceShortName": "La Traviata",
+    "ProductionSeason": {
+      "Id": 4848,
+      "Description": "La Traviata"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2024-10-19T21:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4850,
+    "PerformanceCode": "LA TRAV B",
+    "PerformanceDate": "2024-10-25T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "La Traviata",
+    "PerformanceShortName": "La Traviata",
+    "ProductionSeason": {
+      "Id": 4848,
+      "Description": "La Traviata"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2024-10-25T21:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4851,
+    "PerformanceCode": "LA TRAV C",
+    "PerformanceDate": "2024-10-27T14:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "La Traviata",
+    "PerformanceShortName": "La Traviata",
+    "ProductionSeason": {
+      "Id": 4848,
+      "Description": "La Traviata"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2024-10-27T16:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4855,
+    "PerformanceCode": "RINALDO A",
+    "PerformanceDate": "2025-02-22T19:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Rinaldo",
+    "PerformanceShortName": "Rinaldo",
+    "ProductionSeason": {
+      "Id": 4854,
+      "Description": "Rinaldo"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-02-22T21:00:00-05:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4856,
+    "PerformanceCode": "RINALDO B",
+    "PerformanceDate": "2025-02-28T19:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Rinaldo",
+    "PerformanceShortName": "Rinaldo",
+    "ProductionSeason": {
+      "Id": 4854,
+      "Description": "Rinaldo"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-02-28T21:00:00-05:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4857,
+    "PerformanceCode": "RINALDO C",
+    "PerformanceDate": "2025-03-02T14:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Rinaldo",
+    "PerformanceShortName": "Rinaldo",
+    "ProductionSeason": {
+      "Id": 4854,
+      "Description": "Rinaldo"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-03-02T16:00:00-05:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4861,
+    "PerformanceCode": "COSI A",
+    "PerformanceDate": "2025-04-05T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Cosi Fan Tutte",
+    "PerformanceShortName": "Cosi Fan Tutte",
+    "ProductionSeason": {
+      "Id": 4860,
+      "Description": "Cosi Fan Tutte"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-04-05T21:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4862,
+    "PerformanceCode": "COSI B",
+    "PerformanceDate": "2025-04-11T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Cosi Fan Tutte",
+    "PerformanceShortName": "Cosi Fan Tutte",
+    "ProductionSeason": {
+      "Id": 4860,
+      "Description": "Cosi Fan Tutte"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-04-11T21:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4863,
+    "PerformanceCode": "COSI C",
+    "PerformanceDate": "2025-04-13T14:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Cosi Fan Tutte",
+    "PerformanceShortName": "Cosi Fan Tutte",
+    "ProductionSeason": {
+      "Id": 4860,
+      "Description": "Cosi Fan Tutte"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-04-13T16:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4867,
+    "PerformanceCode": "CENTRAL5 A",
+    "PerformanceDate": "2025-05-10T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "The Central Park Five",
+    "PerformanceShortName": "Central Park Five",
+    "ProductionSeason": {
+      "Id": 4866,
+      "Description": "The Central Park Five"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-05-10T21:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4868,
+    "PerformanceCode": "CENTRAL5 B",
+    "PerformanceDate": "2025-05-16T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "The Central Park Five",
+    "PerformanceShortName": "Central Park Five",
+    "ProductionSeason": {
+      "Id": 4866,
+      "Description": "The Central Park Five"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-05-16T21:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4869,
+    "PerformanceCode": "CENTRAL5 C",
+    "PerformanceDate": "2025-05-18T14:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "The Central Park Five",
+    "PerformanceShortName": "Central Park Five",
+    "ProductionSeason": {
+      "Id": 4866,
+      "Description": "The Central Park Five"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 194,
+      "Description": "2024/2025 Opera",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": "2024-02-01T00:00:00-05:00",
+    "PublishClientEndDate": "2025-05-18T16:00:00-04:00",
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4873,
+    "PerformanceCode": "LOVE A",
+    "PerformanceDate": "2024-11-02T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Mark Morris: The Look of Love",
+    "PerformanceShortName": "Look of Love",
+    "ProductionSeason": {
+      "Id": 4872,
+      "Description": "Mark Morris"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4874,
+    "PerformanceCode": "LOVE B",
+    "PerformanceDate": "2024-11-03T14:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Mark Morris: The Look of Love",
+    "PerformanceShortName": "Look of Love",
+    "ProductionSeason": {
+      "Id": 4872,
+      "Description": "Mark Morris"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4878,
+    "PerformanceCode": "COMPLEX A",
+    "PerformanceDate": "2024-12-07T19:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Complexions: 30th Anniversary",
+    "PerformanceShortName": "Complexions",
+    "ProductionSeason": {
+      "Id": 4877,
+      "Description": "Complexions: 30th Anniversary"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4879,
+    "PerformanceCode": "COMPLEX B",
+    "PerformanceDate": "2024-12-08T14:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Complexions: 30th Anniversary",
+    "PerformanceShortName": "Complexions",
+    "ProductionSeason": {
+      "Id": 4877,
+      "Description": "Complexions: 30th Anniversary"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4883,
+    "PerformanceCode": "TWYLA A",
+    "PerformanceDate": "2025-02-01T19:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Twyla Tharp: 60th Anniversary",
+    "PerformanceShortName": "Twyla Tharp: 60th An",
+    "ProductionSeason": {
+      "Id": 4882,
+      "Description": "Twyla Tharp: 60th Anniversary"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4884,
+    "PerformanceCode": "TWYLA B",
+    "PerformanceDate": "2025-02-02T14:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Twyla Tharp: 60th Anniversary",
+    "PerformanceShortName": "Twyla Tharp: 60th An",
+    "ProductionSeason": {
+      "Id": 4882,
+      "Description": "Twyla Tharp: 60th Anniversary"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4886,
+    "PerformanceCode": "AADT A",
+    "PerformanceDate": "2025-03-14T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Alvin Ailey Dance Theater",
+    "PerformanceShortName": "Alvin Ailey",
+    "ProductionSeason": {
+      "Id": 4885,
+      "Description": "Alvin Ailey Dance Theater"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4887,
+    "PerformanceCode": "AADT C",
+    "PerformanceDate": "2025-03-15T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Alvin Ailey Dance Theater",
+    "PerformanceShortName": "Alvin Ailey",
+    "ProductionSeason": {
+      "Id": 4885,
+      "Description": "Alvin Ailey Dance Theater"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4888,
+    "PerformanceCode": "AADT D",
+    "PerformanceDate": "2025-03-16T14:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Alvin Ailey Dance Theater",
+    "PerformanceShortName": "Alvin Ailey",
+    "ProductionSeason": {
+      "Id": 4885,
+      "Description": "Alvin Ailey Dance Theater"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4890,
+    "PerformanceCode": "BALLET B A",
+    "PerformanceDate": "2025-04-26T19:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Ballet Biarritz",
+    "PerformanceShortName": "Ballet Biarritz",
+    "ProductionSeason": {
+      "Id": 4889,
+      "Description": "Malandain Ballet Biarritz"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4891,
+    "PerformanceCode": "BALLET B B",
+    "PerformanceDate": "2025-04-27T14:30:00-04:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Ballet Biarritz",
+    "PerformanceShortName": "Ballet Biarritz",
+    "ProductionSeason": {
+      "Id": 4889,
+      "Description": "Malandain Ballet Biarritz"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4893,
+    "PerformanceCode": "PRK TRAV A",
+    "PerformanceDate": "2024-10-19T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "La Traviata Parking Sat",
+    "PerformanceShortName": "La Traviata Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4894,
+    "PerformanceCode": "PRK TRAV B",
+    "PerformanceDate": "2024-10-25T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "La Traviata Parking Fri",
+    "PerformanceShortName": "La Traviata Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4895,
+    "PerformanceCode": "PRK TRAV C",
+    "PerformanceDate": "2024-10-27T12:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "La Traviata Parking Sun",
+    "PerformanceShortName": "La Traviata Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4896,
+    "PerformanceCode": "PRK RINA A",
+    "PerformanceDate": "2025-02-22T17:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Rinaldo Parking Sat",
+    "PerformanceShortName": "Rinaldo Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4897,
+    "PerformanceCode": "PRK RINA B",
+    "PerformanceDate": "2025-02-28T17:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Rinaldo Parking Fri",
+    "PerformanceShortName": "Rinaldo Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4898,
+    "PerformanceCode": "PRK RINA C",
+    "PerformanceDate": "2025-03-02T12:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Rinaldo Parking Sun",
+    "PerformanceShortName": "Rinaldo Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4899,
+    "PerformanceCode": "PRK COSI A",
+    "PerformanceDate": "2025-04-05T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Cosi Fan Tutte Parking Sat",
+    "PerformanceShortName": "Cosi Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4900,
+    "PerformanceCode": "PRK COSI B",
+    "PerformanceDate": "2025-04-11T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Cosi Fan Tutte Parking Fri",
+    "PerformanceShortName": "Cosi Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4901,
+    "PerformanceCode": "PRK COSI C",
+    "PerformanceDate": "2025-04-13T12:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Cosi Fan Tutte Parking Sun",
+    "PerformanceShortName": "Cosi Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4903,
+    "PerformanceCode": "PRK CP5 A",
+    "PerformanceDate": "2025-05-10T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Central Park Five Parking Sat",
+    "PerformanceShortName": "CentralPark5 Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4904,
+    "PerformanceCode": "PRK CP5 B",
+    "PerformanceDate": "2025-05-16T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Central Park Five Parking Fri",
+    "PerformanceShortName": "CentralPark5 Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4905,
+    "PerformanceCode": "PRK CP5 C",
+    "PerformanceDate": "2025-05-18T12:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Central Park Five Parking Sun",
+    "PerformanceShortName": "CentralPark5 Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4906,
+    "PerformanceCode": "PRK LOVE A",
+    "PerformanceDate": "2024-11-02T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Mark Morris Parking Sat",
+    "PerformanceShortName": "Mark Morris Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4907,
+    "PerformanceCode": "PRK LOVE B",
+    "PerformanceDate": "2024-11-03T12:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Mark Morris Parking Sun",
+    "PerformanceShortName": "Mark Morris Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4908,
+    "PerformanceCode": "PRK COMP A",
+    "PerformanceDate": "2024-12-07T17:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Complexions Parking Sat",
+    "PerformanceShortName": "Complexions Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4909,
+    "PerformanceCode": "PRK COMP B",
+    "PerformanceDate": "2024-12-08T12:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Complexions Parking Sun",
+    "PerformanceShortName": "Complexions Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4910,
+    "PerformanceCode": "PRK TWYL A",
+    "PerformanceDate": "2025-02-01T17:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Twyla Tharp Parking Sat",
+    "PerformanceShortName": "Twyla Tharp Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4911,
+    "PerformanceCode": "PRK TWYL B",
+    "PerformanceDate": "2025-02-02T12:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Twyla Tharp Parking Sun",
+    "PerformanceShortName": "Twyla Tharp Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4912,
+    "PerformanceCode": "PRK BIAR A",
+    "PerformanceDate": "2025-04-26T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Biarritz Parking Sat",
+    "PerformanceShortName": "Biarritz Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4913,
+    "PerformanceCode": "PRK BIAR B",
+    "PerformanceDate": "2025-04-27T12:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Biarritz Parking Sun",
+    "PerformanceShortName": "Biarritz Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4914,
+    "PerformanceCode": "PRK AILY A",
+    "PerformanceDate": "2025-03-14T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Alvin Ailey Parking Fri",
+    "PerformanceShortName": "Alvin Ailey Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4915,
+    "PerformanceCode": "PRK AILY B",
+    "PerformanceDate": "2025-03-15T17:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Alvin Ailey Parking Sat",
+    "PerformanceShortName": "Alvin Ailey Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4916,
+    "PerformanceCode": "PRK AILY C",
+    "PerformanceDate": "2025-03-16T12:00:00-04:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Alvin Ailey Parking Sun",
+    "PerformanceShortName": "Alvin Ailey Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 7,
+      "Description": "Parking",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4922,
+    "PerformanceCode": "OPERETTA",
+    "PerformanceDate": "2024-07-25T10:00:00-04:00",
+    "Facility": {
+      "Id": 8,
+      "Description": "LATOH"
+    },
+    "FacilityDescription": "LATOH",
+    "PerformanceDescription": "Operetta Remix",
+    "PerformanceShortName": "Operetta Remix",
+    "ProductionSeason": {
+      "Id": 4917,
+      "Description": "Learning at the Opera House"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 25,
+      "Description": "Latoh"
+    },
+    "ZoneMapDescription": "Latoh",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 192,
+      "Description": "2024/2025 LATOH",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 5,
+      "Description": "LATOH",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4930,
+    "PerformanceCode": "TROCK A",
+    "PerformanceDate": "2024-11-23T19:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Trockadero 50th Anniversary",
+    "PerformanceShortName": "Trockadero 50th Anni",
+    "ProductionSeason": {
+      "Id": 4929,
+      "Description": "Trockadero 50th Anniversary"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 11,
+      "Description": "Dance Patron Circle (DPC)"
+    },
+    "RankTypeDescription": "Dance Patron Circle (DPC)",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4931,
+    "PerformanceCode": "TROCK B",
+    "PerformanceDate": "2024-11-24T14:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "Trockadero 50th Anniversary",
+    "PerformanceShortName": "Trockadero 50th Anni",
+    "ProductionSeason": {
+      "Id": 4929,
+      "Description": "Trockadero 50th Anniversary"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 298,
+      "Description": "FY25 DOH Rescale"
+    },
+    "ZoneMapDescription": "FY25 DOH Rescale",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 190,
+      "Description": "2024/2025 Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 11,
+      "Description": "Dance Patron Circle (DPC)"
+    },
+    "RankTypeDescription": "Dance Patron Circle (DPC)",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4933,
+    "PerformanceCode": "PRKT112324",
+    "PerformanceDate": "2024-11-23T17:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Ballet Trockadero Parking Sat",
+    "PerformanceShortName": "Tockadero Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4935,
+    "PerformanceCode": "PRKT112424",
+    "PerformanceDate": "2024-11-24T12:00:00-05:00",
+    "Facility": {
+      "Id": 4,
+      "Description": "Parking Garage"
+    },
+    "FacilityDescription": "Parking Garage",
+    "PerformanceDescription": "Ballet Trockadero Parking Sun",
+    "PerformanceShortName": "Trockadero Parking",
+    "ProductionSeason": {
+      "Id": 4892,
+      "Description": "Opera House Parking Center"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 21,
+      "Description": "Garage"
+    },
+    "ZoneMapDescription": "Garage",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 196,
+      "Description": "2024/2025 Parking",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4938,
+    "PerformanceCode": "AWF121524",
+    "PerformanceDate": "2024-12-15T14:30:00-05:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "A Winter Fantasy",
+    "PerformanceShortName": "A Winter Fantasy",
+    "ProductionSeason": {
+      "Id": 4937,
+      "Description": "A Winter Fantasy"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 191,
+      "Description": "2024/2025 DOYC",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4939,
+    "PerformanceCode": "HMSP030825",
+    "PerformanceDate": "2025-03-08T14:30:00-05:00",
+    "Facility": {
+      "Id": 47,
+      "Description": "Detroit Opera House"
+    },
+    "FacilityDescription": "Detroit Opera House",
+    "PerformanceDescription": "H.M.S. Pinafore",
+    "PerformanceShortName": "H.M.S. Pinafore",
+    "ProductionSeason": {
+      "Id": 4936,
+      "Description": "H.M.S. Pinafore"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 228,
+      "Description": "2223 Rescale MOT"
+    },
+    "ZoneMapDescription": "2223 Rescale MOT",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 191,
+      "Description": "2024/2025 DOYC",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4954,
+    "PerformanceCode": "DOVADUES25",
+    "PerformanceDate": "2025-06-29T10:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "DOVA Membership Registration",
+    "PerformanceShortName": "DOVA Membership Regi",
+    "ProductionSeason": {
+      "Id": 4953,
+      "Description": "DOVA Membership Registration"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4957,
+    "PerformanceCode": "25PRESALEO",
+    "PerformanceDate": "2024-08-01T20:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Opera Presale Sign Up",
+    "PerformanceShortName": "Opera Presale SignUp",
+    "ProductionSeason": {
+      "Id": 4956,
+      "Description": "Presale Sign Up"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4958,
+    "PerformanceCode": "25PRESALED",
+    "PerformanceDate": "2024-08-01T20:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Dance Presale Sign Up",
+    "PerformanceShortName": "DancePresale Sign Up",
+    "ProductionSeason": {
+      "Id": 4956,
+      "Description": "Presale Sign Up"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4963,
+    "PerformanceCode": "25DOYC REG",
+    "PerformanceDate": "2025-06-07T20:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "DOYC Registration",
+    "PerformanceShortName": "DOYC Registration",
+    "ProductionSeason": {
+      "Id": 4962,
+      "Description": "DOYC Registration"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 191,
+      "Description": "2024/2025 DOYC",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4967,
+    "PerformanceCode": "DANCE RENT",
+    "PerformanceDate": "2025-06-30T20:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Dance Rentals",
+    "PerformanceShortName": "24-25 Rentals",
+    "ProductionSeason": {
+      "Id": 4965,
+      "Description": "24-25 Rentals"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4968,
+    "PerformanceCode": "DOH RENT",
+    "PerformanceDate": "2025-06-30T20:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Special Event Rentals",
+    "PerformanceShortName": "24-25 Rentals",
+    "ProductionSeason": {
+      "Id": 4965,
+      "Description": "24-25 Rentals"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4971,
+    "PerformanceCode": "GAMEDAY A1",
+    "PerformanceDate": "2024-07-11T11:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour A1",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4972,
+    "PerformanceCode": "GAMEDAY A2",
+    "PerformanceDate": "2024-07-11T11:50:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour A2",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4973,
+    "PerformanceCode": "GAMEDAY B1",
+    "PerformanceDate": "2024-07-30T11:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour B1",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4974,
+    "PerformanceCode": "GAMEDAY B2",
+    "PerformanceDate": "2024-07-30T11:50:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour B2",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4975,
+    "PerformanceCode": "GAMEDAY C1",
+    "PerformanceDate": "2024-08-15T11:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour C1",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4976,
+    "PerformanceCode": "GAMEDAY C2",
+    "PerformanceDate": "2024-08-15T11:50:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour C2",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4977,
+    "PerformanceCode": "GAMEDAY D1",
+    "PerformanceDate": "2024-08-29T11:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour D1",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4978,
+    "PerformanceCode": "GAMEDAY D2",
+    "PerformanceDate": "2024-08-29T11:50:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Game Day Tour D2",
+    "PerformanceShortName": "Game Day Tour",
+    "ProductionSeason": {
+      "Id": 4970,
+      "Description": "24-25 Game Day Tours"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 193,
+      "Description": "2024/2025 Miscellaneous",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 2,
+      "Description": "Matinee"
+    },
+    "TimeSlotDescription": "Matinee",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  },
+  {
+    "PerformanceId": 4983,
+    "PerformanceCode": "STAGE PASS",
+    "PerformanceDate": "2025-06-30T20:00:00-04:00",
+    "Facility": {
+      "Id": 133,
+      "Description": "GA 2500"
+    },
+    "FacilityDescription": "GA 2500",
+    "PerformanceDescription": "Student Stage Pass",
+    "PerformanceShortName": "Student Stage Pass",
+    "ProductionSeason": {
+      "Id": 4982,
+      "Description": "Student Stage Pass"
+    },
+    "BusinessUnitId": 1,
+    "ZoneMap": {
+      "Id": 215,
+      "Description": "General Admission"
+    },
+    "ZoneMapDescription": "General Admission",
+    "AvailSaleIndicator": "Y",
+    "ConstituentInterestWeight": null,
+    "Season": {
+      "Id": 195,
+      "Description": "2024/2025 Opera and Dance",
+      "FYear": 2025,
+      "Inactive": false
+    },
+    "PublishClientStartDate": null,
+    "PublishClientEndDate": null,
+    "PublishWebApiStartDate": null,
+    "PublishWebApiEndDate": null,
+    "DoorsOpen": null,
+    "DoorsClose": null,
+    "Duration": null,
+    "SalesNotes": null,
+    "SalesNotesRequired": false,
+    "Text1": null,
+    "Text2": null,
+    "Text3": null,
+    "Text4": null,
+    "RankType": {
+      "Id": 1,
+      "Description": "Default TR_RANK_TYPE"
+    },
+    "RankTypeDescription": "Default TR_RANK_TYPE",
+    "PerformanceType": {
+      "Id": 1,
+      "Description": "Default TR_PERF_TYPE",
+      "Inactive": false
+    },
+    "PerformanceStatus": {
+      "Id": 1,
+      "Description": "On Sale"
+    },
+    "PerformanceStatusDescription": "On Sale",
+    "TimeSlot": {
+      "Id": 1,
+      "Description": "Evening"
+    },
+    "TimeSlotDescription": "Evening",
+    "ModeOfSale": null,
+    "ModeOfSaleDescription": null,
+    "ModeOfSaleStartDate": null,
+    "ModeOfSaleEndDate": null,
+    "IsRestricted": false,
+    "ValidCountries": null
+  }
+]
