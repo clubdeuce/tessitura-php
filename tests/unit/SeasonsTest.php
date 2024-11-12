@@ -33,6 +33,7 @@ class SeasonsTest extends TestCase
 
             $this->assertInstanceOf(Season::class, $season);
             $this->assertNotEquals(0, $season->id());
+            $this->expectException(Exception::class);
             $this->assertNull($sut->getById(1));
         } catch (\InvalidArgumentException $e) {
             trigger_error($e->getMessage());
@@ -53,6 +54,8 @@ class SeasonsTest extends TestCase
         $this->assertNotEmpty($seasons);
         $this->assertContainsOnlyInstancesOf(Season::class, $seasons);
 
+        // check for empty array when there is an API connection error
+        $this->expectException(Exception::class);
         $this->assertIsArray($sut->get());
     }
 }

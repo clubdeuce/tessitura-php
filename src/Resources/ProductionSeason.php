@@ -6,6 +6,8 @@ use Clubdeuce\Tessitura\Base\Base;
 use DateTime;
 use DateTimeZone;
 use Clubdeuce\Tessitura\Resources\Performance;
+use Exception;
+use InvalidArgumentException;
 
 /**
  * @method array response()
@@ -21,20 +23,20 @@ class ProductionSeason extends Base
     protected array $_performances = [];
 
     /**
-     * @throws \Exception
+     * @throws InvalidArgumentException
      */
     public function first_performance_date(string $timezone = 'America/New_York'): DateTime|bool
     {
         try {
             $timezone = new DateTimeZone($timezone);
-        } catch (\Exception $e) {
-            throw new \InvalidArgumentException($e->getMessage());
+        } catch (Exception $e) {
+            throw new InvalidArgumentException($e->getMessage());
         }
 
         if ($date = isset($this->response()['FirstPerformanceDate']) ? $this->response()['FirstPerformanceDate'] : false) {
             try {
                 return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 trigger_error($e->getMessage(), E_USER_ERROR);
             }
         }
@@ -43,20 +45,20 @@ class ProductionSeason extends Base
     }
 
     /**
-     * @throws \Exception
+     * @throws InvalidArgumentException
      */
     public function last_performance_date(string $timezone = 'America/New_York'): DateTime|bool
     {
         try {
             $timezone = new DateTimeZone($timezone);
-        } catch (\Exception $e) {
-            throw new \InvalidArgumentException($e->getMessage(), E_USER_WARNING);
+        } catch (Exception $e) {
+            throw new InvalidArgumentException($e->getMessage());
         }
 
         if ($date = isset($this->response()['LastPerformanceDate']) ? $this->response()['LastPerformanceDate'] : false) {
             try {
                 return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 trigger_error($e->getMessage(), E_USER_ERROR);
             }
         }

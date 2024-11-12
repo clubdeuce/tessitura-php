@@ -3,6 +3,7 @@
 namespace Clubdeuce\Tessitura\Resources;
 
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
@@ -30,21 +31,21 @@ class Seasons
 
     /**
      * @link https://www.tessituranetwork.com/REST_v151/TessituraService/HELP/API/GET_REFERENCEDATA_SEASONS_ID_FI.HTM
+     * @throws Exception
      */
-    public function getById(int $id): ?Season
+    public function getById(int $id): Season
     {
         try {
             $response = $this->client->request('get', sprintf('%s/%s', self::RESOURCE, $id));
             return new Season(json_decode($response->getBody()->getContents(), 'associative array'));
         } catch (GuzzleException $e) {
-            trigger_error($e->getMessage(), E_USER_WARNING);
+            throw new Exception($e->getMessage());
         }
-
-        return null;
     }
 
     /**
      * @return Season[]
+     * @throws Exception
      */
     public function get(): array
     {
@@ -56,9 +57,7 @@ class Seasons
                 return new Season($season);
             }, $data);
         } catch (GuzzleException $e) {
-            trigger_error($e->getMessage(), E_USER_WARNING);
+            throw new Exception($e->getMessage());
         }
-
-        return [];
     }
 }
