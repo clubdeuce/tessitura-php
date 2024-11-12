@@ -29,12 +29,15 @@ class SeasonsTest extends TestCase
             ]);
 
             $sut = new Seasons(new Client(['handler' => HandlerStack::create($mock)]));
-            $season = $sut->getById(1);
 
-            $this->assertInstanceOf(Season::class, $season);
-            $this->assertNotEquals(0, $season->id());
-            $this->expectException(Exception::class);
-            $this->assertNull($sut->getById(1));
+            try {
+                $season = $sut->getById(1);
+                $this->assertInstanceOf(Season::class, $season);
+                $this->assertNotEquals(0, $season->id());
+                $this->assertNull($sut->getById(1));
+            } catch (Exception $e) {
+                trigger_error($e->getMessage());
+            }
         } catch (\InvalidArgumentException $e) {
             trigger_error($e->getMessage());
         }

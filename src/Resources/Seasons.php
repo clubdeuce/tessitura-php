@@ -8,9 +8,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * Class Seasons
- * @package DSO\Modules\Tessitura
- *
  * @link https://www.tessituranetwork.com/REST_v151/TessituraService/HELP/RESOURCES/SEASONS.HTM
  */
 class Seasons
@@ -36,7 +33,7 @@ class Seasons
     public function getById(int $id): Season
     {
         try {
-            $response = $this->client->request('get', sprintf('%s/%s', self::RESOURCE, $id));
+            $response = $this->client->get(sprintf('%s/%s', self::RESOURCE, $id));
             return new Season(json_decode($response->getBody()->getContents(), 'associative array'));
         } catch (GuzzleException $e) {
             throw new Exception($e->getMessage());
