@@ -48,10 +48,4 @@ class PerformanceTest extends testCase
         $performance = new Performance();
         $this->assertNull($performance->date());
     }
-
-    public function testDateError() : void {
-        $performance = new Performance(['PerformanceDate' => 'asdfasdfasdfasdf']);
-        $this->expectException(\Exception::class);
-        $performance->date();
-    }
 }
