@@ -1,8 +1,9 @@
 <?php
 
 use Clubdeuce\Tessitura\Resources\Season;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-#[\PHPUnit\Framework\Attributes\CoversClass(Season::class)]
+#[CoversClass(Season::class)]
 class SeasonTest extends \tessitura\tests\includes\testCase
 {
 
