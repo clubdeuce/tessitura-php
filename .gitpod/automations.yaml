@@ -1,0 +1,15 @@
+tasks:
+    composer-install:
+        name: composer installation
+        command: ./.gitpod/scripts/composer-install.sh && php composer.phar install
+        triggeredBy:
+            - postDevcontainerStart
+services:
+    redis:
+        name: redis
+        description: Redis Server
+        commands:
+            start: sudo service redis-server start
+            stop: sudo service redis-server stop
+        triggeredBy:
+            - postEnvironmentStart
