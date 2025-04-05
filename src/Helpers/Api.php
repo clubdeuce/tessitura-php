@@ -150,7 +150,7 @@ class Api extends Base
                 $response->getStatusCode()
             );
 
-            trigger_error($result->get_error_message(), E_USER_WARNING);
+            trigger_error($result->getMessage(), E_USER_WARNING);
         } while (false);
 
         return $result;
