@@ -220,24 +220,6 @@ class Api extends Base
 
     }
 
-    public function version(): string
-    {
-        // Different API versions have different URIs
-        $paths = [
-            '15' => '#^https://.*/TessituraService/?$#',
-            '16' => '#^https://.*/tessitura/api/?$#'
-        ];
-
-        foreach ($paths as $version => $pattern) {
-            if (preg_match($pattern, $this->base_route())) {
-                $this->_version = $version;
-                break;
-            }
-        }
-
-        return $this->_version;
-    }
-
     /**
      * @param string $message
      * @param array $args {

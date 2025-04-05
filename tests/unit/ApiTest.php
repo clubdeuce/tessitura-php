@@ -71,11 +71,4 @@ class ApiTest extends testCase {
         $sut->get('test-endpoint');
     }
 
-    public function testVersion() {
-        $sut = new Api(['base_route' => 'https://api.tessitura.com/TessituraService/foo']);
-        $this->assertEquals(15, $sut->version());
-
-        $sut = new Api(['base_route' => 'https://api.tessitura.com/tessitura/api/foo']);
-        $this->assertEquals('16', $sut->version());
-    }
 }
