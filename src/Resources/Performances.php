@@ -12,7 +12,7 @@ class Performances extends Base
     const RESOURCE = 'TXN/Performances';
     protected Api $_api;
 
-    public function __construct(Api $api = null)
+    public function __construct(Api|null $api = null)
     {
         if (empty ($api)) {
             $api = new Api();
@@ -81,6 +81,7 @@ class Performances extends Base
         $results = $this->_api->post($endpoint, $args);
 
         if (!is_array($results)) {
+            trigger_error('Expected an array. Received ' . var_export($results, true), E_USER_WARNING);
             return [];
         }
 

@@ -8,6 +8,7 @@ use Clubdeuce\Tessitura\Resources\Performances;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Helpers\Api;
 use PHPUnit\Framework\Attributes\UsesClass;
+use stdClass;
 
 #[CoversClass(Performances::class)]
 #[UsesClass(Performance::class)]
@@ -60,5 +61,32 @@ class PerformancesTest extends testCase
             $previous = $current;
         }
 
+    }
+
+
+    public function testGetPerformancesForProductionSeason(): void
+    {
+        $api = $this->createMock(Api::class);
+        $api->method('post')
+            ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'), 'associative'));
+
+        $sut      = new Performances($api);
+        $upcoming = $sut->get_performances_for_production_season(35);
+
+        $this->assertIsArray($upcoming);
+        $this->assertNotEmpty($upcoming);
+    }
+
+    public function testGetPerformancesForProductionSeasonError(): void
+    {
+        $api = $this->createMock(Api::class);
+        $api->method('post')
+            ->willReturn(new stdClass());
+
+        $sut      = new Performances($api);
+        $upcoming = @$sut->get_performances_for_production_season(35);
+
+        $this->assertIsArray($upcoming);
+        $this->assertEmpty($upcoming);
     }
 }
