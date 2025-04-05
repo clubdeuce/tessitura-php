@@ -126,28 +126,6 @@ class Api extends Base {
     }
 
     /**
-     * @param string $name
-     * @param array $args
-     *
-     * @return null|mixed
-     */
-    public function __call( string $name, array $args = [] ) {
-
-        $property_name = "_{$name}";
-
-        if ( isset( $this->extra_args[ $name ] ) ) {
-            return $this->extra_args[ $name ];
-        }
-
-        if ( property_exists( $this, $property_name ) ) {
-            return $this->{$property_name};
-        }
-
-        return null;
-
-    }
-
-    /**
      * @param  string $endpoint
      *
      * @return string
