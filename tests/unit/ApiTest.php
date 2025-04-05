@@ -1,6 +1,10 @@
 <?php
-namespace Clubdeuce\Tessitura\Tests;
+namespace Clubdeuce\Tessitura\Tests\Unit;
 use Clubdeuce\Tessitura\Helpers\Api;
+use Clubdeuce\Tessitura\Tests\testCase;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Stream;
+use http\Client\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Api::class)]

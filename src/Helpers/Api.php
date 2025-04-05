@@ -101,19 +101,18 @@ class Api extends Base
      */
     public function get(string $resource, array $args = array()): mixed
     {
-
         $args = array_merge($args, array(
             'method' => 'GET',
         ));
 
         return $this->_make_request($resource, $args);
-
     }
 
     /**
-     * @param string $endpoint
-     * @param array $args
-     * @return \Exception|mixed
+     * @param  string $endpoint
+     * @param  array $args
+     * @return mixed
+     * @throws \Exception
      */
     protected function _make_request(string $endpoint, array $args)
     {
@@ -127,30 +126,31 @@ class Api extends Base
         unset($args['cache_expiration']);
 
         do {
-            if ($response = wp_cache_get($cache_key, $cache_group)) {
-                $result = json_decode(wp_remote_retrieve_body($response), true);
-                break;
-            }
+//            if ($response = wp_cache_get($cache_key, $cache_group)) {
+//                $result = json_decode(wp_remote_retrieve_body($response), true);
+//                break;
+//            }
 
             try{
                 $response = $this->_client->get($this->_get_uri($endpoint), $args);
             } catch (GuzzleException $e) {
                 trigger_error($e->getMessage(), E_USER_WARNING);
+                break;
             }
 
             if (200 === $response->getStatusCode()) {
-                wp_cache_set($cache_key, $response, $cache_group, $cache_expire);
+//                wp_cache_set($cache_key, $response, $cache_group, $cache_expire);
                 $result = json_decode($response->getBody(), true);
                 break;
             }
 
             // We have successfully gotten a response from the API, but not a 200 status code.
-            $result = new \Exception(
+            throw new \Exception(
                 $response->getBody()->getContents(),
                 $response->getStatusCode()
             );
 
-            trigger_error($result->getMessage(), E_USER_WARNING);
+            trigger_error($response->getBody()->getContents(), E_USER_WARNING);
         } while (false);
 
         return $result;
