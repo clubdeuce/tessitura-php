@@ -2,7 +2,7 @@
 
 use Clubdeuce\Tessitura\Resources\ProductionSeason;
 use PHPUnit\Framework\Attributes\CoversClass;
-use tessitura\tests\includes\testCase;
+use Clubdeuce\Tessitura\Tests\testCase;
 
 #[CoversClass(ProductionSeason::class)]
 class ProductionSeasonTest extends testCase

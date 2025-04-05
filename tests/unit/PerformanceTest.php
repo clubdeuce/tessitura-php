@@ -1,8 +1,8 @@
 <?php
 
 use Clubdeuce\Tessitura\Resources\Performance;
+use Clubdeuce\Tessitura\Tests\testCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use tessitura\tests\includes\testCase;
 
 #[CoversClass(Performance::class)]
 class PerformanceTest extends testCase

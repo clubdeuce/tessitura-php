@@ -9,12 +9,12 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
-use tessitura\tests\includes\testCase;
+use Clubdeuce\Tessitura\Tests\testCase;
 
 #[CoversClass(Seasons::class)]
 #[UsesClass(Base::class)]
 #[UsesClass(Season::class)]
-class SeasonsTest extends TestCase
+class SeasonsTest extends testCase
 {
 
     public function testGetById()

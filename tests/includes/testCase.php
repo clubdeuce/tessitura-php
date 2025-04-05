@@ -1,6 +1,6 @@
 <?php
 
-namespace tessitura\tests\includes;
+namespace Clubdeuce\Tessitura\Tests;
 
 use WP_UnitTestCase;
 

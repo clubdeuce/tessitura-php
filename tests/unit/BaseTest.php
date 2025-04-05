@@ -2,7 +2,7 @@
 
 use Clubdeuce\Tessitura\Base\Base;
 use PHPUnit\Framework\Attributes\CoversClass;
-use tessitura\tests\includes\testCase;
+use Clubdeuce\Tessitura\Tests\testCase;
 
 #[CoversClass(Base::class)]
 class BaseTest extends testCase
