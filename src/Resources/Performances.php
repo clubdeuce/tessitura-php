@@ -42,7 +42,7 @@ class Performances extends Base
      *
      * @return Performance[]
      */
-    public function get_performances_between(DateTime $start, DateTime $end, array $args = []): array
+    public function get_performances_between(DateTime $start, DateTime $end): array
     {
         $sorted = [];
         $performances = $this->search(array(
