@@ -3,6 +3,8 @@
 namespace Clubdeuce\Tessitura\Helpers;
 
 use Clubdeuce\Tessitura\Base\Base;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Class API
@@ -51,6 +53,11 @@ class Api extends Base
     protected string $_version = '15';
 
     /**
+     * @var Client GuzzleHttp client
+     */
+    protected Client $_client;
+
+    /**
      * API constructor.
      *
      * @param array $args {
@@ -73,7 +80,15 @@ class Api extends Base
             'username' => '',
             'logger' => null,
             'version' => '16',
+            'client'  => null,
         ));
+
+        if (!isset($args['client'])) {
+            $args['client'] = new Client([
+                'base_uri' => $args['base_route'],
+                'timeout'  => 10.0,
+            ]);
+        }
 
         $this->_set_state($args);
 
@@ -82,8 +97,7 @@ class Api extends Base
     /**
      * @param string $resource
      * @param array $args
-     *
-     * @return array|mixed
+     * @return \Exception|mixed
      */
     public function get(string $resource, array $args = array()): mixed
     {
@@ -99,8 +113,7 @@ class Api extends Base
     /**
      * @param string $endpoint
      * @param array $args
-     *
-     * @return array|mixed
+     * @return \Exception|mixed
      */
     protected function _make_request(string $endpoint, array $args)
     {
@@ -119,26 +132,25 @@ class Api extends Base
                 break;
             }
 
-            $response = wp_remote_request($this->_get_uri($endpoint), $args);
+            try{
+                $response = $this->_client->get($this->_get_uri($endpoint), $args);
+            } catch (GuzzleException $e) {
+                trigger_error($e->getMessage(), E_USER_WARNING);
+            }
 
-            if (200 === wp_remote_retrieve_response_code($response)) {
+            if (200 === $response->getStatusCode()) {
                 wp_cache_set($cache_key, $response, $cache_group, $cache_expire);
-                $result = json_decode(wp_remote_retrieve_body($response), true);
+                $result = json_decode($response->getBody(), true);
                 break;
             }
 
             // We have successfully gotten a response from the API, but not a 200 status code.
-            if (!is_wp_error($response)) {
-                $result = new \WP_Error(
-                    wp_remote_retrieve_response_code($response),
-                    wp_remote_retrieve_response_message($response),
-                    wp_remote_retrieve_body($response)
-                );
-                break;
-            }
+            $result = new \Exception(
+                $response->getBody()->getContents(),
+                $response->getStatusCode()
+            );
 
-            $result = $response;
-            trigger_error($result->get_error_message());
+            trigger_error($result->get_error_message(), E_USER_WARNING);
         } while (false);
 
         return $result;
@@ -159,7 +171,6 @@ class Api extends Base
 
         $args = $this->parse_args($args, array(
             'cache_expiration' => self::CACHE_EXPIRATION_DEFAULT,
-            'timeout' => 10,
             'headers' => [],
             'body' => '',
         ));
@@ -204,8 +215,7 @@ class Api extends Base
     /**
      * @param string $endpoint
      * @param array $args
-     *
-     * @return array
+     * @return array|\Exception|mixed
      */
     public function post(string $endpoint, array $args = [])
     {
