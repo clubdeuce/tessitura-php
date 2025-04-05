@@ -3,8 +3,10 @@ namespace Clubdeuce\Tessitura\Tests\Unit;
 use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Tests\testCase;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
-use http\Client\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Api::class)]
@@ -54,5 +56,18 @@ class ApiTest extends testCase {
         } catch (\Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
         }
+    }
+
+    public function testGetGuzzleError(): void {
+        $client = $this->createMock(Client::class);
+        $client->method('get')->willThrowException(new ClientException('Sample Error',
+                new Request('get', 'https://api.tessitura.com/test-endpoint', [], ''),
+                new Response(404,  [],'Error')
+        ));
+
+        $sut = new Api(['client' => $client]);
+
+        $this->expectException(ClientException::class);
+        $sut->get('test-endpoint');
     }
 }

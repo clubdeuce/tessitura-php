@@ -131,17 +131,11 @@ class Api extends Base
 //                break;
 //            }
 
-            try{
-                $response = $this->_client->get($this->_get_uri($endpoint), $args);
-            } catch (GuzzleException $e) {
-                trigger_error($e->getMessage(), E_USER_WARNING);
-                break;
-            }
+            $response = $this->_client->get($this->_get_uri($endpoint), $args);
 
             if (200 === $response->getStatusCode()) {
 //                wp_cache_set($cache_key, $response, $cache_group, $cache_expire);
-                $result = json_decode($response->getBody(), true);
-                break;
+                return json_decode($response->getBody(), true);
             }
 
             // We have successfully gotten a response from the API, but not a 200 status code.
@@ -149,11 +143,9 @@ class Api extends Base
                 $response->getBody()->getContents(),
                 $response->getStatusCode()
             );
-
-            trigger_error($response->getBody()->getContents(), E_USER_WARNING);
         } while (false);
 
-        return $result;
+        return $response;
 
     }
 

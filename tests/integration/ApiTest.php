@@ -23,7 +23,7 @@ class ApiTest extends testCase {
         $this->assertNotEmpty($response);
     }
 
-    public function testGetError(): void {
+    public function testGet404Error(): void {
         $stream = new Stream(fopen(dirname(__DIR__) . '/fixtures/season.json', 'r'));
         $response = new \GuzzleHttp\Psr7\Response(404, [], $stream);
         $client   = $this->createMock(Client::class);
