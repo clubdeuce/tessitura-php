@@ -5,7 +5,6 @@ namespace Clubdeuce\Tessitura\Resources;
 use Clubdeuce\Tessitura\Base\Base;
 use DateTime;
 use DateTimeZone;
-use Clubdeuce\Tessitura\Resources\Performance;
 use Exception;
 use InvalidArgumentException;
 
@@ -71,9 +70,7 @@ class ProductionSeason extends Base
      */
     public function performances(): array
     {
-
         return $this->_performances;
-
     }
 
 }
