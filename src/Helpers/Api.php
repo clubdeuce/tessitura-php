@@ -178,7 +178,7 @@ class Api extends Base {
 
         $parsed_url      = parse_url( $this->base_route() );
         $args['headers'] = $this->parse_args( $args['headers'], array(
-            'Authorization'  => self::_get_authorization_header_value(),
+            'Authorization'  => $this->_get_authorization_header_value(),
             'Content-Type'   => 'application/json',
             'Content-Length' => $args['body'] ? strlen( json_encode( $args['body'] ) ) : 0,
             'Accept'         => 'application/json',
