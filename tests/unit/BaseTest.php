@@ -19,7 +19,6 @@ class BaseTest extends testCase
         } catch (\Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
         }
-
     }
 
     public function testCall(): void
@@ -30,5 +29,18 @@ class BaseTest extends testCase
         $this->assertEquals('bar', $sut->extra_args()['foo']);
         $this->assertEquals('bar', $sut->foo());
         $this->assertFalse($sut->foobar(), 'Base::__call should return false');
+    }
+
+    public function testParseArgs(): void
+    {
+        $sut = new Base();
+
+        $results = $sut->parse_args(['foo' => 'foobar'], ['foo' => 'bar', 'bar' => 'baz']);
+
+        $this->assertIsArray($results);
+        $this->assertArrayHasKey('foo', $results);
+        $this->assertArrayHasKey('bar', $results);
+        $this->assertEquals('foobar', $results['foo']);
+        $this->assertEquals('baz', $results['bar']);
     }
 }

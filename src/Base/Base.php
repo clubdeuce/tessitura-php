@@ -9,14 +9,13 @@ class Base {
 
     protected array $_extra_args = [];
 
-    public function __construct( array $args = [] ) {
-
+    public function __construct( array $args = [] )
+    {
         $this->_set_state( $args );
-
     }
 
-    protected function _set_state( array $args = [] ) : void {
-
+    protected function _set_state( array $args = [] ) : void
+    {
         foreach ( $args as $key => $value ) {
             $property = "_{$key}";
 
@@ -31,8 +30,8 @@ class Base {
 
     }
 
-    public function __call( string $name, array $args = [] ) {
-
+    public function __call( string $name, array $args = [] )
+    {
         $property = "_{$name}";
 
         if ( property_exists ( $this, $property ) ) {
@@ -44,7 +43,19 @@ class Base {
         }
 
         return false;
+    }
 
+    public function parse_args( array $args = [], array $defaults = [] ) : array
+    {
+        foreach ( $defaults as $key => $value ) {
+            if ( isset ( $args[ $key ] ) ) {
+                continue;
+            }
+
+            $args[ $key ] = $value;
+        }
+
+        return $args;
     }
 
 }
