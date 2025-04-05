@@ -1,4 +1,6 @@
 # Tessitura API PHP Library
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/?branch=main)
 
 A PHP library for the Tessitura API.
 
