@@ -260,7 +260,7 @@ class Api extends Base {
      */
     protected function _log_event( string $message, array $args = [] ) : void {
 
-        $args = wp_parse_args( $args, array(
+        $args = $this->parse_args( $args, array(
             'log'   => 'tessitura',
         ) );
 
