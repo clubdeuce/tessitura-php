@@ -2,11 +2,15 @@
 
 namespace Clubdeuce\Tessitura\Tests;
 
+use Clubdeuce\Tessitura\Base\Base;
+use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Resources\Performances;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Helpers\Api;
+use PHPUnit\Framework\Attributes\UsesClass;
 
 #[CoversClass(Performances::class)]
+#[UsesClass(Performance::class)]
 class PerformancesTest extends testCase
 {
     public function testSearchReturnsEmptyArray()
