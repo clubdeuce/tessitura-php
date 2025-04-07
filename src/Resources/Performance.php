@@ -43,6 +43,6 @@ class Performance extends Base
 
     public function id(): int
     {
-        return $this->_extra_args['PerformanceId'] ?? 0;
+        return intval($this->_extra_args['PerformanceId'] ?? 0);
     }
 }

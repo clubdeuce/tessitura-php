@@ -8,7 +8,7 @@ namespace Clubdeuce\Tessitura\Base;
 class Base {
 
     /**
-     * @var string[]
+     * @var mixed[]
      */
     protected array $_extra_args = [];
 
