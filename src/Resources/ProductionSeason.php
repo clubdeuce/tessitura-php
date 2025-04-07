@@ -9,11 +9,14 @@ use Exception;
 use InvalidArgumentException;
 
 /**
- * @method array response()
+ * @method string[] response()
  */
 class ProductionSeason extends Base
 {
 
+    /**
+     * @var string[]
+     */
     protected array $_response = [];
 
     /**
