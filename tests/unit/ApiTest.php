@@ -6,8 +6,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Psr7\Stream;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\MockObject\Exception;
 
 #[CoversClass(Api::class)]
 class ApiTest extends testCase {
@@ -59,16 +59,20 @@ class ApiTest extends testCase {
     }
 
     public function testGetGuzzleError(): void {
-        $client = $this->createMock(Client::class);
-        $client->method('get')->willThrowException(new ClientException('Sample Error',
+        try {
+            $client = $this->createMock(Client::class);
+            $client->method('get')->willThrowException(new ClientException('Sample Error',
                 new Request('get', 'https://api.tessitura.com/test-endpoint', [], ''),
                 new Response(404,  [],'Error')
-        ));
+            ));
 
-        $sut = new Api(['client' => $client]);
+            $sut = new Api(['client' => $client]);
 
-        $this->expectException(ClientException::class);
-        $sut->get('test-endpoint');
+            $this->expectException(ClientException::class);
+            $sut->get('test-endpoint');
+        } catch (Exception $e) {
+
+        }
     }
 
 }
