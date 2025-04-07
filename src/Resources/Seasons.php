@@ -34,7 +34,7 @@ class Seasons
     {
         try {
             $response = $this->client->get(sprintf('%s/%s', self::RESOURCE, $id));
-            return new Season(json_decode($response->getBody()->getContents(), 'associative array'));
+            return new Season(json_decode($response->getBody()->getContents(), true));
         } catch (GuzzleException $e) {
             throw new Exception($e->getMessage());
         }
