@@ -38,7 +38,6 @@ class Performances extends Base
     /**
      * @param DateTime $start
      * @param DateTime $end
-     * @param array $args
      *
      * @return Performance[]
      */
@@ -91,8 +90,6 @@ class Performances extends Base
     }
 
     /**
-     * @param int $psid
-     *
      * @return Performance[]
      */
     public function get_performances_for_production_season(int $ps_id): array
