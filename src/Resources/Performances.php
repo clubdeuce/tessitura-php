@@ -21,6 +21,10 @@ class Performances extends Base
         $this->_api = $api;
     }
 
+    /**
+     * @param int $days
+     * @return Performance[]
+     */
     public function get_upcoming_performances(int $days = 30): array
     {
         try {
@@ -46,12 +50,18 @@ class Performances extends Base
         $sorted = [];
         $performances = $this->search(array(
             'PerformanceStartDate' => $start->format(DATE_ATOM),
-            'PerformanceEndDate' => $end->format(DATE_ATOM),
+            'PerformanceEndDate'   => $end->format(DATE_ATOM),
         ));
 
         // generate a hash table
         foreach ($performances as $performance) {
-            $sorted[$performance->date()->getTimestamp()] = $performance;
+            try {
+                $date = $performance->date();
+                if (!is_null($date))
+                    $sorted[$date->getTimestamp()] = $performance;
+            } catch (\Exception $e) {
+                trigger_error($e->getMessage(), E_USER_WARNING);
+            }
         }
 
         ksort($sorted);
@@ -60,7 +70,7 @@ class Performances extends Base
     }
 
     /**
-     * @param array $args
+     * @param string[] $args
      *
      * @return Performance[]
      * @link   https://docs.tessitura.com/REST_v151/TessituraService/HELP/API/POST_TXN_PERFORMANCES_SEARCH.HTM
@@ -73,7 +83,7 @@ class Performances extends Base
         $args = array(
             'body' => $body,
             'headers' => [
-                'Content-Length' => strlen($body)
+                'Content-Length' => $body ? strlen($body) : 0,
             ]
         );
 
@@ -95,7 +105,7 @@ class Performances extends Base
     public function get_performances_for_production_season(int $ps_id): array
     {
         return $this->search([
-            'ProductionSeasonIds' => $ps_id,
+            'ProductionSeasonIds' => (string)$ps_id,
         ]);
     }
 
