@@ -3,8 +3,11 @@
 namespace Clubdeuce\Tessitura\Helpers;
 
 use Clubdeuce\Tessitura\Base\Base;
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Stream;
 
 /**
  * Class API
@@ -15,7 +18,7 @@ use GuzzleHttp\Exception\GuzzleException;
  * @method string password()
  * @method string usergroup()
  * @method string username()
- * @method object logger()
+ * @method object|null logger()
  */
 class Api extends Base
 {
@@ -60,13 +63,13 @@ class Api extends Base
     /**
      * API constructor.
      *
-     * @param array $args {
-     * @type string $base_route
-     * @type string $location
-     * @type string $password
-     * @type string $usergroup
-     * @type string $username
-     * @type string $logger
+     * @param mixed[] $args {
+     * @type string   $base_route
+     * @type string   $location
+     * @type string   $password
+     * @type string   $usergroup
+     * @type string   $username
+     * @type string   $logger
      * }
      */
     public function __construct(array $args = [])
@@ -80,13 +83,13 @@ class Api extends Base
             'username' => '',
             'logger' => null,
             'version' => '16',
-            'client'  => null,
+            'client' => null,
         ));
 
         if (!isset($args['client'])) {
             $args['client'] = new Client([
                 'base_uri' => $args['base_route'],
-                'timeout'  => 10.0,
+                'timeout' => 10.0,
             ]);
         }
 
@@ -96,8 +99,9 @@ class Api extends Base
 
     /**
      * @param string $resource
-     * @param array $args
-     * @return \Exception|mixed
+     * @param mixed[] $args
+     * @return mixed
+     * @throws Exception
      */
     public function get(string $resource, array $args = array()): mixed
     {
@@ -109,10 +113,10 @@ class Api extends Base
     }
 
     /**
-     * @param  string $endpoint
-     * @param  array $args
+     * @param string  $endpoint
+     * @param mixed[] $args
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     protected function _make_request(string $endpoint, array $args)
     {
@@ -125,12 +129,10 @@ class Api extends Base
 
         unset($args['cache_expiration']);
 
-        do {
-//            if ($response = wp_cache_get($cache_key, $cache_group)) {
-//                $result = json_decode(wp_remote_retrieve_body($response), true);
-//                break;
-//            }
-
+        try {
+            /**
+             * @var Response $response
+             */
             $response = $this->_client->get($this->_get_uri($endpoint), $args);
 
             if (200 === $response->getStatusCode()) {
@@ -139,23 +141,27 @@ class Api extends Base
             }
 
             // We have successfully gotten a response from the API, but not a 200 status code.
-            throw new \Exception(
-                $response->getBody()->getContents(),
+            /**
+             * @var Stream $body
+             */
+            $body = $response->getBody();
+            throw new Exception(
+                $body->getContents(),
                 $response->getStatusCode()
             );
-        } while (false);
+        } catch (GuzzleException $e) {
 
-        return $response;
+        }
 
     }
 
     /**
-     * @param array $args
+     * @param mixed[] $args
      *
-     * @return array {
-     *      @type int $cache_expiration
-     *      @type int $timeout
-     *      @type array $headers
+     * @return mixed[] {
+     * @type int $cache_expiration
+     * @type int $timeout
+     * @type array $headers
      * }
      */
     protected function _get_request_args(array $args = []): array
@@ -168,10 +174,11 @@ class Api extends Base
         ));
 
         $parsed_url = parse_url($this->base_route());
+        $body = $args['body'] ?? json_encode($args['body']);
         $args['headers'] = $this->parse_args($args['headers'], array(
             'Authorization' => $this->_get_authorization_header_value(),
             'Content-Type' => 'application/json',
-            'Content-Length' => $args['body'] ? strlen(json_encode($args['body'])) : 0,
+            'Content-Length' => $body ? strlen($body) : 0,
             'Accept' => 'application/json',
             'Host' => $parsed_url['host'] ?? $this->base_route(),
         ));
@@ -206,10 +213,10 @@ class Api extends Base
 
     /**
      * @param string $endpoint
-     * @param array $args
-     * @return array|\Exception|mixed
+     * @param mixed[] $args
+     * @return Exception|mixed[]
      */
-    public function post(string $endpoint, array $args = [])
+    public function post(string $endpoint, array $args = []): array|Exception
     {
 
         $args = array_merge($args, array(
@@ -222,7 +229,7 @@ class Api extends Base
 
     /**
      * @param string $message
-     * @param array $args {
+     * @param mixed[] $args {
      * @type string $file
      * @type string $line
      * @type string $function
