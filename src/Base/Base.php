@@ -40,7 +40,6 @@ class Base {
                     $this->_extra_args[ $key ] = $value;
             }
         }
-
     }
 
     /**
