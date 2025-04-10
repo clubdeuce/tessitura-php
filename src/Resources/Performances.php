@@ -103,19 +103,19 @@ class Performances extends Base
     /**
      * @return Performance[]
      */
-    public function get_performances_for_production_season(int $ps_id): array
+    public function get_performances_for_production_season(int $psId): array
     {
         return $this->search([
-            'ProductionSeasonIds' => (string)$ps_id,
+            'ProductionSeasonIds' => (string)$psId,
         ]);
     }
 
-    public function get_tickets_start_at( int $performance_id ): int {
+    public function get_tickets_start_at( int $performanceId ): int {
 
         $best_price      = 0;
         $available_zones = [];
-        $zones           = $this->getPerformanceZoneAvailabilities( $performance_id );
-        $prices          = $this->getPricesForPerformance( $performance_id );
+        $zones           = $this->getPerformanceZoneAvailabilities( $performanceId );
+        $prices          = $this->getPricesForPerformance( $performanceId );
 
         // Filter out zones that do not have any available seats
         foreach($zones as $zone) {
@@ -140,16 +140,16 @@ class Performances extends Base
     }
 
     /**
-     * @param int $performance_id The ID of the performance for which to retrieve zone availabilities.
+     * @param int $performanceId The ID of the performance for which to retrieve zone availabilities.
      *
      * @return PerformanceZoneAvailability[] An array of zone availability objects, mapped from the API response.
      *
      * @link https://docs.tessitura.com/REST_v151/TessituraService/HELP/API/GET_TXN_PERFORMANCES_ZONES_PERF.HTM
      */
-    public function getPerformanceZoneAvailabilities(int $performance_id ): array {
+    public function getPerformanceZoneAvailabilities(int $performanceId ): array {
 
         try{
-            $data = $this->_api->get( sprintf( '%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performance_id ) );
+            $data = $this->_api->get( sprintf( '%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId ) );
 
             return array_map( [ $this, 'makeNewZoneAvailability'], $data );
         } catch (\Exception $e) {
@@ -181,19 +181,18 @@ class Performances extends Base
     }
 
     /**
-     * @param $performance_id
-     * @param array $args
+     * @param $performanceId
      *
-     * @return Price_Summary[]
+     * @return PriceSummary[]
      *
      * @link https://www.tessituranetwork.com/REST_v151/TessituraService/HELP/API/GET_TXN_PERFORMANCES_PRICES_PER.HTM
      */
-    function getPricesForPerformance($performance_id, $args = array()) : array {
+    public function getPricesForPerformance($performanceId) : array {
 
         $prices = array();
         $args   = array(
             'body' => array(
-                'performanceIds'       => $performance_id,
+                'performanceIds'       => $performanceId,
                 'includeOnlyBasePrice' => 'true',
             ),
         );

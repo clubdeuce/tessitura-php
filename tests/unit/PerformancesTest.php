@@ -137,6 +137,7 @@ class PerformancesTest extends testCase
             $this->assertIsArray($result);
             $this->assertEmpty($result);
         } catch (Exception $e) {
+            trigger_error($e->getMessage());
         }
     }
 
