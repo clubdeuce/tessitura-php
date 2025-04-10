@@ -29,4 +29,12 @@ class PriceSummaryTest extends testCase
         $this->assertEquals(809, $this->_sut->zoneId(), 'Zone ID is not 809');
         $this->assertEquals(260, $this->_sut->price(), 'Price is not 260');
     }
+
+    public function testPriceSummaryEnabled() {
+        $this->assertTrue($this->_sut->enabled());
+    }
+
+    public function testPerformanceId() {
+        $this->assertEquals(15027, $this->_sut->performanceId());
+    }
 }

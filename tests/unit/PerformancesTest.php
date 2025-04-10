@@ -6,11 +6,11 @@ use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Resources\Performances;
 use Clubdeuce\Tessitura\Resources\PerformanceZoneAvailability;
 use Clubdeuce\Tessitura\Resources\PriceSummary;
-use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Helpers\Api;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\MockObject\Exception;
-use stdClass;
 
 #[CoversClass(Performances::class)]
 #[UsesClass(Performance::class)]
@@ -111,6 +111,7 @@ class PerformancesTest extends testCase
         $this->assertInstanceOf(PerformanceZoneAvailability::class, $zone);
     }
 
+    #[Depends('testMakeNewZoneAvailability')]
     public function testGetZoneAvailabilities() {
         try {
             $api = $this->createMock(Api::class);
@@ -158,5 +159,4 @@ class PerformancesTest extends testCase
             trigger_error($e->getMessage());
         }
     }
-
 }

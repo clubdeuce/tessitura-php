@@ -18,4 +18,14 @@ class PriceSummary extends Resource
         return intval( $this->_extra_args['ZoneId'] );
 
     }
+
+    public function enabled(): bool
+    {
+        return (bool)$this->_extra_args['Enabled'];
+    }
+
+    public function performanceId(): int
+    {
+        return intval($this->_extra_args['PerformanceId']);
+    }
 }
