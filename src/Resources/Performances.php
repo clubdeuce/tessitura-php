@@ -5,6 +5,7 @@ namespace Clubdeuce\Tessitura\Resources;
 use Clubdeuce\Tessitura\Base\Base;
 use Clubdeuce\Tessitura\Helpers\Api;
 use DateTime;
+use Clubdeuce\Tessitura\Resources\PerformanceZoneAvailability as PZA;
 
 class Performances extends Base
 {
@@ -109,4 +110,106 @@ class Performances extends Base
         ]);
     }
 
+    public function get_tickets_start_at( int $performance_id ): int {
+
+        $best_price      = 0;
+        $available_zones = [];
+        $zones           = $this->getPerformanceZoneAvailabilities( $performance_id );
+        $prices          = $this->getPricesForPerformance( $performance_id );
+
+        // Filter out zones that do not have any available seats
+        foreach($zones as $zone) {
+            if ( $zone->availableCount() > 0 ) {
+                $available_zones[] = $zone->zone()->id;
+            }
+        }
+
+        foreach( $prices as $price ) {
+            // is this price for a zone that has available seats?
+            if ( in_array( $price->zone_id(), $available_zones ) ) {
+                // It is. Is this price 0? Then skip. Is this price more than the current best price? Then skip.
+                if ( $price->price() && ( $price->price() < $best_price || 0 === $best_price ) ) {
+                    // The current price is non-zero. Update the best price to this value
+                    $best_price = $price->price();
+                }
+            }
+        }
+
+        return intval( $best_price );
+
+    }
+
+    /**
+     * @param int $performance_id The ID of the performance for which to retrieve zone availabilities.
+     *
+     * @return PerformanceZoneAvailability[] An array of zone availability objects, mapped from the API response.
+     *
+     * @link https://docs.tessitura.com/REST_v151/TessituraService/HELP/API/GET_TXN_PERFORMANCES_ZONES_PERF.HTM
+     */
+    public function getPerformanceZoneAvailabilities(int $performance_id ): array {
+
+        try{
+            $data = $this->_api->get( sprintf( '%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performance_id ) );
+
+            return array_map( [ $this, 'makeNewZoneAvailability'], $data );
+        } catch (\Exception $e) {
+            return [];
+        }
+
+    }
+
+    /**
+     * @param  string[] $data
+     * @return PZA
+     */
+    public function makeNewZoneAvailability(array $data) : PZA {
+
+        $data = $this->parse_args( $data, [
+            'AvailableCount'   => 0,
+            'Id'               => 0,
+            'Inactive'         => false,
+            'PerformanceId'    => 0,
+            'SectionSummaries' => null,
+            'Zone'             => null,
+        ] );
+
+        return new PZA( [
+            'availableCount' => $data['AvailableCount'],
+            'zone'           => $data['Zone'],
+        ] );
+
+    }
+
+    /**
+     * @param $performance_id
+     * @param array $args
+     *
+     * @return Price_Summary[]
+     *
+     * @link https://www.tessituranetwork.com/REST_v151/TessituraService/HELP/API/GET_TXN_PERFORMANCES_PRICES_PER.HTM
+     */
+    function getPricesForPerformance($performance_id, $args = array()) : array {
+
+        $prices = array();
+        $args   = array(
+            'body' => array(
+                'performanceIds'       => $performance_id,
+                'includeOnlyBasePrice' => 'true',
+            ),
+        );
+
+        try {
+            $results = $this->_api->get( self::RESOURCE . '/Prices', $args );
+            foreach ( $results as $item ) {
+                $prices[] = new PriceSummary($item);
+            }
+        } catch (\Exception $e) {
+            trigger_error($e->getMessage(), E_USER_WARNING);
+        }
+
+        unset( $results );
+
+        return $prices;
+
+    }
 }
