@@ -110,12 +110,12 @@ class Performances extends Base
         ]);
     }
 
-    public function get_tickets_start_at( int $performanceId ): int {
+    public function getTicketsStartAt(int $performanceId): int {
 
         $best_price      = 0;
         $available_zones = [];
-        $zones           = $this->getPerformanceZoneAvailabilities( $performanceId );
-        $prices          = $this->getPricesForPerformance( $performanceId );
+        $zones           = $this->getPerformanceZoneAvailabilities($performanceId);
+        $prices          = $this->getPricesForPerformance($performanceId);
 
         // Filter out zones that do not have any available seats
         foreach($zones as $zone) {
@@ -126,7 +126,7 @@ class Performances extends Base
 
         foreach( $prices as $price ) {
             // is this price for a zone that has available seats?
-            if ( in_array( $price->zone_id(), $available_zones ) ) {
+            if ( in_array( $price->zoneId(), $available_zones ) ) {
                 // It is. Is this price 0? Then skip. Is this price more than the current best price? Then skip.
                 if ( $price->price() && ( $price->price() < $best_price || 0 === $best_price ) ) {
                     // The current price is non-zero. Update the best price to this value
@@ -151,7 +151,11 @@ class Performances extends Base
         try{
             $data = $this->_api->get( sprintf( '%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId ) );
 
-            return array_map( [ $this, 'makeNewZoneAvailability'], $data );
+            if ( is_array( $data ) ) {
+                return array_map( [$this, 'makeNewZoneAvailability'], $data );
+            }
+
+            return [];
         } catch (\Exception $e) {
             return [];
         }
@@ -199,8 +203,11 @@ class Performances extends Base
 
         try {
             $results = $this->_api->get( self::RESOURCE . '/Prices', $args );
-            foreach ( $results as $item ) {
-                $prices[] = new PriceSummary($item);
+
+            if (is_array($results)) {
+                foreach ( $results as $item ) {
+                    $prices[] = new PriceSummary($item);
+                }
             }
         } catch (\Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);

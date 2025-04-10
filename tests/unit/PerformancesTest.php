@@ -14,6 +14,7 @@ use stdClass;
 
 #[CoversClass(Performances::class)]
 #[UsesClass(Performance::class)]
+#[UsesClass(Api::class)]
 class PerformancesTest extends testCase
 {
     public function testSearchReturnsEmptyArray()
@@ -157,4 +158,5 @@ class PerformancesTest extends testCase
             trigger_error($e->getMessage());
         }
     }
+
 }
