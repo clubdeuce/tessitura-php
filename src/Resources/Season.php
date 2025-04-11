@@ -7,7 +7,7 @@ use DateTimeZone;
 
 class Season extends Base {
 
-    function createdDateTime(string $timezone = 'America/New_York') : ?DateTime {
+    public function createdDateTime(string $timezone = 'America/New_York') : ?DateTime {
         try {
             $timezone = new DateTimeZone($timezone);
 
@@ -25,12 +25,12 @@ class Season extends Base {
         return null;
     }
 
-    function description(): string
+    public function description(): string
     {
         return (string)$this->extra_args()['Description'];
     }
 
-    function endDateTime(string $timezone = 'America/New_York') : ?DateTime
+    public function endDateTime(string $timezone = 'America/New_York') : ?DateTime
     {
         try {
             $timezone = new DateTimeZone($timezone);
@@ -49,12 +49,12 @@ class Season extends Base {
         return null;
     }
 
-    function id(): int
+    public function id(): int
     {
         return intval($this->extra_args()['Id']);
     }
 
-    function startDateTime(string $timezone = 'America/New_York'): ?\DateTime
+    public function startDateTime(string $timezone = 'America/New_York'): ?\DateTime
     {
         try {
             $timezone = new DateTimeZone($timezone);
