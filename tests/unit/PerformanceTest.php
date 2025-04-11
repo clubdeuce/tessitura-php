@@ -37,6 +37,16 @@ class PerformanceTest extends testCase
         }
     }
 
+    public function testDateSpecified(): void
+    {
+        $now = new DateTime();
+        $sut = new Performance([
+            'date' => $now,
+        ]);
+
+        $this->assertInstanceOf(DateTime::class, $sut->date());
+    }
+
     public function testProductionSeasonId(): void
     {
         $this->assertIsInt($this->_sut->productionSeasonId());
