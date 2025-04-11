@@ -28,46 +28,34 @@ class Performance extends Base
         return intval($this->_extra_args['PerformanceId'] ?? 0);
     }
 
-    /**
-     * @return string
-     */
-    function buyTicketsUrl(): string
-    {
-
-        return sprintf('%1$s/%2$s/%3$s', Tessitura::settings()['tnew_url'], $this->production_season_id(), $this->performanceId());
-
-    }
-
-    function description(): string
+    public function description(): string
     {
 
         return (string)$this->_extra_args['PerformanceDescription'];
 
     }
 
-    function doorsOpen(): ?DateTime
+    public function doorsOpen(): ?DateTime
     {
-
         try {
             return new DateTime($this->_extra_args['DoorsOpen']);
         } catch (Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
             return null;
         }
-
     }
 
-    function facilityId(): int
+    public function facilityId(): int
     {
         return intval($this->_extra_args['Facility']['Id']);
     }
 
-    function facilityDescription(): string
+    public function facilityDescription(): string
     {
         return $this->_extra_args['Facility']['Description'];
     }
 
-    function startTime(): ?DateTime
+    public function startTime(): ?DateTime
     {
         try {
             return $this->date();
