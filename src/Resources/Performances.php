@@ -79,7 +79,7 @@ class Performances extends Base
     public function search(array $args = []): array
     {
         $endpoint = sprintf('%1$s/Search', self::RESOURCE);
-        $body = json_encode($args);
+        $body     = json_encode($args);
 
         $args = array(
             'body' => $body,
@@ -89,11 +89,6 @@ class Performances extends Base
         );
 
         $results = $this->_api->post($endpoint, $args);
-
-        if (!is_array($results)) {
-            trigger_error('Expected an array. Received ' . var_export($results, true), E_USER_WARNING);
-            return [];
-        }
 
         return array_map(function ($item) {
             return new Performance($item);
@@ -185,13 +180,13 @@ class Performances extends Base
     }
 
     /**
-     * @param $performanceId
+     * @param  int $performanceId
      *
      * @return PriceSummary[]
      *
      * @link https://www.tessituranetwork.com/REST_v151/TessituraService/HELP/API/GET_TXN_PERFORMANCES_PRICES_PER.HTM
      */
-    public function getPricesForPerformance($performanceId) : array {
+    public function getPricesForPerformance(int $performanceId) : array {
 
         $prices = array();
         $args   = array(
