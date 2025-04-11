@@ -31,7 +31,7 @@
   "PublishClientEndDate": "2024-10-19T21:00:00-04:00",
   "PublishWebApiStartDate": null,
   "PublishWebApiEndDate": null,
-  "DoorsOpen": null,
+  "DoorsOpen": "2024-10-19T16:00:00-06:00",
   "DoorsClose": null,
   "Duration": null,
   "SalesNotes": null,

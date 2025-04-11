@@ -12,7 +12,7 @@ class PerformanceTest extends testCase
     public function setUp(): void
     {
         $json = file_get_contents(dirname(__DIR__) . '/fixtures/performance.json');
-        $this->_sut = new Performance(json_decode($json, 'associative array'));
+        $this->_sut = new Performance(json_decode($json, true));
     }
 
     public function testPerformanceId(): void
@@ -47,5 +47,28 @@ class PerformanceTest extends testCase
     {
         $performance = new Performance();
         $this->assertNull($performance->date());
+    }
+
+    public function testDescription(): void {
+        $this->assertIsString($this->_sut->description());
+        $this->assertEquals('La Traviata', $this->_sut->description());
+    }
+
+    public function testDoorsOpen():void
+    {
+        $this->assertInstanceOf(DateTime::class, $this->_sut->doorsOpen());
+        $this->assertEquals('2024-10-19 4:00 pm', $this->_sut->doorsOpen()->format('Y-m-d g:i a'));
+    }
+    public function testFacilityId(): void {
+        $this->assertIsInt($this->_sut->facilityId());
+    }
+
+    public function testStartTime(): void {
+        $this->assertInstanceOf(DateTime::class, $this->_sut->startTime());
+        $this->assertEquals('2024-10-19 7:30 pm', $this->_sut->startTime()->format('Y-m-d g:i a'));
+    }
+
+    public function testStatusId(): void {
+        $this->assertIsInt($this->_sut->statusId());
     }
 }
