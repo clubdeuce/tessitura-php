@@ -116,26 +116,16 @@ class Api extends Base
      * @param string  $endpoint
      * @param mixed[] $args
      * @return mixed
-     * @throws Exception
+     * @throws Exception|GuzzleException
      */
-    protected function _make_request(string $endpoint, array $args)
+    protected function _make_request(string $endpoint, array $args): array
     {
-
-        $args = $this->_get_request_args($args);
-
-        $cache_expire = $args['cache_expiration'];
-        $cache_key = str_replace('/', '-', $endpoint) . '_' . md5($endpoint . json_encode($args));
-        $cache_group = 'tessitura';
-
-        unset($args['cache_expiration']);
-
         /**
          * @var Response $response
          */
         $response = $this->_client->get($this->_get_uri($endpoint), $args);
 
         if (200 === $response->getStatusCode()) {
-//                wp_cache_set($cache_key, $response, $cache_group, $cache_expire);
             return json_decode($response->getBody(), true);
         }
 
@@ -144,6 +134,7 @@ class Api extends Base
          * @var Stream $body
          */
         $body = $response->getBody();
+
         throw new Exception(
             $body->getContents(),
             $response->getStatusCode()
@@ -165,14 +156,22 @@ class Api extends Base
         $args = $this->parse_args($args, array(
             'cache_expiration' => self::CACHE_EXPIRATION_DEFAULT,
             'headers' => [],
-            'body' => [],
+            'body' => '',
         ));
+
+        if (is_array($args['body'])) {
+            if (empty($args['body'])) {
+                $args['body'] = null;
+            } else {
+                $args['body'] = json_encode($args['body']);
+            }
+        }
 
         $parsed_url = parse_url($this->base_route());
         $args['headers'] = $this->parse_args($args['headers'], array(
             'Authorization' => $this->_get_authorization_header_value(),
             'Content-Type' => 'application/json',
-            'Content-Length' => strlen(json_encode($args['body'])),
+            'Content-Length' => strlen($args['body']),
             'Accept' => 'application/json',
             'Host' => $parsed_url['host'] ?? $this->base_route(),
         ));
