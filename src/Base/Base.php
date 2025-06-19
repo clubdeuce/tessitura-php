@@ -48,4 +48,9 @@ class Base {
 
         return $args;
     }
+
+    public function extraArgs(): array
+    {
+        return $this->_extraArgs;
+    }
 }

@@ -11,9 +11,9 @@ class Season extends Base {
         try {
             $timezone = new DateTimeZone($timezone);
 
-            if(isset($this->extra_args()['CreatedDateTime'])) {
+            if(isset($this->extraArgs()['CreatedDateTime'])) {
                 try {
-                    return new DateTime($this->extra_args()['CreatedDateTime'], $timezone);
+                    return new DateTime($this->extraArgs()['CreatedDateTime'], $timezone);
                 } catch (\Exception $e) {
                     trigger_error($e->getMessage(), E_USER_WARNING);
                 }
@@ -27,7 +27,7 @@ class Season extends Base {
 
     public function description(): string
     {
-        return (string)$this->extra_args()['Description'];
+        return (string)$this->extraArgs()['Description'];
     }
 
     public function endDateTime(string $timezone = 'America/New_York') : ?DateTime
@@ -35,9 +35,9 @@ class Season extends Base {
         try {
             $timezone = new DateTimeZone($timezone);
 
-            if(isset( $this->extra_args()['EndDateTime'])) {
+            if(isset( $this->extraArgs()['EndDateTime'])) {
                 try {
-                    return new \DateTime( $this->extra_args()['EndDateTime'], $timezone );
+                    return new \DateTime( $this->extraArgs()['EndDateTime'], $timezone );
                 } catch (\Exception $exception) {
                     trigger_error($exception->getMessage(), E_USER_WARNING);
                 }
@@ -51,7 +51,7 @@ class Season extends Base {
 
     public function id(): int
     {
-        return intval($this->extra_args()['Id']);
+        return intval($this->extraArgs()['Id']);
     }
 
     public function startDateTime(string $timezone = 'America/New_York'): ?\DateTime
@@ -59,9 +59,9 @@ class Season extends Base {
         try {
             $timezone = new DateTimeZone($timezone);
 
-            if (isset($this->extra_args()['StartDateTime'])) {
+            if (isset($this->extraArgs()['StartDateTime'])) {
                 try {
-                    return new \DateTime( $this->extra_args()['StartDateTime'], $timezone );
+                    return new \DateTime( $this->extraArgs()['StartDateTime'], $timezone );
                 } catch (\Exception $e) {
                     trigger_error($e->getMessage(), E_USER_WARNING);
                 }
