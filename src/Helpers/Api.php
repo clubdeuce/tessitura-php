@@ -441,4 +441,29 @@ class Api extends Base implements
     {
         $this->_version = $version;
     }
+
+    public function getBaseRoute(): string
+    {
+        return $this->_base_route;
+    }
+
+    public function getMachine(): string
+    {
+        return $this->_machine;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->_password;
+    }
+
+    public function getUsergroup(): string
+    {
+        return $this->_usergroup;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->_username;
+    }
 }

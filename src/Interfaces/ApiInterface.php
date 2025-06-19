@@ -9,30 +9,30 @@ interface ApiInterface extends RequestHandlerInterface, ConfigurableApiInterface
     /**
      * @return string
      */
-    public function baseRoute(): string;
+    public function getBaseRoute(): string;
 
     /**
      * @return string
      */
-    public function machine(): string;
+    public function getMachine(): string;
 
     /**
      * @return string
      */
-    public function password(): string;
+    public function getPassword(): string;
 
     /**
      * @return string
      */
-    public function usergroup(): string;
+    public function getUsergroup(): string;
 
     /**
      * @return string
      */
-    public function username(): string;
+    public function getUsername(): string;
 
     /**
      * @return LoggerInterface|null
      */
-    public function logger(): ?LoggerInterface;
+    public function getLogger(): ?LoggerInterface;
 }
