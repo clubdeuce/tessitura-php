@@ -27,7 +27,7 @@ class Api extends Base implements
     /**
      * @var string The base path to the Tessitura API
      */
-    protected string $_base_route;
+    protected string $_base_route = '';
 
     /**
      * @var string The machine name required for authentication.
@@ -121,32 +121,12 @@ class Api extends Base implements
     }
 
     /**
-     * Set the usergroup
-     * @param string $usergroup
-     * @return void
-     */
-    public function set_usergroup(string $usergroup): void
-    {
-        $this->_usergroup = $usergroup;
-    }
-
-    /**
      * Get the API version
      * @return string
      */
     public function version(): string
     {
         return $this->_version;
-    }
-
-    /**
-     * Set the API version
-     * @param string $version
-     * @return void
-     */
-    public function set_version(string $version): void
-    {
-        $this->_version = $version;
     }
 
     /**
@@ -260,10 +240,11 @@ class Api extends Base implements
     protected function getRequestArgs(array $args = []): array
     {
 
-        $args = $this->parse_args($args, array(
+        $args = $this->parseArgs($args, array(
             'cache_expiration' => self::CACHE_EXPIRATION_DEFAULT,
-            'headers' => [],
-            'body' => '',
+            'headers'          => [],
+            'body'             => '',
+            'timeout'          => 10.0,
         ));
 
         if (is_array($args['body'])) {
@@ -275,12 +256,12 @@ class Api extends Base implements
         }
 
         $parsedUrl = parse_url($this->baseRoute());
-        $args['headers'] = $this->parse_args($args['headers'], array(
-            'Authorization' => $this->_get_authorization_header_value(),
-            'Content-Type' => 'application/json',
+        $args['headers'] = $this->parseArgs($args['headers'], array(
+            'Authorization' => $this->getAuthorizationHeaderValue(),
+            'Content-Type'   => 'application/json',
             'Content-Length' => strlen($args['body']),
-            'Accept' => 'application/json',
-            'Host' => $parsedUrl['host'] ?? $this->baseRoute(),
+            'Accept'         => 'application/json',
+            'Host'           => $parsedUrl['host'] ?? $this->baseRoute(),
         ));
 
         return array_filter($args);
@@ -340,7 +321,7 @@ class Api extends Base implements
     protected function logEvent(string $message, array $args = []): void
     {
 
-        $args = $this->parse_args($args, array(
+        $args = $this->parseArgs($args, array(
             'log' => 'tessitura',
         ));
 

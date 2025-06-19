@@ -24,7 +24,7 @@ class ApiTest extends TestCase
 
         $client->method('get')->willReturn($response);
 
-        $api = new Api(['baseRoute' => 'https://api.tessitura.com/', 'client' => $client]);
+        $api = new Api(['baseRoute' => 'https://api.tessitura.com/', 'client' => $client], $client);
 
         $response = $api->get('performances', []);
 
