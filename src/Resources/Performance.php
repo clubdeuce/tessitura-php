@@ -15,30 +15,30 @@ class Performance extends Base
 
     public function title(): string
     {
-        return $this->_extra_args['PerformanceDescription'] ?? '';
+        return $this->_extraArgs['PerformanceDescription'] ?? '';
     }
 
     public function productionSeasonId(): int
     {
-        return $this->_extra_args['ProductionSeason']['Id'] ?? 0;
+        return $this->_extraArgs['ProductionSeason']['Id'] ?? 0;
     }
 
     public function id(): int
     {
-        return intval($this->_extra_args['PerformanceId'] ?? 0);
+        return intval($this->_extraArgs['PerformanceId'] ?? 0);
     }
 
     public function description(): string
     {
 
-        return (string)$this->_extra_args['PerformanceDescription'];
+        return (string)$this->_extraArgs['PerformanceDescription'];
 
     }
 
     public function doorsOpen(): ?DateTime
     {
         try {
-            return new DateTime($this->_extra_args['DoorsOpen']);
+            return new DateTime($this->_extraArgs['DoorsOpen']);
         } catch (Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
             return null;
@@ -47,12 +47,12 @@ class Performance extends Base
 
     public function facilityId(): int
     {
-        return intval($this->_extra_args['Facility']['Id']);
+        return intval($this->_extraArgs['Facility']['Id']);
     }
 
     public function facilityDescription(): string
     {
-        return $this->_extra_args['Facility']['Description'];
+        return $this->_extraArgs['Facility']['Description'];
     }
 
     public function startTime(): ?DateTime
@@ -73,9 +73,9 @@ class Performance extends Base
             return $this->_date;
         }
 
-        if (isset($this->_extra_args['PerformanceDate'])) {
+        if (isset($this->_extraArgs['PerformanceDate'])) {
             try {
-                return new DateTime($this->_extra_args['PerformanceDate'], new DateTimeZone($timezone));
+                return new DateTime($this->_extraArgs['PerformanceDate'], new DateTimeZone($timezone));
             } catch (Exception $e) {
                 throw new Exception("Unable to convert performance date into DateTime object: {$e->getMessage()}", E_USER_WARNING);
             }
@@ -86,7 +86,7 @@ class Performance extends Base
 
     public function statusId(): int
     {
-        return intval($this->_extra_args['PerformanceStatus']['Id']);
+        return intval($this->_extraArgs['PerformanceStatus']['Id']);
     }
 
 }
