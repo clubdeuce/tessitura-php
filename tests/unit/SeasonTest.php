@@ -72,4 +72,37 @@ class SeasonTest extends testCase
         $season = new Season();
         $this->assertNull($season->endDateTime());
     }
+
+    public function testCreatedDateTimeWithInvalidTimezone(): void
+    {
+        // Using @ to suppress warnings during test
+        $created = @$this->_sut->createdDateTime('InvalidTimezone');
+        
+        $this->assertInstanceOf(\DateTime::class, $created);
+        $this->assertEquals('2024-01-19', $created->format('Y-m-d'));
+        // Should fall back to server default timezone (UTC in test environment)
+        $this->assertEquals('UTC', $created->getTimezone()->getName());
+    }
+
+    public function testStartDateTimeWithInvalidTimezone(): void
+    {
+        // Using @ to suppress warnings during test
+        $start = @$this->_sut->startDateTime('InvalidTimezone');
+        
+        $this->assertInstanceOf(\DateTime::class, $start);
+        $this->assertEquals('2024-07-01', $start->format('Y-m-d'));
+        // Should fall back to server default timezone (UTC in test environment)
+        $this->assertEquals('UTC', $start->getTimezone()->getName());
+    }
+
+    public function testEndDateTimeWithInvalidTimezone(): void
+    {
+        // Using @ to suppress warnings during test
+        $end = @$this->_sut->endDateTime('InvalidTimezone');
+        
+        $this->assertInstanceOf(\DateTime::class, $end);
+        $this->assertEquals('2025-06-30', $end->format('Y-m-d'));
+        // Should fall back to server default timezone (UTC in test environment)
+        $this->assertEquals('UTC', $end->getTimezone()->getName());
+    }
 }
