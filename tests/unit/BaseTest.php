@@ -12,7 +12,7 @@ class BaseTest extends testCase
         $sut = new Base();
 
         try {
-            $reflection = new \ReflectionMethod($sut::class, '_set_state');
+            $reflection = new \ReflectionMethod($sut::class, 'setState');
             $reflection->invoke($sut, ['foo' => 'bar']);
 
             $this->assertEquals('bar', $sut->foo());
@@ -25,8 +25,8 @@ class BaseTest extends testCase
     {
         $sut = new Base(['foo' => 'bar']);
 
-        $this->assertIsArray($sut->extra_args());
-        $this->assertEquals('bar', $sut->extra_args()['foo']);
+        $this->assertIsArray($sut->extraArgs());
+        $this->assertEquals('bar', $sut->extraArgs()['foo']);
         $this->assertEquals('bar', $sut->foo());
         $this->assertFalse($sut->foobar(), 'Base::__call should return false');
     }
@@ -35,7 +35,7 @@ class BaseTest extends testCase
     {
         $sut = new Base();
 
-        $results = $sut->parse_args(['foo' => 'foobar'], ['foo' => 'bar', 'bar' => 'baz']);
+        $results = $sut->parseArgs(['foo' => 'foobar'], ['foo' => 'bar', 'bar' => 'baz']);
 
         $this->assertIsArray($results);
         $this->assertArrayHasKey('foo', $results);

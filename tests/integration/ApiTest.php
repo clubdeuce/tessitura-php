@@ -8,10 +8,14 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\MockObject\Exception;
 
 #[CoversClass(Api::class)]
 class ApiTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     public function testGet(): void
     {
         $response = new Response(200, [], file_get_contents(dirname(__DIR__) . '/fixtures/season.json'));
