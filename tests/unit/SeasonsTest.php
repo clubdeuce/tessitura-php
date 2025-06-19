@@ -17,7 +17,7 @@ use Clubdeuce\Tessitura\Tests\testCase;
 class SeasonsTest extends testCase
 {
 
-    public function testGetById()
+    public function testGetById(): void
     {
         try {
             /**

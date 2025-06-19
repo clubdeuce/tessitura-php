@@ -6,7 +6,7 @@ use WP_UnitTestCase;
 
 class testCase extends \PHPUnit\Framework\TestCase {
 
-	protected function reflectionMethodInvoke(object $object, string $method, ...$args) {
+	protected function reflectionMethodInvoke(object $object, string $method, ...$args): mixed {
 		try {
 			$reflection = new \ReflectionMethod($object::class, $method);
 			return $reflection->invoke($object, $args);
