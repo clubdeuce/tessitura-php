@@ -5,7 +5,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 ## Architecture and Design
 
 - [x] Implement proper dependency injection throughout the codebase
-- [ ] Create interfaces for all major components to improve testability and flexibility
+- [x] Create interfaces for all major components to improve testability and flexibility
 - [ ] Implement a proper exception hierarchy instead of using generic exceptions
 - [ ] Add a caching layer to reduce API calls and improve performance
 - [ ] Implement a proper logging strategy with configurable log levels
@@ -16,7 +16,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 
 ## Code Quality
 
-- [ ] Standardize method naming conventions (choose either camelCase or snake_case consistently)
+- [x] Standardize method naming conventions (choose either camelCase or snake_case consistently)
 - [ ] Add comprehensive PHPDoc comments to all classes and methods
 - [ ] Fix the version inconsistency in the Api class (property is '15', constructor default is '16')
 - [ ] Improve error handling by using exceptions instead of trigger_error
