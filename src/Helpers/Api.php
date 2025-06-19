@@ -64,16 +64,6 @@ class Api extends Base implements
     }
 
     /**
-     * Set the machine name
-     * @param string $machine
-     * @return void
-     */
-    public function set_machine(string $machine): void
-    {
-        $this->_machine = $machine;
-    }
-
-    /**
      * Get the password
      * @return string
      */
@@ -83,32 +73,12 @@ class Api extends Base implements
     }
 
     /**
-     * Set the password
-     * @param string $password
-     * @return void
-     */
-    public function set_password(string $password): void
-    {
-        $this->_password = $password;
-    }
-
-    /**
      * Get the username
      * @return string
      */
     public function username(): string
     {
         return $this->_username;
-    }
-
-    /**
-     * Set the username
-     * @param string $username
-     * @return void
-     */
-    public function set_username(string $username): void
-    {
-        $this->_username = $username;
     }
 
     /**
