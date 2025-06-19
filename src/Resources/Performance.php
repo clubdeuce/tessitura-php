@@ -37,6 +37,10 @@ class Performance extends Base
 
     public function doorsOpen(): ?DateTime
     {
+        if (!isset($this->_extraArgs['DoorsOpen'])) {
+            return null;
+        }
+
         try {
             return new DateTime($this->_extraArgs['DoorsOpen']);
         } catch (Exception $e) {
@@ -47,11 +51,27 @@ class Performance extends Base
 
     public function facilityId(): int
     {
+        if (!isset($this->_extraArgs['Facility'])) {
+            return 0;
+        }
+
+        if (!isset($this->_extraArgs['Facility']['Id'])) {
+            return 0;
+        }
+
         return intval($this->_extraArgs['Facility']['Id']);
     }
 
     public function facilityDescription(): string
     {
+        if (!isset($this->_extraArgs['Facility'])) {
+            return '';
+        }
+
+        if (!isset($this->_extraArgs['Facility']['Description'])) {
+            return '';
+        }
+
         return $this->_extraArgs['Facility']['Description'];
     }
 
