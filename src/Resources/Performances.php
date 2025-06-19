@@ -43,7 +43,7 @@ class Performances extends Base implements ResourceInterface
 
         foreach ($performances as $performance) {
             try {
-                $date = $performance->getDate();
+                $date = $performance->date();
                 if (!is_null($date)) {
                     $sorted[$date->getTimestamp()] = $performance;
                 }
@@ -63,6 +63,10 @@ class Performances extends Base implements ResourceInterface
         ]);
     }
 
+    /**
+     * @param  array $args
+     * @return Performance[]
+     */
     public function search(array $args = []): array
     {
         $endpoint = sprintf('%1$s/Search', self::RESOURCE);
@@ -86,7 +90,7 @@ class Performances extends Base implements ResourceInterface
             $data = $this->_api->get(sprintf('%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId));
 
             if (is_array($data)) {
-                return array_map([$this, 'createZoneAvailability'], $data);
+                return array_map([$this, 'makeNewZoneAvailability'], $data);
             }
 
             return [];
@@ -95,7 +99,7 @@ class Performances extends Base implements ResourceInterface
         }
     }
 
-    protected function createZoneAvailability(array $data): PerformanceZoneAvailability
+    protected function makeNewZoneAvailability(array $data): PerformanceZoneAvailability
     {
         $data = $this->parseArgs($data, [
             'AvailableCount' => 0,

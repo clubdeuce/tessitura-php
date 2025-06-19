@@ -11,6 +11,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\MockObject\Exception;
+use ReflectionMethod;
 
 #[CoversClass(Performances::class)]
 #[UsesClass(Performance::class)]
@@ -108,6 +109,9 @@ class PerformancesTest extends testCase
         $this->assertEmpty($upcoming);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testMakeNewZoneAvailability(): void
     {
         $rawData = [];
@@ -120,8 +124,11 @@ class PerformancesTest extends testCase
 
         $this->assertNotEmpty($data);
 
-        $sut  = new Performances();
-        $zone = $sut->makeNewZoneAvailability($data[0]);
+        $api  = $this->createMock(Api::class);
+        $sut  = new Performances($api);
+
+        $reflection = new ReflectionMethod($sut, 'makeNewZoneAvailability');
+        $zone = $reflection->invokeArgs($sut, [$data[0]]);
 
         $this->assertInstanceOf(PerformanceZoneAvailability::class, $zone);
     }
