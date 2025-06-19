@@ -55,51 +55,6 @@ class Api extends Base implements
     protected string $_version = '15';
 
     /**
-     * Get the machine name
-     * @return string
-     */
-    public function machine(): string
-    {
-        return $this->_machine;
-    }
-
-    /**
-     * Get the password
-     * @return string
-     */
-    public function password(): string
-    {
-        return $this->_password;
-    }
-
-    /**
-     * Get the username
-     * @return string
-     */
-    public function username(): string
-    {
-        return $this->_username;
-    }
-
-    /**
-     * Get the usergroup
-     * @return string
-     */
-    public function usergroup(): string
-    {
-        return $this->_usergroup;
-    }
-
-    /**
-     * Get the API version
-     * @return string
-     */
-    public function version(): string
-    {
-        return $this->_version;
-    }
-
-    /**
      * @var ClientInterface GuzzleHttp client
      */
     protected ClientInterface $_client;
@@ -198,6 +153,11 @@ class Api extends Base implements
         );
     }
 
+    public function getVersion(): string
+    {
+        return $this->_version;
+    }
+
     /**
      * @param mixed[] $args
      *
@@ -244,7 +204,7 @@ class Api extends Base implements
     protected function getAuthorizationHeaderValue(): string
     {
 
-        $auth_key = sprintf('%1$s:%2$s:%3$s:%4$s', $this->username(), $this->usergroup(), $this->machine(), $this->password());
+        $auth_key = sprintf('%1$s:%2$s:%3$s:%4$s', $this->getUsername(), $this->getUsergroup(), $this->getMachine(), $this->getPassword());
 
         return sprintf('Basic %1$s', base64_encode($auth_key));
 
@@ -266,6 +226,7 @@ class Api extends Base implements
      * @param string $endpoint
      * @param mixed[] $args
      * @return Exception|mixed[]
+     * @throws GuzzleException
      */
     public function post(string $endpoint, array $args = []): array|Exception
     {
