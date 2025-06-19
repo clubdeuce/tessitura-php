@@ -4,7 +4,6 @@ use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Tests\testCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Stream;
-use http\Client\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Api::class)]

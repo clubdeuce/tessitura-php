@@ -17,7 +17,9 @@ use Psr\Log\LoggerInterface;
  * Class API
  * @package Clubdeuce\Tessitura\Helpers
  */
-class Api extends Base implements ApiInterface, LoggerAwareInterface
+class Api extends Base implements 
+    ApiInterface,
+    LoggerAwareInterface
 {
 
     const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
@@ -395,4 +397,48 @@ class Api extends Base implements ApiInterface, LoggerAwareInterface
         return $this->getLogger();
     }
 
+    public function setClient(ClientInterface $client): void
+    {
+        $this->_client = $client;
+    }
+
+    public function getClient(): ClientInterface
+    {
+        return $this->_client;
+    }
+
+    public function baseRoute(): string
+    {
+        return $this->_base_route;
+    }
+
+    public function setBaseRoute(string $baseRoute): void
+    {
+        $this->_base_route = $baseRoute;
+    }
+
+    public function setMachine(string $machine): void
+    {
+        $this->_machine = $machine;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->_password = $password;
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->_username = $username;
+    }
+
+    public function setUsergroup(string $usergroup): void
+    {
+        $this->_usergroup = $usergroup;
+    }
+
+    public function setVersion(string $version): void
+    {
+        $this->_version = $version;
+    }
 }
