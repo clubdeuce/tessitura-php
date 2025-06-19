@@ -3,24 +3,21 @@
 namespace Clubdeuce\Tessitura\Helpers;
 
 use Clubdeuce\Tessitura\Base\Base;
+use Clubdeuce\Tessitura\Interfaces\ApiInterface;
+use Clubdeuce\Tessitura\Interfaces\LoggerAwareInterface;
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class API
  * @package Clubdeuce\Tessitura\Helpers
- *
- * @method string base_route()
- * @method string machine()
- * @method string password()
- * @method string usergroup()
- * @method string username()
- * @method object|null logger()
  */
-class Api extends Base
+class Api extends Base implements ApiInterface, LoggerAwareInterface
 {
 
     const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
@@ -56,9 +53,128 @@ class Api extends Base
     protected string $_version = '15';
 
     /**
-     * @var Client GuzzleHttp client
+     * Get the base route
+     * @return string
      */
-    protected Client $_client;
+    public function base_route(): string
+    {
+        return $this->_base_route;
+    }
+
+    /**
+     * Set the base route
+     * @param string $base_route
+     * @return void
+     */
+    public function set_base_route(string $base_route): void
+    {
+        $this->_base_route = $base_route;
+    }
+
+    /**
+     * Get the machine name
+     * @return string
+     */
+    public function machine(): string
+    {
+        return $this->_machine;
+    }
+
+    /**
+     * Set the machine name
+     * @param string $machine
+     * @return void
+     */
+    public function set_machine(string $machine): void
+    {
+        $this->_machine = $machine;
+    }
+
+    /**
+     * Get the password
+     * @return string
+     */
+    public function password(): string
+    {
+        return $this->_password;
+    }
+
+    /**
+     * Set the password
+     * @param string $password
+     * @return void
+     */
+    public function set_password(string $password): void
+    {
+        $this->_password = $password;
+    }
+
+    /**
+     * Get the username
+     * @return string
+     */
+    public function username(): string
+    {
+        return $this->_username;
+    }
+
+    /**
+     * Set the username
+     * @param string $username
+     * @return void
+     */
+    public function set_username(string $username): void
+    {
+        $this->_username = $username;
+    }
+
+    /**
+     * Get the usergroup
+     * @return string
+     */
+    public function usergroup(): string
+    {
+        return $this->_usergroup;
+    }
+
+    /**
+     * Set the usergroup
+     * @param string $usergroup
+     * @return void
+     */
+    public function set_usergroup(string $usergroup): void
+    {
+        $this->_usergroup = $usergroup;
+    }
+
+    /**
+     * Get the API version
+     * @return string
+     */
+    public function version(): string
+    {
+        return $this->_version;
+    }
+
+    /**
+     * Set the API version
+     * @param string $version
+     * @return void
+     */
+    public function set_version(string $version): void
+    {
+        $this->_version = $version;
+    }
+
+    /**
+     * @var ClientInterface GuzzleHttp client
+     */
+    protected ClientInterface $_client;
+
+    /**
+     * @var LoggerInterface|null
+     */
+    protected ?LoggerInterface $_logger = null;
 
     /**
      * API constructor.
@@ -69,31 +185,39 @@ class Api extends Base
      * @type string   $password
      * @type string   $usergroup
      * @type string   $username
-     * @type string   $logger
+     * @type string   $version
      * }
+     * @param ClientInterface|null $client The HTTP client to use for API requests
+     * @param LoggerInterface|null $logger The logger to use for logging
      */
-    public function __construct(array $args = [])
-    {
-
+    public function __construct(
+        array $args = [],
+        ?ClientInterface $client = null,
+        ?LoggerInterface $logger = null
+    ) {
         $args = $this->parse_args($args, array(
-            'base_route' => '',
+            'baseRoute' => '',
             'machine' => '',
             'password' => '',
             'usergroup' => '',
             'username' => '',
-            'logger' => null,
             'version' => '16',
-            'client' => null,
         ));
 
-        if (!isset($args['client'])) {
-            $args['client'] = new Client([
-                'base_uri' => $args['base_route'],
+        if ($logger) {
+            $this->setLogger($logger);
+        }
+
+        if (!$client && !empty($args['baseRoute'])) {
+            $client = new Client([
+                'base_uri' => $args['baseRoute'],
                 'timeout' => 10.0,
             ]);
         }
 
-        $this->_set_state($args);
+        $args['client'] = $client;
+
+        parent::__construct($args);
 
     }
 
@@ -109,7 +233,7 @@ class Api extends Base
             'method' => 'GET',
         ));
 
-        return $this->_make_request($resource, $args);
+        return $this->makeRequest($resource, $args);
     }
 
     /**
@@ -118,12 +242,12 @@ class Api extends Base
      * @return mixed
      * @throws Exception|GuzzleException
      */
-    protected function _make_request(string $endpoint, array $args): array
+    protected function makeRequest(string $endpoint, array $args): array
     {
         /**
          * @var Response $response
          */
-        $response = $this->_client->get($this->_get_uri($endpoint), $args);
+        $response = $this->client->get($this->getUri($endpoint), $args);
 
         if (200 === $response->getStatusCode()) {
             return json_decode($response->getBody(), true);
@@ -150,7 +274,7 @@ class Api extends Base
      * @type array $headers
      * }
      */
-    protected function _get_request_args(array $args = []): array
+    protected function getRequestArgs(array $args = []): array
     {
 
         $args = $this->parse_args($args, array(
@@ -167,13 +291,13 @@ class Api extends Base
             }
         }
 
-        $parsed_url = parse_url($this->base_route());
+        $parsedUrl = parse_url($this->baseRoute());
         $args['headers'] = $this->parse_args($args['headers'], array(
             'Authorization' => $this->_get_authorization_header_value(),
             'Content-Type' => 'application/json',
             'Content-Length' => strlen($args['body']),
             'Accept' => 'application/json',
-            'Host' => $parsed_url['host'] ?? $this->base_route(),
+            'Host' => $parsedUrl['host'] ?? $this->baseRoute(),
         ));
 
         return array_filter($args);
@@ -183,7 +307,7 @@ class Api extends Base
     /**
      * @return string
      */
-    protected function _get_authorization_header_value(): string
+    protected function getAuthorizationHeaderValue(): string
     {
 
         $auth_key = sprintf('%1$s:%2$s:%3$s:%4$s', $this->username(), $this->usergroup(), $this->machine(), $this->password());
@@ -197,10 +321,10 @@ class Api extends Base
      *
      * @return string
      */
-    protected function _get_uri(string $endpoint): string
+    protected function getUri(string $endpoint): string
     {
 
-        return "{$this->base_route()}/{$endpoint}";
+        return "{$this->baseRoute()}/{$endpoint}";
 
     }
 
@@ -216,7 +340,7 @@ class Api extends Base
             'method' => 'POST',
         ));
 
-        return $this->_make_request($endpoint, $args);
+        return $this->makeRequest($endpoint, $args);
 
     }
 
@@ -230,7 +354,7 @@ class Api extends Base
      * @type mixed[] $extra
      * }
      */
-    protected function _log_event(string $message, array $args = []): void
+    protected function logEvent(string $message, array $args = []): void
     {
 
         $args = $this->parse_args($args, array(
@@ -239,10 +363,36 @@ class Api extends Base
 
         $message = 'Tessitura API: ' . $message;
 
-        if ($this->logger()) {
-            $this->logger()->log($message, $args);
+        if ($this->getLogger()) {
+            $this->getLogger()->info($message, $args);
         }
 
+    }
+
+    /**
+     * Sets a logger instance on the object.
+     *
+     * @param LoggerInterface $logger The logger instance to use.
+     * @return void
+     */
+    public function setLogger(LoggerInterface $logger): void
+    {
+        $this->_logger = $logger;
+    }
+
+    /**
+     * Gets the logger instance.
+     *
+     * @return LoggerInterface|null The logger instance or null if none is set.
+     */
+    public function getLogger(): ?LoggerInterface
+    {
+        return $this->_logger;
+    }
+
+    public function logger(): ?LoggerInterface
+    {
+        return $this->getLogger();
     }
 
 }
