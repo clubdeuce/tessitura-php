@@ -20,7 +20,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 - [ ] Add comprehensive PHPDoc comments to all classes and methods
 - [ ] Fix the version inconsistency in the Api class (property is '15', constructor default is '16')
 - [ ] Improve error handling by using exceptions instead of trigger_error
-- [ ] Add type declarations to all method parameters and return types
+- [x] Add type declarations to all method parameters and return types
 - [ ] Implement proper null handling throughout the codebase
 - [ ] Remove magic methods where possible to improve IDE support and type safety
 - [ ] Add validation for API credentials and other critical configuration
