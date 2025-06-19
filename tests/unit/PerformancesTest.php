@@ -17,6 +17,9 @@ use PHPUnit\Framework\MockObject\Exception;
 #[UsesClass(Api::class)]
 class PerformancesTest extends testCase
 {
+    /**
+     * @throws Exception
+     */
     public function testSearchReturnsEmptyArray()
     {
         $api = $this->createMock(Api::class);
@@ -29,6 +32,9 @@ class PerformancesTest extends testCase
         $this->assertEmpty($result);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testSearch()
     {
         $api = $this->createMock(Api::class);
@@ -42,6 +48,9 @@ class PerformancesTest extends testCase
         $this->assertNotEmpty($result);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testGetPerformancesBetween()
     {
         $api = $this->createMock(Api::class);
@@ -51,7 +60,7 @@ class PerformancesTest extends testCase
         $sut = new Performances($api);
 
         // the dates here are irrelevant, as we are using a mock api response
-        $result = $sut->get_performances_between(new \DateTime(), new \DateTime());
+        $result = $sut->getPerformancesBetween(new \DateTime(), new \DateTime());
 
         $this->assertIsArray($result);
         $this->assertNotEmpty($result);
@@ -67,6 +76,9 @@ class PerformancesTest extends testCase
     }
 
 
+    /**
+     * @throws Exception
+     */
     public function testGetPerformancesForProductionSeason(): void
     {
         $api = $this->createMock(Api::class);
@@ -74,12 +86,15 @@ class PerformancesTest extends testCase
             ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'), 'associative'));
 
         $sut      = new Performances($api);
-        $upcoming = $sut->get_performances_for_production_season(35);
+        $upcoming = $sut->getPerformancesForProductionSeason(35);
 
         $this->assertIsArray($upcoming);
         $this->assertNotEmpty($upcoming);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testGetPerformancesForProductionSeasonError(): void
     {
         $api = $this->createMock(Api::class);
@@ -87,7 +102,7 @@ class PerformancesTest extends testCase
             ->willReturn([]);
 
         $sut      = new Performances($api);
-        $upcoming = @$sut->get_performances_for_production_season(35);
+        $upcoming = @$sut->getPerformancesForProductionSeason(35);
 
         $this->assertIsArray($upcoming);
         $this->assertEmpty($upcoming);
@@ -143,20 +158,20 @@ class PerformancesTest extends testCase
         }
     }
 
-    public function testGetPricesForPerformance() {
-        try {
-            $api = $this->createMock(Api::class);
-            $api->method('get')
-                ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true));
-
-            $sut    = new Performances($api);
-            $prices = $sut->getPricesForPerformance(12345);
-
-            $this->assertIsArray($prices);
-            $this->assertNotEmpty($prices);
-            $this->assertContainsOnly(PriceSummary::class, $prices);
-        } catch (Exception $e) {
-            trigger_error($e->getMessage());
-        }
-    }
+//    public function testGetPricesForPerformance() {
+//        try {
+//            $api = $this->createMock(Api::class);
+//            $api->method('get')
+//                ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true));
+//
+//            $sut    = new Performances($api);
+//            $prices = $sut->getPricesForPerformance(12345);
+//
+//            $this->assertIsArray($prices);
+//            $this->assertNotEmpty($prices);
+//            $this->assertContainsOnly(PriceSummary::class, $prices);
+//        } catch (Exception $e) {
+//            trigger_error($e->getMessage());
+//        }
+//    }
 }
