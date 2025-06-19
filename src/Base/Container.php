@@ -1,9 +1,11 @@
 <?php
 
-namespace Clubdeuce\Tessitura;
+namespace Clubdeuce\Tessitura\Base;
 
+use Clubdeuce\Tessitura\Helpers;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
+use Clubdeuce\Tessitura\Resources;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Psr\Log\LoggerInterface;
@@ -122,8 +124,8 @@ class Container
         $baseRoute = $this->getParameter('base_route', '');
         
         return new Client([
-            'base_uri' => $baseRoute,
-            'timeout' => $this->getParameter('timeout', 10.0),
+            'baseRoute' => $baseRoute,
+            'timeout'   => $this->getParameter('timeout', 10.0),
         ]);
     }
 
