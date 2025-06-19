@@ -41,7 +41,7 @@ class ApiTest extends TestCase
 
         $api = new Api(['baseRoute' => 'https://api.tessitura.com/', 'client' => $client]);
 
-        $this->expectException(\Exception::class);
+        $this->expectException(\Error::class);
         $api->get('performances', []);
     }
 }
