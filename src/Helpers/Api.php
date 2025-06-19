@@ -55,25 +55,6 @@ class Api extends Base implements
     protected string $_version = '15';
 
     /**
-     * Get the base route
-     * @return string
-     */
-    public function base_route(): string
-    {
-        return $this->_base_route;
-    }
-
-    /**
-     * Set the base route
-     * @param string $base_route
-     * @return void
-     */
-    public function set_base_route(string $base_route): void
-    {
-        $this->_base_route = $base_route;
-    }
-
-    /**
      * Get the machine name
      * @return string
      */
@@ -197,7 +178,7 @@ class Api extends Base implements
         ?ClientInterface $client = null,
         ?LoggerInterface $logger = null
     ) {
-        $args = $this->parse_args($args, array(
+        $args = $this->parseArgs($args, array(
             'baseRoute' => '',
             'machine' => '',
             'password' => '',
@@ -249,7 +230,7 @@ class Api extends Base implements
         /**
          * @var Response $response
          */
-        $response = $this->client->get($this->getUri($endpoint), $args);
+        $response = $this->_client->get($this->getUri($endpoint), $args);
 
         if (200 === $response->getStatusCode()) {
             return json_decode($response->getBody(), true);
