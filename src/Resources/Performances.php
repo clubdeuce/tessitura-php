@@ -4,22 +4,27 @@ namespace Clubdeuce\Tessitura\Resources;
 
 use Clubdeuce\Tessitura\Base\Base;
 use Clubdeuce\Tessitura\Helpers\Api;
+use Clubdeuce\Tessitura\Interfaces\ApiInterface;
+use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
 use DateTime;
 use Clubdeuce\Tessitura\Resources\PerformanceZoneAvailability as PZA;
 
-class Performances extends Base
+class Performances extends Base implements ResourceInterface
 {
 
     const RESOURCE = 'TXN/Performances';
-    protected Api $_api;
+    protected ApiInterface $_api;
 
-    public function __construct(Api|null $api = null)
+    /**
+     * Constructor method for initializing the resource with dependencies.
+     *
+     * @param ApiInterface $api The API client to use for requests.
+     * @return void
+     */
+    public function __construct(ApiInterface $api)
     {
-        if (empty ($api)) {
-            $api = new Api();
-        }
-
         $this->_api = $api;
+        parent::__construct();;
     }
 
     /**
