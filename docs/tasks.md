@@ -2,12 +2,14 @@
 
 This document contains a prioritized list of tasks to improve the Tessitura PHP library. Each task is marked with a checkbox that can be checked off when completed.
 
+**_These items_** have already been transferred to the backlog.
+
 ## Architecture and Design
 
 - [x] Implement proper dependency injection throughout the codebase
 - [x] Create interfaces for all major components to improve testability and flexibility
 - [ ] Implement a proper exception hierarchy instead of using generic exceptions
-- [ ] Add a caching layer to reduce API calls and improve performance
+- [ ] **_Add a caching layer to reduce API calls and improve performance_**
 - [ ] Implement a proper logging strategy with configurable log levels
 - [ ] Create a configuration class to centralize configuration management
 - [ ] Implement a proper service container for managing dependencies
