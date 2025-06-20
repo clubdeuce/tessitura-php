@@ -27,10 +27,8 @@ class Performances extends Base implements ResourceInterface
 
             return $this->getPerformancesBetween($start, $end);
         } catch (Exception $e) {
-            trigger_error($e->getMessage(), E_USER_WARNING);
+            throw new Exception("Unable to get upcoming performances: " . $e->getMessage());
         }
-
-        return [];
     }
 
     public function getPerformancesBetween(DateTime $start, DateTime $end): array
@@ -48,7 +46,8 @@ class Performances extends Base implements ResourceInterface
                     $sorted[$date->getTimestamp()] = $performance;
                 }
             } catch (Exception $e) {
-                trigger_error($e->getMessage(), E_USER_WARNING);
+                // Skip performances with invalid dates rather than stopping the entire operation
+                continue;
             }
         }
 

@@ -44,7 +44,6 @@ class Performance extends Base
         try {
             return new DateTime($this->_extraArgs['DoorsOpen']);
         } catch (Exception $e) {
-            trigger_error($e->getMessage(), E_USER_NOTICE);
             return null;
         }
     }

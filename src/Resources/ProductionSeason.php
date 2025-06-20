@@ -39,7 +39,7 @@ class ProductionSeason extends Base
             try {
                 return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
             } catch (Exception $e) {
-                trigger_error($e->getMessage(), E_USER_ERROR);
+                throw new Exception("Unable to parse FirstPerformanceDate: " . $e->getMessage());
             }
         }
 
@@ -61,7 +61,7 @@ class ProductionSeason extends Base
             try {
                 return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
             } catch (Exception $e) {
-                trigger_error($e->getMessage(), E_USER_ERROR);
+                throw new Exception("Unable to parse LastPerformanceDate: " . $e->getMessage());
             }
         }
 
