@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ['8.0', '8.1', '8.2', '8.3']
+        php-version: ['8.2', '8.3']
 
     steps:
       - name: Checkout code
@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-php-${{ matrix.php-version }}-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest --no-interaction
+        run: composer install --prefer-dist --no-progress --no-interaction
 
       - name: Create cache directories
         run: |
