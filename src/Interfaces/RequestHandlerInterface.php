@@ -10,8 +10,8 @@ interface RequestHandlerInterface
      * Make a GET request to the API.
      *
      * @param string $resource
-     * @param array $args
-     * @return mixed
+     * @param mixed[] $args
+     * @return mixed[]
      * @throws Exception
      */
     public function get(string $resource, array $args = []): mixed;
@@ -20,8 +20,8 @@ interface RequestHandlerInterface
      * Make a POST request to the API.
      *
      * @param string $endpoint
-     * @param array $args
-     * @return array|Exception
+     * @param mixed[] $args
+     * @return mixed[]|Exception
      */
     public function post(string $endpoint, array $args = []): array|Exception;
 }
