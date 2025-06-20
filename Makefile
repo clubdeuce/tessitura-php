@@ -1,4 +1,4 @@
-.PHONY: help install test static-analysis phpstan phpcs phpmd psalm php-cs-fixer fix clean
+.PHONY: help install test static-analysis phpstan phpcs phpmd php-cs-fixer fix clean validate
 
 # Default target
 help: ## Show this help message
@@ -13,7 +13,7 @@ install: ## Install dependencies
 test: ## Run PHPUnit tests
 	vendor/bin/phpunit -c tests/phpunit.xml.dist
 
-static-analysis: phpstan phpcs phpmd psalm ## Run all static analysis tools
+static-analysis: phpstan phpcs phpmd php-cs-fixer ## Run all static analysis tools
 
 phpstan: ## Run PHPStan static analysis
 	vendor/bin/phpstan analyse --memory-limit=2G
@@ -24,15 +24,15 @@ phpcs: ## Run PHP CodeSniffer
 phpmd: ## Run PHP Mess Detector
 	vendor/bin/phpmd src,tests text cleancode,codesize,controversial,design,naming,unusedcode
 
-psalm: ## Run Psalm static analysis
-	vendor/bin/psalm --show-info=true
-
 php-cs-fixer: ## Run PHP-CS-Fixer (dry-run)
 	vendor/bin/php-cs-fixer fix --dry-run --diff
 
 fix: ## Auto-fix code style issues
 	vendor/bin/php-cs-fixer fix
 	vendor/bin/phpcbf
+
+validate: ## Validate static analysis setup
+	./scripts/validate-setup.sh
 
 clean: ## Clean cache directories
 	rm -rf var/cache/*

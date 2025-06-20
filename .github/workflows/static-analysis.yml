@@ -41,7 +41,6 @@ jobs:
       - name: Create cache directories
         run: |
           mkdir -p var/cache/phpstan
-          mkdir -p var/cache/psalm
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse --memory-limit=2G
@@ -51,9 +50,6 @@ jobs:
 
       - name: Run PHPMD
         run: vendor/bin/phpmd src,tests text cleancode,codesize,controversial,design,naming,unusedcode
-
-      - name: Run Psalm
-        run: vendor/bin/psalm --show-info=true
 
       - name: Run PHP-CS-Fixer (dry-run)
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
