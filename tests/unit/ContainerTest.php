@@ -8,7 +8,7 @@ use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
 use Clubdeuce\Tessitura\Resources\Performances;
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
@@ -28,7 +28,7 @@ class ContainerTest extends TestCase
         $container = new Container(['timeout' => 5.0, 'base_route' => 'https://example.com']);
         $httpClient = $container->get('http_client');
 
-        $this->assertInstanceOf(ClientInterface::class, $httpClient);
+        $this->assertInstanceOf(Client::class, $httpClient);
         $this->assertSame(5.0, $httpClient->getConfig('timeout'));
     }
 
@@ -58,7 +58,7 @@ class ContainerTest extends TestCase
             'version' => '16',
         ];
         $container = new Container($parameters);
-        $container->set('http_client', $this->createMock(ClientInterface::class));
+        $container->set('http_client', $this->createMock(Client::class));
         $container->set('logger', $this->createMock(LoggerInterface::class));
 
         $api = $container->get('api');
@@ -101,7 +101,7 @@ class ContainerTest extends TestCase
         $container  = new Container();
         $httpClient = $container->get('http_client');
 
-        $this->assertInstanceOf(ClientInterface::class, $httpClient);
+        $this->assertInstanceOf(Client::class, $httpClient);
     }
 
     /**
@@ -113,7 +113,7 @@ class ContainerTest extends TestCase
 
         $httpClient = $container->get('http_client');
 
-        $this->assertInstanceOf(ClientInterface::class, $httpClient);
+        $this->assertInstanceOf(Client::class, $httpClient);
         $this->assertSame(5.0, $httpClient->getConfig('timeout'));
     }
 
@@ -126,7 +126,7 @@ class ContainerTest extends TestCase
 
         $service = $container->get('http_client');
 
-        $this->assertInstanceOf(ClientInterface::class, $service);
+        $this->assertInstanceOf(Client::class, $service);
     }
 
     /**
