@@ -4,6 +4,7 @@ namespace Clubdeuce\Tessitura\Helpers;
 
 use Clubdeuce\Tessitura\Base\Base;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
+use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\LoggerAwareInterface;
 use Exception;
 use GuzzleHttp\Client;
@@ -65,6 +66,11 @@ class Api extends Base implements
     protected ?LoggerInterface $_logger = null;
 
     /**
+     * @var CacheInterface|null
+     */
+    protected ?CacheInterface $_cache = null;
+
+    /**
      * API constructor.
      *
      * @param mixed[] $args {
@@ -77,11 +83,13 @@ class Api extends Base implements
      * }
      * @param ClientInterface|null $client The HTTP client to use for API requests
      * @param LoggerInterface|null $logger The logger to use for logging
+     * @param CacheInterface|null $cache The cache implementation to use for caching API responses
      */
     public function __construct(
         array $args = [],
         ?ClientInterface $client = null,
-        ?LoggerInterface $logger = null
+        ?LoggerInterface $logger = null,
+        ?CacheInterface $cache = null
     ) {
         $args = $this->parseArgs($args, array(
             'baseRoute' => '',
@@ -94,6 +102,10 @@ class Api extends Base implements
 
         if ($logger) {
             $this->setLogger($logger);
+        }
+
+        if ($cache) {
+            $this->setCache($cache);
         }
 
         if (!$client && !empty($args['baseRoute'])) {
@@ -132,13 +144,40 @@ class Api extends Base implements
      */
     protected function makeRequest(string $endpoint, array $args): array
     {
+        $method = $args['method'] ?? 'GET';
+        
+        // Only cache GET requests
+        if ($method === 'GET' && $this->_cache) {
+            $cacheKey = $this->generateCacheKey($endpoint, $args);
+            $cachedResponse = $this->_cache->get($cacheKey);
+            
+            if ($cachedResponse !== null) {
+                $this->logEvent('Cache hit for endpoint: ' . $endpoint);
+                return $cachedResponse;
+            }
+        }
+
         /**
          * @var Response $response
          */
-        $response = $this->_client->get($this->getUri($endpoint), $args);
+        // Use the appropriate HTTP method
+        if ($method === 'POST') {
+            $response = $this->_client->post($this->getUri($endpoint), $args);
+        } else {
+            $response = $this->_client->get($this->getUri($endpoint), $args);
+        }
 
         if (200 === $response->getStatusCode()) {
-            return json_decode($response->getBody(), true);
+            $data = json_decode($response->getBody(), true);
+            
+            // Cache successful GET responses
+            if ($method === 'GET' && $this->_cache) {
+                $cacheExpiration = $args['cache_expiration'] ?? self::CACHE_EXPIRATION_DEFAULT;
+                $this->_cache->set($cacheKey, $data, $cacheExpiration);
+                $this->logEvent('Cached response for endpoint: ' . $endpoint);
+            }
+            
+            return $data;
         }
 
         // We have successfully gotten a response from the API, but not a 200 status code.
@@ -358,5 +397,50 @@ class Api extends Base implements
     public function getUsername(): string
     {
         return $this->_username;
+    }
+
+    /**
+     * Sets a cache instance on the object.
+     *
+     * @param CacheInterface $cache The cache instance to use.
+     * @return void
+     */
+    public function setCache(CacheInterface $cache): void
+    {
+        $this->_cache = $cache;
+    }
+
+    /**
+     * Gets the cache instance.
+     *
+     * @return CacheInterface|null The cache instance or null if none is set.
+     */
+    public function getCache(): ?CacheInterface
+    {
+        return $this->_cache;
+    }
+
+    /**
+     * Generate a cache key for the given endpoint and arguments.
+     *
+     * @param string $endpoint The API endpoint
+     * @param array $args The request arguments
+     * @return string The generated cache key
+     */
+    protected function generateCacheKey(string $endpoint, array $args): string
+    {
+        // Remove method and cache-specific args from key generation
+        $keyArgs = $args;
+        unset($keyArgs['method'], $keyArgs['cache_expiration']);
+        
+        // Create a consistent key based on endpoint and args
+        $keyData = [
+            'endpoint' => $endpoint,
+            'base_route' => $this->baseRoute(),
+            'version' => $this->getVersion(),
+            'args' => $keyArgs
+        ];
+        
+        return 'tessitura:' . md5(json_encode($keyData));
     }
 }

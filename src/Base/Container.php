@@ -4,6 +4,7 @@ namespace Clubdeuce\Tessitura\Base;
 
 use Clubdeuce\Tessitura\Helpers;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
+use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
 use Clubdeuce\Tessitura\Resources;
 use GuzzleHttp\Client;
@@ -92,6 +93,17 @@ class Container
     }
 
     /**
+     * Check if a service exists in the container.
+     *
+     * @param string $id The service ID
+     * @return bool True if the service exists, false otherwise
+     */
+    public function has(string $id): bool
+    {
+        return isset($this->services[$id]) || method_exists($this, 'create' . ucfirst($id));
+    }
+
+    /**
      * Create a service.
      *
      * @param string $id The service ID
@@ -159,7 +171,8 @@ class Container
         return new Helpers\Api(
             $args,
             $this->get('http_client'),
-            $this->get('logger')
+            $this->get('logger'),
+            $this->has('cache') ? $this->get('cache') : null
         );
     }
 
