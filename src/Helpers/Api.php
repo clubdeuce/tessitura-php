@@ -190,7 +190,7 @@ class Api extends Base implements
          */
         $body = $response->getBody();
 
-        $this->logEvent('Error response from endpoint: ' . $endpoint);
+        $this->logEvent("Error response from endpoint: {$endpoint}. {$body->getContents()}");
 
         throw new Exception(
             $body->getContents(),
