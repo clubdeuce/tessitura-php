@@ -9,7 +9,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 - [x] Implement proper dependency injection throughout the codebase
 - [x] Create interfaces for all major components to improve testability and flexibility
 - [ ] Implement a proper exception hierarchy instead of using generic exceptions
-- [ ] **_Add a caching layer to reduce API calls and improve performance_**
+- [x] Add a caching layer to reduce API calls and improve performance
 - [ ] Implement a proper logging strategy with configurable log levels
 - [ ] Create a configuration class to centralize configuration management
 - [ ] Implement a proper service container for managing dependencies
@@ -37,7 +37,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 - [ ] Implement mutation testing to ensure test quality
 - [ ] Add performance tests for critical operations
 - [ ] Implement continuous integration with GitHub Actions or similar
-- [ ] Add static analysis tools to the CI pipeline
+- [ ] **_Add static analysis tools to the CI pipeline_**
 
 ## Documentation
 
