@@ -24,7 +24,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 - [ ] Improve error handling by using exceptions instead of trigger_error
 - [x] Add type declarations to all method parameters and return types
 - [ ] Implement proper null handling throughout the codebase
-- [ ] Remove magic methods where possible to improve IDE support and type safety
+- [x] Remove magic methods where possible to improve IDE support and type safety
 - [ ] Add validation for API credentials and other critical configuration
 - [ ] Implement proper input validation for all public methods
 

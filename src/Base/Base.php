@@ -2,6 +2,15 @@
 
 namespace Clubdeuce\Tessitura\Base;
 
+/**
+ * Base class for Tessitura API resources.
+ * 
+ * Provides a foundation for API resources with explicit getter methods
+ * for better IDE support and type safety. Magic methods are still supported
+ * for backward compatibility but are deprecated for common properties.
+ * 
+ * @package Clubdeuce\Tessitura\Base
+ */
 class Base {
     protected array $_extraArgs = [];
 
