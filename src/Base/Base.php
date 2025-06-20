@@ -2,7 +2,8 @@
 
 namespace Clubdeuce\Tessitura\Base;
 
-class Base {
+class Base
+{
     /**
      * Holds the state of the object.
      *

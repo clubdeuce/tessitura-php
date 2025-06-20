@@ -1,4 +1,5 @@
 <?php
+
 namespace Clubdeuce\Tessitura\Tests\Unit;
 
 use Clubdeuce\Tessitura\Resources\PerformanceZoneAvailability as PZA;

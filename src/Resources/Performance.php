@@ -10,7 +10,6 @@ use Exception;
 
 class Performance extends Base
 {
-
     protected DateTime $_date;
 
     public function title(): string
@@ -32,7 +31,6 @@ class Performance extends Base
     {
 
         return (string)$this->_extraArgs['PerformanceDescription'];
-
     }
 
     public function doorsOpen(): ?DateTime
@@ -108,5 +106,4 @@ class Performance extends Base
     {
         return intval($this->_extraArgs['PerformanceStatus']['Id']);
     }
-
 }

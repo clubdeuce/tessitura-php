@@ -73,7 +73,6 @@ class PerformancesTest extends testCase
             $this->assertGreaterThanOrEqual($previous->date()->getTimestamp(), $index, 'The performance array is not sorted correctly.');
             $previous = $current;
         }
-
     }
 
 
@@ -134,7 +133,8 @@ class PerformancesTest extends testCase
     }
 
     #[Depends('testMakeNewZoneAvailability')]
-    public function testGetZoneAvailabilities() {
+    public function testGetZoneAvailabilities()
+    {
         try {
             $api = $this->createMock(Api::class);
             $api->method('get')
@@ -149,8 +149,9 @@ class PerformancesTest extends testCase
         }
     }
 
-    public function testGetZoneAvailabilitiesError() {
-        try{
+    public function testGetZoneAvailabilitiesError()
+    {
+        try {
             $api = $this->createMock(Api::class);
             $api->method('get')
                 ->willThrowException(new \Exception('Mock error', 400));

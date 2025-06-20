@@ -2,7 +2,6 @@
 
 namespace Clubdeuce\Tessitura\Resources;
 
-
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -12,14 +11,13 @@ use GuzzleHttp\Exception\GuzzleException;
  */
 class Seasons
 {
-
     const RESOURCE = 'ReferenceData/Seasons';
 
     protected Client $client;
 
     public function __construct(?Client $client = null)
     {
-        if (empty ($client)) {
+        if (empty($client)) {
             $client = new Client();
         }
 
@@ -50,7 +48,7 @@ class Seasons
             $response = $this->client->get(self::RESOURCE);
             $data     = json_decode($response->getBody()->getContents(), true);
 
-            return array_map( function(array $season) {
+            return array_map(function (array $season) {
                 return new Season($season);
             }, $data);
         } catch (GuzzleException $e) {

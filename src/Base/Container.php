@@ -134,7 +134,7 @@ class Container
     private function createHttpClient(): Client
     {
         $baseRoute = $this->getParameter('base_route', '');
-        
+
         return new Client([
             'baseRoute' => $baseRoute,
             'timeout'   => $this->getParameter('timeout', 10.0),

@@ -59,7 +59,8 @@ class PerformanceTest extends testCase
         $this->assertNull($performance->date());
     }
 
-    public function testDescription(): void {
+    public function testDescription(): void
+    {
         $this->assertIsString($this->_sut->description());
         $this->assertEquals('La Traviata', $this->_sut->description());
     }

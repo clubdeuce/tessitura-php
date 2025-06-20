@@ -7,7 +7,6 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(Season::class)]
 class SeasonTest extends testCase
 {
-
     /**
      * @var Season
      */

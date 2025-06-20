@@ -14,8 +14,9 @@ class ProductionSeasonTest extends testCase
         $json = [];
         $path = dirname(__DIR__) . '/fixtures/production-season.json';
 
-        if (file_exists($path))
+        if (file_exists($path)) {
             $json = json_decode(file_get_contents($path), 'associative array');
+        }
 
         $this->_sut = new ProductionSeason(['response' => $json]);
     }

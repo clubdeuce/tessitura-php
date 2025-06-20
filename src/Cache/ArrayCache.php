@@ -69,13 +69,13 @@ class ArrayCache implements CacheInterface
         if (!array_key_exists($key, $this->cache)) {
             return false;
         }
-        
+
         // Check if expired
         if (isset($this->expiration[$key]) && $this->expiration[$key] < time()) {
             unset($this->cache[$key], $this->expiration[$key]);
             return false;
         }
-        
+
         return true;
     }
 

@@ -16,7 +16,6 @@ use Clubdeuce\Tessitura\Tests\testCase;
 #[UsesClass(Season::class)]
 class SeasonsTest extends testCase
 {
-
     public function testGetById(): void
     {
         try {

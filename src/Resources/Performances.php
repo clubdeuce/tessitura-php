@@ -115,7 +115,6 @@ class Performances extends Base implements ResourceInterface
             $data = $this->_api->get(sprintf('%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId));
 
             return array_map([$this, 'makeNewZoneAvailability'], $data);
-
         } catch (Exception $e) {
             return [];
         }

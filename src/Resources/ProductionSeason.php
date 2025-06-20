@@ -13,7 +13,6 @@ use InvalidArgumentException;
  */
 class ProductionSeason extends Base
 {
-
     /**
      * @var string[]
      */
@@ -75,5 +74,4 @@ class ProductionSeason extends Base
     {
         return $this->_performances;
     }
-
 }
