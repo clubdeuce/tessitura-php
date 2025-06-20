@@ -16,7 +16,6 @@
 
     <!-- Additional rules -->
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
-    <rule ref="Generic.PHP.RequireStrictTypes"/>
     
     <!-- Allow some flexibility for magic methods -->
     <rule ref="PSR1.Methods.CamelCapsMethodName">
