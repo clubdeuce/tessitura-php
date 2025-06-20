@@ -13,7 +13,7 @@ class PerformanceZoneAvailability extends Resource {
     protected int $_performanceId = 0;
 
     /**
-     * @var null|string[]
+     * @var string[]
      */
     protected array $_zone;
 
