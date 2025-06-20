@@ -33,7 +33,7 @@ class SeasonsTest extends testCase
             try {
                 $season = $sut->getById(1);
                 $this->assertInstanceOf(Season::class, $season);
-                $this->assertNotEquals(0, $season->id());
+                $this->assertNotEquals(0, $season->getId());
                 $this->assertNull($sut->getById(1));
             } catch (Exception $e) {
                 trigger_error($e->getMessage());

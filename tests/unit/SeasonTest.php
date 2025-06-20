@@ -21,19 +21,19 @@ class SeasonTest extends testCase
 
     public function testId(): void
     {
-        $this->assertIsInt($this->_sut->id());
-        $this->assertEquals(194, $this->_sut->id());
+        $this->assertIsInt($this->_sut->getId());
+        $this->assertEquals(194, $this->_sut->getId());
     }
 
     public function testDescription()
     {
-        $this->assertIsString($this->_sut->description());
-        $this->assertEquals('2024/2025 Opera', $this->_sut->description());
+        $this->assertIsString($this->_sut->getDescription());
+        $this->assertEquals('2024/2025 Opera', $this->_sut->getDescription());
     }
 
     public function testCreatedDateTime(): void
     {
-        $created = $this->_sut->createdDateTime();
+        $created = $this->_sut->getCreatedDateTime();
 
         $this->assertInstanceOf(\DateTime::class, $created);
         $this->assertEquals('2024-01-19', $created->format('Y-m-d'));
@@ -41,7 +41,7 @@ class SeasonTest extends testCase
 
     public function testStartDateTime()
     {
-        $start = $this->_sut->startDateTime();
+        $start = $this->_sut->getStartDateTime();
 
         $this->assertInstanceOf(\DateTime::class, $start);
         $this->assertEquals('2024-07-01', $start->format('Y-m-d'));
@@ -49,7 +49,7 @@ class SeasonTest extends testCase
 
     public function testEndDateTime()
     {
-        $end = $this->_sut->endDateTime();
+        $end = $this->_sut->getEndDateTime();
 
         $this->assertInstanceOf(\DateTime::class, $end);
         $this->assertEquals('2025-06-30', $end->format('Y-m-d'));
@@ -58,18 +58,18 @@ class SeasonTest extends testCase
     public function testCreatedDateTimeIsNull(): void
     {
         $season = new Season();
-        $this->assertNull($season->createdDateTime());
+        $this->assertNull($season->getCreatedDateTime());
     }
 
     public function testStartDateTimeIsNull()
     {
         $season = new Season();
-        $this->assertNull($season->startDateTime());
+        $this->assertNull($season->getStartDateTime());
     }
 
     public function testEndDateTimeIsNull()
     {
         $season = new Season();
-        $this->assertNull($season->endDateTime());
+        $this->assertNull($season->getEndDateTime());
     }
 }
