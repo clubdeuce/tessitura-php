@@ -2,22 +2,22 @@
 
 namespace Clubdeuce\Tessitura\Interfaces;
 
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Client;
 
 interface ClientConfigurableInterface
 {
     /**
      * Set the HTTP client.
      *
-     * @param ClientInterface $client
+     * @param Client $client
      * @return void
      */
-    public function setClient(ClientInterface $client): void;
+    public function setClient(Client $client): void;
 
     /**
      * Get the HTTP client.
      *
-     * @return ClientInterface
+     * @return Client
      */
-    public function getClient(): ClientInterface;
+    public function getClient(): Client;
 }
