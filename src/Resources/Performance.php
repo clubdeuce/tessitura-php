@@ -7,6 +7,7 @@ use DateInterval;
 use DateTime;
 use DateTimeZone;
 use Exception;
+use Throwable;
 
 class Performance extends Base
 {
@@ -43,7 +44,7 @@ class Performance extends Base
 
         try {
             return new DateTime($this->_extraArgs['DoorsOpen']);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             return null;
         }
     }

@@ -4,6 +4,7 @@ namespace Clubdeuce\Tessitura\Resources;
 use Clubdeuce\Tessitura\Base\Base;
 use DateTime;
 use DateTimeZone;
+use Throwable;
 
 class Season extends Base {
 
@@ -18,7 +19,7 @@ class Season extends Base {
             $createdDateTime = new DateTime($this->extraArgs()['CreatedDateTime'], new DateTimeZone($timezone));
 
             return $createdDateTime;
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             return null;
         }
     }
@@ -39,7 +40,7 @@ class Season extends Base {
             $endDateTime = new DateTime($this->extraArgs()['EndDateTime'], new DateTimeZone($timezone));
 
             return $endDateTime;
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             return null;
         }
     }
@@ -60,7 +61,7 @@ class Season extends Base {
             $startDateTime = new DateTime($this->extraArgs()['StartDateTime'], new DateTimeZone($timezone));
 
             return $startDateTime;
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             return null;
         }
     }
