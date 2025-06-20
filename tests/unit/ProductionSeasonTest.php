@@ -1,5 +1,7 @@
 <?php
 
+namespace Clubdeuce\Tessitura\Tests\Unit;
+
 use Clubdeuce\Tessitura\Resources\ProductionSeason;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Tests\testCase;
@@ -7,7 +9,7 @@ use Clubdeuce\Tessitura\Tests\testCase;
 #[CoversClass(ProductionSeason::class)]
 class ProductionSeasonTest extends testCase
 {
-    protected ProductionSeason $_sut;
+    protected ProductionSeason $sut;
 
     public function setUp(): void
     {
@@ -18,14 +20,14 @@ class ProductionSeasonTest extends testCase
             $json = json_decode(file_get_contents($path), 'associative array');
         }
 
-        $this->_sut = new ProductionSeason(['response' => $json]);
+        $this->sut = new ProductionSeason(['response' => $json]);
     }
 
     public function testFirstPerformance(): void
     {
         try {
-            $this->assertInstanceOf(DateTime::class, $this->_sut->first_performance_date());
-            $this->assertEquals('2024-10-19 7:30 PM', $this->_sut->first_performance_date()->format('Y-m-d g:i A'));
+            $this->assertInstanceOf(DateTime::class, $this->sut->first_performance_date());
+            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->first_performance_date()->format('Y-m-d g:i A'));
         } catch (\Exception $e) {
             trigger_error($e->getMessage());
         }
@@ -34,8 +36,8 @@ class ProductionSeasonTest extends testCase
     public function testLastPerformance(): void
     {
         try {
-            $this->assertInstanceOf(DateTime::class, $this->_sut->last_performance_date());
-            $this->assertEquals('2024-10-19 7:30 PM', $this->_sut->first_performance_date()->format('Y-m-d g:i A'));
+            $this->assertInstanceOf(DateTime::class, $this->sut->last_performance_date());
+            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->first_performance_date()->format('Y-m-d g:i A'));
         } catch (\Exception $e) {
             trigger_error($e->getMessage());
         }
@@ -56,17 +58,17 @@ class ProductionSeasonTest extends testCase
     public function testFirstPerformanceBadTimezone(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->_sut->first_performance_date('kjdjfwjnewkf');
+        $this->sut->first_performance_date('kjdjfwjnewkf');
     }
 
     public function testLastPerformanceBadTimezone(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->_sut->last_performance_date('asdasdsadfadsf');
+        $this->sut->last_performance_date('asdasdsadfadsf');
     }
 
     public function testPerformances(): void
     {
-        $this->assertIsArray($this->_sut->performances());
+        $this->assertIsArray($this->sut->performances());
     }
 }
