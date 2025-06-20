@@ -144,7 +144,11 @@ class Api extends Base implements
      */
     protected function makeRequest(string $endpoint, array $args): array
     {
-        $method = $args['method'] ?? 'GET';
+        $args = $this->parseArgs($args, [
+            'method' => 'GET',
+        ]);
+
+        $method = $args['method'];
         
         // Only cache GET requests
         if ($method === 'GET' && $this->_cache) {
@@ -185,6 +189,8 @@ class Api extends Base implements
          * @var Stream $body
          */
         $body = $response->getBody();
+
+        $this->logEvent('Error response from endpoint: ' . $endpoint);
 
         throw new Exception(
             $body->getContents(),
