@@ -6,7 +6,18 @@ use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 
 class ArrayCache implements CacheInterface
 {
+    /**
+     * Cached values
+     *
+     * @var mixed[]
+     */
     private array $cache = [];
+
+    /**
+     * Expiration times for cached values
+     *
+     * @var int[]
+     */
     private array $expiration = [];
 
     /**
