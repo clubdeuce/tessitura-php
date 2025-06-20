@@ -8,9 +8,7 @@ use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\LoggerAwareInterface;
 use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
 use Psr\Log\LoggerInterface;
 
@@ -56,9 +54,9 @@ class Api extends Base implements
     protected string $_version = '15';
 
     /**
-     * @var ClientInterface GuzzleHttp client
+     * @var Client GuzzleHttp client
      */
-    protected ClientInterface $_client;
+    protected Client $_client;
 
     /**
      * @var LoggerInterface|null
@@ -81,13 +79,13 @@ class Api extends Base implements
      * @type string   $username
      * @type string   $version
      * }
-     * @param ClientInterface|null $client The HTTP client to use for API requests
+     * @param Client|null $client The HTTP client to use for API requests
      * @param LoggerInterface|null $logger The logger to use for logging
      * @param CacheInterface|null $cache The cache implementation to use for caching API responses
      */
     public function __construct(
         array $args = [],
-        ?ClientInterface $client = null,
+        ?Client $client = null,
         ?LoggerInterface $logger = null,
         ?CacheInterface $cache = null
     ) {
@@ -139,7 +137,7 @@ class Api extends Base implements
     /**
      * @param string  $endpoint
      * @param mixed[] $args
-     * @return mixed
+     * @return mixed[]
      * @throws Exception|GuzzleException
      */
     protected function makeRequest(string $endpoint, array $args): array
@@ -148,11 +146,11 @@ class Api extends Base implements
             'method' => 'GET',
         ]);
 
-        $method = $args['method'];
+        $method   = $args['method'];
+        $cacheKey = $this->generateCacheKey($endpoint, $args);
         
         // Only cache GET requests
         if ($method === 'GET' && $this->_cache) {
-            $cacheKey = $this->generateCacheKey($endpoint, $args);
             $cachedResponse = $this->_cache->get($cacheKey);
             
             if ($cachedResponse !== null) {
@@ -161,9 +159,6 @@ class Api extends Base implements
             }
         }
 
-        /**
-         * @var Response $response
-         */
         // Use the appropriate HTTP method
         if ($method === 'POST') {
             $response = $this->_client->post($this->getUri($endpoint), $args);
@@ -335,12 +330,12 @@ class Api extends Base implements
         return $this->getLogger();
     }
 
-    public function setClient(ClientInterface $client): void
+    public function setClient(Client $client): void
     {
         $this->_client = $client;
     }
 
-    public function getClient(): ClientInterface
+    public function getClient(): Client
     {
         return $this->_client;
     }
@@ -429,9 +424,9 @@ class Api extends Base implements
     /**
      * Generate a cache key for the given endpoint and arguments.
      *
-     * @param string $endpoint The API endpoint
-     * @param array $args The request arguments
-     * @return string The generated cache key
+     * @param string   $endpoint The API endpoint
+     * @param string[] $args The request arguments
+     * @return string  The generated cache key
      */
     protected function generateCacheKey(string $endpoint, array $args): string
     {
