@@ -6,8 +6,6 @@ parameters:
     excludePaths:
         - tests/bootstrap.php
     tmpDir: var/cache/phpstan
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         # Allow trigger_error usage in tests for backward compatibility
