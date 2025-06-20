@@ -1,9 +1,14 @@
 .env
 /reports
 /vendor
+/var
 
 /.idea
 .phpunit.cache
 .phpunit.result.cache
 composer.phar
 /demo
+
+# Static analysis cache
+.php-cs-fixer.cache
+psalm.xml.cache
