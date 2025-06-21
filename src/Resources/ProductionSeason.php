@@ -8,9 +8,6 @@ use DateTimeZone;
 use Exception;
 use InvalidArgumentException;
 
-/**
- * @method string[] response()
- */
 class ProductionSeason extends Base
 {
     /**
@@ -22,6 +19,16 @@ class ProductionSeason extends Base
      * @var Performance[]
      */
     protected array $_performances = [];
+
+    /**
+     * Get the response data for this production season.
+     *
+     * @return mixed[] The response data
+     */
+    public function response(): array
+    {
+        return $this->_response;
+    }
 
     /**
      * @throws InvalidArgumentException

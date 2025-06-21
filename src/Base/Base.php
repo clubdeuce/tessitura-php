@@ -2,6 +2,15 @@
 
 namespace Clubdeuce\Tessitura\Base;
 
+/**
+ * Base class for Tessitura API resources.
+ *
+ * Provides a foundation for API resources with explicit getter methods
+ * for better IDE support and type safety. Magic methods are still supported
+ * for backward compatibility but are deprecated for common properties.
+ *
+ * @package Clubdeuce\Tessitura\Base
+ */
 class Base
 {
     /**
@@ -59,6 +68,17 @@ class Base
      */
     public function __call(string $name, array $args = []): mixed
     {
+        // Add deprecation warning for magic method usage
+        // This helps encourage developers to use explicit getter methods
+        $commonMethods = ['id', 'name', 'description'];
+        if (in_array(strtolower($name), $commonMethods)) {
+            $methodName = 'get' . ucfirst($name);
+            trigger_error(
+                "Magic method $name() is deprecated. Use explicit method $methodName() instead.",
+                E_USER_DEPRECATED
+            );
+        }
+
         $property = "_{$name}";
 
         if (property_exists($this, $property)) {
@@ -96,5 +116,38 @@ class Base
     public function extraArgs(): array
     {
         return $this->_extraArgs;
+    }
+
+    /**
+     * Get ID value if it exists
+     *
+     * @return int The ID value or 0 if not found
+     */
+    public function getId(): int
+    {
+        $id = $this->extraArgs()['id'] ?? 0;
+        return intval($id);
+    }
+
+    /**
+     * Get name value if it exists
+     *
+     * @return string The name value or empty string if not found
+     */
+    public function getName(): string
+    {
+        $name = $this->extraArgs()['name'] ?? '';
+        return (string)$name;
+    }
+
+    /**
+     * Get description value if it exists
+     *
+     * @return string The description value or empty string if not found
+     */
+    public function getDescription(): string
+    {
+        $description = $this->extraArgs()['description'] ?? '';
+        return (string)$description;
     }
 }
