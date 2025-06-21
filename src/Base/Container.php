@@ -15,18 +15,30 @@ use Psr\Log\NullLogger;
  * @package Clubdeuce\Tessitura
  *
  * A simple service container for managing dependencies.
+ *
+ * This class provides a lightweight dependency injection container.
+ * It allows you to store and retrieve services and configuration parameters,
+ * making it easier to manage dependencies and configuration throughout your application.
+ *
+ * Example usage:
+ * <code>
+ * $container = new Container(['db_host' => 'localhost']);
+ * $container->set('logger', new Logger());
+ * $logger = $container->get('logger');
+ * $dbHost = $container->getParameter('db_host');
+ * </code>
  */
 class Container
 {
     /**
-     * @var mixed[]
+     * @var mixed[] Array of registered services.
      */
     private array $services = [];
 
     /**
-     * @var mixed[]
+     * @var mixed[] Array of configuration parameters.
      */
-    private array $parameters = [];
+    private array $parameters;
 
     /**
      * Container constructor.
