@@ -87,6 +87,12 @@ class Base
             return $this->{$property};
         }
 
+        /**
+         * Retrieves the value of an extra argument by name.
+         *
+         * @param string $name The name of the extra argument to retrieve.
+         * @return mixed The value of the extra argument if set, or false if not found.
+         */
         if (isset($this->_extraArgs[$name])) {
             return $this->_extraArgs[$name];
         }
@@ -97,9 +103,11 @@ class Base
     /**
      * Parses the provided arguments and fills in defaults.
      *
-     * @param mixed[] $args
-     * @param mixed[] $defaults
-     * @return mixed[]
+     * For each key in $defaults that is not present in $args, the default value is added to $args.
+     *
+     * @param mixed[] $args     The arguments to parse.
+     * @param mixed[] $defaults The default values to use for missing arguments.
+     * @return mixed[] The resulting array with defaults filled in.
      */
     public function parseArgs(array $args = [], array $defaults = []): array
     {
@@ -113,7 +121,9 @@ class Base
     }
 
     /**
-     * @return mixed[]
+     * Returns all extra arguments as an associative array.
+     *
+     * @return mixed[] The array of extra arguments.
      */
     public function extraArgs(): array
     {
