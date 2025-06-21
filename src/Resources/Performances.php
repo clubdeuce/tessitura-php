@@ -10,7 +10,7 @@ use Exception;
 
 class Performances extends Base implements ResourceInterface
 {
-    const RESOURCE = 'TXN/Performances';
+    public const RESOURCE = 'TXN/Performances';
     protected ApiInterface $_api;
 
     public function __construct(ApiInterface $api)

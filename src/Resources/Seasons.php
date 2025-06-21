@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\GuzzleException;
  */
 class Seasons
 {
-    const RESOURCE = 'ReferenceData/Seasons';
+    public const RESOURCE = 'ReferenceData/Seasons';
 
     protected Client $client;
 
