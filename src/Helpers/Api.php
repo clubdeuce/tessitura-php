@@ -20,7 +20,7 @@ class Api extends Base implements
     ApiInterface,
     LoggerAwareInterface
 {
-    const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
+    protected const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
 
     /**
      * @var string The base path to the Tessitura API
