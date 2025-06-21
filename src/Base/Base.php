@@ -119,18 +119,6 @@ class Base
     }
 
     /**
-     * Get a value from extraArgs by key
-     *
-     * @param string $key The key to get
-     * @param mixed $default Default value if key doesn't exist
-     * @return mixed The value or default
-     */
-    public function get(string $key, mixed $default = null): mixed
-    {
-        return $this->_extraArgs[$key] ?? $default;
-    }
-
-    /**
      * Get ID value if it exists
      *
      * @return int The ID value or 0 if not found
