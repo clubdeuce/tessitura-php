@@ -241,7 +241,13 @@ class Api extends Base implements
     protected function getAuthorizationHeaderValue(): string
     {
 
-        $auth_key = sprintf('%1$s:%2$s:%3$s:%4$s', $this->getUsername(), $this->getUsergroup(), $this->getMachine(), $this->getPassword());
+        $auth_key = sprintf(
+            '%1$s:%2$s:%3$s:%4$s',
+            $this->getUsername(),
+            $this->getUsergroup(),
+            $this->getMachine(),
+            $this->getPassword()
+        );
 
         return sprintf('Basic %1$s', base64_encode($auth_key));
     }
