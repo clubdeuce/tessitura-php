@@ -2,6 +2,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/?branch=main)
 [![Code Coverage](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/?branch=main)
 [![Build Status](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/badges/build.png?b=main)](https://scrutinizer-ci.com/g/clubdeuce/tessitura-php/build-status/main)
+[![codecov](https://codecov.io/gh/clubdeuce/tessitura-php/graph/badge.svg?token=B3JQ368TP6)](https://codecov.io/gh/clubdeuce/tessitura-php)
 
 A PHP library for the Tessitura API.
 
