@@ -8,9 +8,7 @@ use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\LoggerAwareInterface;
 use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
 use Psr\Log\LoggerInterface;
 
@@ -18,12 +16,11 @@ use Psr\Log\LoggerInterface;
  * Class API
  * @package Clubdeuce\Tessitura\Helpers
  */
-class Api extends Base implements 
+class Api extends Base implements
     ApiInterface,
     LoggerAwareInterface
 {
-
-    const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
+    protected const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
 
     /**
      * @var string The base path to the Tessitura API
@@ -56,9 +53,9 @@ class Api extends Base implements
     protected string $_version = '15';
 
     /**
-     * @var ClientInterface GuzzleHttp client
+     * @var Client GuzzleHttp client
      */
-    protected ClientInterface $_client;
+    protected Client $_client;
 
     /**
      * @var LoggerInterface|null
@@ -81,24 +78,24 @@ class Api extends Base implements
      * @type string   $username
      * @type string   $version
      * }
-     * @param ClientInterface|null $client The HTTP client to use for API requests
+     * @param Client|null $client The HTTP client to use for API requests
      * @param LoggerInterface|null $logger The logger to use for logging
      * @param CacheInterface|null $cache The cache implementation to use for caching API responses
      */
     public function __construct(
         array $args = [],
-        ?ClientInterface $client = null,
+        ?Client $client = null,
         ?LoggerInterface $logger = null,
         ?CacheInterface $cache = null
     ) {
-        $args = $this->parseArgs($args, array(
+        $args = $this->parseArgs($args, [
             'baseRoute' => '',
             'machine' => '',
             'password' => '',
             'usergroup' => '',
             'username' => '',
             'version' => '16',
-        ));
+        ]);
 
         if ($logger) {
             $this->setLogger($logger);
@@ -118,7 +115,6 @@ class Api extends Base implements
         $args['client'] = $client;
 
         parent::__construct($args);
-
     }
 
     /**
@@ -127,11 +123,11 @@ class Api extends Base implements
      * @return mixed
      * @throws Exception
      */
-    public function get(string $resource, array $args = array()): mixed
+    public function get(string $resource, array $args = []): mixed
     {
-        $args = array_merge($args, array(
+        $args = array_merge($args, [
             'method' => 'GET',
-        ));
+        ]);
 
         return $this->makeRequest($resource, $args);
     }
@@ -139,7 +135,7 @@ class Api extends Base implements
     /**
      * @param string  $endpoint
      * @param mixed[] $args
-     * @return mixed
+     * @return mixed[]
      * @throws Exception|GuzzleException
      */
     protected function makeRequest(string $endpoint, array $args): array
@@ -148,22 +144,19 @@ class Api extends Base implements
             'method' => 'GET',
         ]);
 
-        $method = $args['method'];
-        
+        $method   = $args['method'];
+        $cacheKey = $this->generateCacheKey($endpoint, $args);
+
         // Only cache GET requests
         if ($method === 'GET' && $this->_cache) {
-            $cacheKey = $this->generateCacheKey($endpoint, $args);
             $cachedResponse = $this->_cache->get($cacheKey);
-            
+
             if ($cachedResponse !== null) {
                 $this->logEvent('Cache hit for endpoint: ' . $endpoint);
                 return $cachedResponse;
             }
         }
 
-        /**
-         * @var Response $response
-         */
         // Use the appropriate HTTP method
         if ($method === 'POST') {
             $response = $this->_client->post($this->getUri($endpoint), $args);
@@ -173,14 +166,14 @@ class Api extends Base implements
 
         if (200 === $response->getStatusCode()) {
             $data = json_decode($response->getBody(), true);
-            
+
             // Cache successful GET responses
             if ($method === 'GET' && $this->_cache) {
                 $cacheExpiration = $args['cache_expiration'] ?? self::CACHE_EXPIRATION_DEFAULT;
                 $this->_cache->set($cacheKey, $data, $cacheExpiration);
                 $this->logEvent('Cached response for endpoint: ' . $endpoint);
             }
-            
+
             return $data;
         }
 
@@ -215,12 +208,12 @@ class Api extends Base implements
     protected function getRequestArgs(array $args = []): array
     {
 
-        $args = $this->parseArgs($args, array(
+        $args = $this->parseArgs($args, [
             'cache_expiration' => self::CACHE_EXPIRATION_DEFAULT,
             'headers'          => [],
             'body'             => '',
             'timeout'          => 10.0,
-        ));
+        ]);
 
         if (is_array($args['body'])) {
             if (empty($args['body'])) {
@@ -231,16 +224,15 @@ class Api extends Base implements
         }
 
         $parsedUrl = parse_url($this->baseRoute());
-        $args['headers'] = $this->parseArgs($args['headers'], array(
+        $args['headers'] = $this->parseArgs($args['headers'], [
             'Authorization' => $this->getAuthorizationHeaderValue(),
             'Content-Type'   => 'application/json',
             'Content-Length' => strlen($args['body']),
             'Accept'         => 'application/json',
             'Host'           => $parsedUrl['host'] ?? $this->baseRoute(),
-        ));
+        ]);
 
         return array_filter($args);
-
     }
 
     /**
@@ -249,10 +241,15 @@ class Api extends Base implements
     protected function getAuthorizationHeaderValue(): string
     {
 
-        $auth_key = sprintf('%1$s:%2$s:%3$s:%4$s', $this->getUsername(), $this->getUsergroup(), $this->getMachine(), $this->getPassword());
+        $auth_key = sprintf(
+            '%1$s:%2$s:%3$s:%4$s',
+            $this->getUsername(),
+            $this->getUsergroup(),
+            $this->getMachine(),
+            $this->getPassword()
+        );
 
         return sprintf('Basic %1$s', base64_encode($auth_key));
-
     }
 
     /**
@@ -264,7 +261,6 @@ class Api extends Base implements
     {
 
         return "{$this->baseRoute()}/{$endpoint}";
-
     }
 
     /**
@@ -276,12 +272,11 @@ class Api extends Base implements
     public function post(string $endpoint, array $args = []): array|Exception
     {
 
-        $args = array_merge($args, array(
+        $args = array_merge($args, [
             'method' => 'POST',
-        ));
+        ]);
 
         return $this->makeRequest($endpoint, $args);
-
     }
 
     /**
@@ -297,16 +292,15 @@ class Api extends Base implements
     protected function logEvent(string $message, array $args = []): void
     {
 
-        $args = $this->parseArgs($args, array(
+        $args = $this->parseArgs($args, [
             'log' => 'tessitura',
-        ));
+        ]);
 
         $message = 'Tessitura API: ' . $message;
 
         if ($this->getLogger()) {
             $this->getLogger()->info($message, $args);
         }
-
     }
 
     /**
@@ -335,12 +329,12 @@ class Api extends Base implements
         return $this->getLogger();
     }
 
-    public function setClient(ClientInterface $client): void
+    public function setClient(Client $client): void
     {
         $this->_client = $client;
     }
 
-    public function getClient(): ClientInterface
+    public function getClient(): Client
     {
         return $this->_client;
     }
@@ -429,16 +423,16 @@ class Api extends Base implements
     /**
      * Generate a cache key for the given endpoint and arguments.
      *
-     * @param string $endpoint The API endpoint
-     * @param array $args The request arguments
-     * @return string The generated cache key
+     * @param string   $endpoint The API endpoint
+     * @param string[] $args The request arguments
+     * @return string  The generated cache key
      */
     protected function generateCacheKey(string $endpoint, array $args): string
     {
         // Remove method and cache-specific args from key generation
         $keyArgs = $args;
         unset($keyArgs['method'], $keyArgs['cache_expiration']);
-        
+
         // Create a consistent key based on endpoint and args
         $keyData = [
             'endpoint' => $endpoint,
@@ -446,7 +440,7 @@ class Api extends Base implements
             'version' => $this->getVersion(),
             'args' => $keyArgs
         ];
-        
+
         return 'tessitura:' . md5(json_encode($keyData));
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Clubdeuce\Tessitura\Tests\unit;
+
 use Clubdeuce\Tessitura\Base\Base;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Tests\testCase;

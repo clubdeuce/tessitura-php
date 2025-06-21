@@ -21,19 +21,19 @@ use Psr\Log\NullLogger;
 class Container
 {
     /**
-     * @var array
+     * @var mixed[]
      */
     private array $services = [];
 
     /**
-     * @var array
+     * @var mixed[]
      */
     private array $parameters = [];
 
     /**
      * Container constructor.
      *
-     * @param array $parameters Configuration parameters
+     * @param mixed[] $parameters Configuration parameters
      */
     public function __construct(array $parameters = [])
     {
@@ -129,12 +129,12 @@ class Container
     /**
      * Create an HTTP client.
      *
-     * @return ClientInterface
+     * @return Client
      */
-    private function createHttpClient(): ClientInterface
+    private function createHttpClient(): Client
     {
         $baseRoute = $this->getParameter('base_route', '');
-        
+
         return new Client([
             'baseRoute' => $baseRoute,
             'timeout'   => $this->getParameter('timeout', 10.0),

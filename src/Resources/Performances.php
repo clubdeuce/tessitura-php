@@ -10,7 +10,7 @@ use Exception;
 
 class Performances extends Base implements ResourceInterface
 {
-    const RESOURCE = 'TXN/Performances';
+    public const RESOURCE = 'TXN/Performances';
     protected ApiInterface $_api;
 
     public function __construct(ApiInterface $api)
@@ -19,6 +19,12 @@ class Performances extends Base implements ResourceInterface
         parent::__construct();
     }
 
+    /**
+     * Get upcoming performances
+     *
+     * @param int $days Number of days to look ahead for performances. Defaults to thirty days.
+     * @return Performance[]
+     */
     public function getUpcomingPerformances(int $days = 30): array
     {
         try {
@@ -33,6 +39,13 @@ class Performances extends Base implements ResourceInterface
         return [];
     }
 
+    /**
+     * Get performances between two dates.
+     *
+     * @param DateTime $start
+     * @param DateTime $end
+     * @return Performance[]
+     */
     public function getPerformancesBetween(DateTime $start, DateTime $end): array
     {
         $sorted = [];
@@ -56,6 +69,10 @@ class Performances extends Base implements ResourceInterface
         return $sorted;
     }
 
+    /**
+     * @param int $psId
+     * @return Performance[]
+     */
     public function getPerformancesForProductionSeason(int $psId): array
     {
         return $this->search([
@@ -64,7 +81,7 @@ class Performances extends Base implements ResourceInterface
     }
 
     /**
-     * @param  array $args
+     * @param  mixed[] $args
      * @return Performance[]
      */
     public function search(array $args = []): array
@@ -88,21 +105,27 @@ class Performances extends Base implements ResourceInterface
         return array_map(fn($item) => new Performance($item), $results);
     }
 
+    /**
+     * @param int $performanceId
+     * @return PerformanceZoneAvailability[]
+     */
     public function getPerformanceZoneAvailabilities(int $performanceId): array
     {
         try {
             $data = $this->_api->get(sprintf('%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId));
 
-            if (is_array($data)) {
-                return array_map([$this, 'makeNewZoneAvailability'], $data);
-            }
-
-            return [];
+            return array_map([$this, 'makeNewZoneAvailability'], $data);
         } catch (Exception $e) {
             return [];
         }
     }
 
+    /**
+     * Create a new PerformanceZoneAvailability instance from the provided data.
+     *
+     * @param mixed[] $data
+     * @return PerformanceZoneAvailability
+     */
     protected function makeNewZoneAvailability(array $data): PerformanceZoneAvailability
     {
         $data = $this->parseArgs($data, [

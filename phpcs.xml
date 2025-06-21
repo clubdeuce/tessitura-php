@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset name="TessituraPhp">
+    <description>PHP_CodeSniffer configuration for Tessitura PHP Library</description>
+
+    <!-- Files to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Exclude specific files -->
+    <exclude-pattern>tests/bootstrap.php</exclude-pattern>
+    <exclude-pattern>vendor/</exclude-pattern>
+    <exclude-pattern>var/</exclude-pattern>
+
+    <!-- Use PSR-12 as base coding standard -->
+    <rule ref="PSR12"/>
+
+    <!-- Additional rules -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    
+    <!-- Allow some flexibility for magic methods -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude-pattern>*/Base/Base.php</exclude-pattern>
+    </rule>
+
+    <!-- Allow leading underscores for properties and method names -->
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <exclude-pattern>*/Base/Base.php</exclude-pattern>
+        <exclude-pattern>*/Helpers/Api.php</exclude-pattern>
+        <exclude-pattern>*/Resources/Performance.php</exclude-pattern>
+        <exclude-pattern>*/Resources/Performances.php</exclude-pattern>
+        <exclude-pattern>*/Resources/PerformanceZoneAvailability.php</exclude-pattern>
+        <exclude-pattern>*/Resources/ProductionSeason.php</exclude-pattern>
+    </rule>
+
+    <!-- Show progress -->
+    <arg value="p"/>
+    
+    <!-- Use colors in output -->
+    <arg name="colors"/>
+    
+    <!-- Show sniff codes in all reports -->
+    <arg value="s"/>
+</ruleset>

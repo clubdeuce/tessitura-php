@@ -10,13 +10,12 @@ class PriceSummary extends Resource
     {
 
         return floatval($this->_extraArgs['Price']);
-
     }
 
-    public function zoneId() : int {
+    public function zoneId(): int
+    {
 
-        return intval( $this->_extraArgs['ZoneId'] );
-
+        return intval($this->_extraArgs['ZoneId']);
     }
 
     public function enabled(): bool

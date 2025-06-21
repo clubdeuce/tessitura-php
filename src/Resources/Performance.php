@@ -10,7 +10,6 @@ use Exception;
 
 class Performance extends Base
 {
-
     protected DateTime $_date;
 
     public function title(): string
@@ -32,7 +31,6 @@ class Performance extends Base
     {
 
         return (string)$this->_extraArgs['PerformanceDescription'];
-
     }
 
     public function doorsOpen(): ?DateTime
@@ -97,7 +95,10 @@ class Performance extends Base
             try {
                 return new DateTime($this->_extraArgs['PerformanceDate'], new DateTimeZone($timezone));
             } catch (Exception $e) {
-                throw new Exception("Unable to convert performance date into DateTime object: {$e->getMessage()}", E_USER_WARNING);
+                throw new Exception(
+                    "Unable to convert performance date into DateTime object: {$e->getMessage()}",
+                    E_USER_WARNING
+                );
             }
         }
 
@@ -108,5 +109,4 @@ class Performance extends Base
     {
         return intval($this->_extraArgs['PerformanceStatus']['Id']);
     }
-
 }

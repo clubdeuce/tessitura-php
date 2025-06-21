@@ -47,9 +47,9 @@ class RedisCache implements CacheInterface
         try {
             $serializedValue = json_encode($value);
             if ($ttl > 0) {
-                return $this->redis->setex($key, $ttl, $serializedValue) === 'OK';
+                return $this->redis->setex($key, $ttl, $serializedValue) == 'OK';
             } else {
-                return $this->redis->set($key, $serializedValue) === 'OK';
+                return $this->redis->set($key, $serializedValue) == 'OK';
             }
         } catch (Exception) {
             return false;

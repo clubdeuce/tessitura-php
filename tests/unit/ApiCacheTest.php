@@ -22,12 +22,12 @@ class ApiCacheTest extends testCase
     {
         // Create a mock cache implementation
         $cache = $this->createMock(CacheInterface::class);
-        
+
         // Set up the cache to return null initially (cache miss)
         $cache->expects($this->once())
               ->method('get')
               ->willReturn(null);
-        
+
         // Expect cache->set to be called once
         $cache->expects($this->once())
               ->method('set')
@@ -59,7 +59,7 @@ class ApiCacheTest extends testCase
     public function testCacheHit(): void
     {
         $cachedData = ['cached' => 'response'];
-        
+
         // Create a mock cache that returns cached data
         $cache = $this->createMock(CacheInterface::class);
         $cache->expects($this->once())
@@ -116,7 +116,7 @@ class ApiCacheTest extends testCase
     public function testCacheKeyGeneration(): void
     {
         $api = new Api(['baseRoute' => 'https://api.tessitura.com/']);
-        
+
         $reflection = new \ReflectionClass($api);
         $method = $reflection->getMethod('generateCacheKey');
         $method->setAccessible(true);
@@ -124,7 +124,7 @@ class ApiCacheTest extends testCase
         // Test with basic endpoint
         $key1 = $method->invokeArgs($api, ['endpoint1', ['method' => 'GET']]);
         $key2 = $method->invokeArgs($api, ['endpoint2', ['method' => 'GET']]);
-        
+
         $this->assertNotEquals($key1, $key2);
         $this->assertStringStartsWith('tessitura:', $key1);
         $this->assertStringStartsWith('tessitura:', $key2);
