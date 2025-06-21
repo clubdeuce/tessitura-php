@@ -1,0 +1,11 @@
+parameters:
+    level: 6
+    paths:
+        - src
+    tmpDir: var/cache/phpstan
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # Allow trigger_error usage in tests for backward compatibility
+        - '#trigger_error#'
+        # Allow magic methods where needed for API flexibility
+        - '#Call to an undefined method.*::__call\(\)#'

@@ -1,5 +1,7 @@
 <?php
+
 namespace Clubdeuce\Tessitura\Tests\Unit;
+
 use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Tests\testCase;
 use GuzzleHttp\Client;
@@ -7,11 +9,13 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\Exception;
 
 #[CoversClass(Api::class)]
-class ApiTest extends testCase {
+class ApiTest extends testCase
+{
     /**
      * @throws Exception
      */
-    public function testGetUri() : void {
+    public function testGetUri(): void
+    {
         $sut = new Api(['base_route' => 'https://api.tessitura.com'], $this->createMock(Client::class));
 
         $reflection = new \ReflectionMethod($sut::class, 'getUri');
@@ -24,7 +28,8 @@ class ApiTest extends testCase {
      * @throws \ReflectionException
      * @throws Exception
      */
-    public function testGetRequestArgs() : void {
+    public function testGetRequestArgs(): void
+    {
         $sut        = new Api([], $this->createMock(Client::class));
         $reflection = new \ReflectionMethod($sut, 'getRequestArgs');
         $result     = $reflection->invoke($sut);
@@ -34,13 +39,15 @@ class ApiTest extends testCase {
         $this->assertArrayHasKey('timeout', $result, 'Args contains timeout key');
         $this->assertArrayHasKey('headers', $result, 'Args contains headers key');
         $this->assertIsArray($result['headers'], 'Api::getRequestArgs()["header"] is an array');
-        $this->assertArrayHasKey('Authorization', $result['headers'], 'Api::getRequestArgs Authorization header is set');
-        $this->assertIsString($result['headers']['Authorization'], 'Api::getRequestArgs Authorization header is a string');
+        $this->assertArrayHasKey('Authorization', $result['headers'], 'Authorization header is set');
+        $this->assertIsString($result['headers']['Authorization'], 'Authorization header is a string');
     }
 
-    public function testGetAuthorizationHeaderValue() : void {
+    public function testGetAuthorizationHeaderValue(): void
+    {
         $sut        = new Api([], $this->createMock(Client::class));
-        $reflection = new \ReflectionMethod($sut, 'getAuthorizationHeaderValue');;
+        $reflection = new \ReflectionMethod($sut, 'getAuthorizationHeaderValue');
+        ;
         $result     = $reflection->invoke($sut);
 
         $this->assertIsString($result, 'Api::getAuthorizationHeaderValue returns a string');
@@ -155,10 +162,10 @@ class ApiTest extends testCase {
     public function testSetVersion(): void
     {
         $sut = new Api([], $this->createMock(Client::class));
-        
+
         $version = '17';
         $sut->setVersion($version);
-        
+
         $this->assertSame($version, $sut->getVersion(), 'Version was not set correctly.');
     }
 
@@ -172,7 +179,7 @@ class ApiTest extends testCase {
         $sut = new Api([
             'usergroup' => $usergroup
         ], $this->createMock(Client::class));
-        
+
         $this->assertSame($usergroup, $sut->getUsergroup(), 'Usergroup getter did not return correct value.');
     }
 
@@ -183,10 +190,10 @@ class ApiTest extends testCase {
     public function testSetUsergroup(): void
     {
         $sut = new Api([], $this->createMock(Client::class));
-        
+
         $usergroup = 'NewUsergroup';
         $sut->setUsergroup($usergroup);
-        
+
         $this->assertSame($usergroup, $sut->getUsergroup(), 'Usergroup was not set correctly.');
     }
 }

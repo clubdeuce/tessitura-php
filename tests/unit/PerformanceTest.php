@@ -1,37 +1,40 @@
 <?php
 
+namespace Clubdeuce\Tessitura\Tests\Unit;
+
 use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Tests\testCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use DateTime;
 
 #[CoversClass(Performance::class)]
 class PerformanceTest extends testCase
 {
-    protected Performance $_sut;
+    protected Performance $sut;
 
     public function setUp(): void
     {
         $json = file_get_contents(dirname(__DIR__) . '/fixtures/performance.json');
-        $this->_sut = new Performance(json_decode($json, true));
+        $this->sut = new Performance(json_decode($json, true));
     }
 
     public function testPerformanceId(): void
     {
-        $this->assertEquals(4849, $this->_sut->id());
+        $this->assertEquals(4849, $this->sut->id());
     }
 
     public function testTitle(): void
     {
-        $this->assertIsString($this->_sut->title());
-        $this->assertEquals('La Traviata', $this->_sut->title());
+        $this->assertIsString($this->sut->title());
+        $this->assertEquals('La Traviata', $this->sut->title());
     }
 
     public function testDate(): void
     {
         try {
-            $this->assertInstanceOf(DateTime::class, $this->_sut->date());
-            $this->assertEquals('2024-10-19 7:30 pm', $this->_sut->date()->format('Y-m-d g:i a'));
-            $this->assertEquals('2024-10-19 7:30 pm', $this->_sut->date('America/Los_Angeles')->format('Y-m-d g:i a'));
+            $this->assertInstanceOf(DateTime::class, $this->sut->date());
+            $this->assertEquals('2024-10-19 7:30 pm', $this->sut->date()->format('Y-m-d g:i a'));
+            $this->assertEquals('2024-10-19 7:30 pm', $this->sut->date('America/Los_Angeles')->format('Y-m-d g:i a'));
         } catch (Exception $e) {
             trigger_error($e->getMessage());
         }
@@ -49,8 +52,8 @@ class PerformanceTest extends testCase
 
     public function testProductionSeasonId(): void
     {
-        $this->assertIsInt($this->_sut->productionSeasonId());
-        $this->assertEquals(4848, $this->_sut->productionSeasonId());
+        $this->assertIsInt($this->sut->productionSeasonId());
+        $this->assertEquals(4848, $this->sut->productionSeasonId());
     }
 
     public function testDateIsNull(): void
@@ -59,15 +62,16 @@ class PerformanceTest extends testCase
         $this->assertNull($performance->date());
     }
 
-    public function testDescription(): void {
-        $this->assertIsString($this->_sut->description());
-        $this->assertEquals('La Traviata', $this->_sut->description());
+    public function testDescription(): void
+    {
+        $this->assertIsString($this->sut->description());
+        $this->assertEquals('La Traviata', $this->sut->description());
     }
 
     public function testDoorsOpen(): void
     {
-        $this->assertInstanceOf(DateTime::class, $this->_sut->doorsOpen());
-        $this->assertEquals('2024-10-19 4:00 pm', $this->_sut->doorsOpen()->format('Y-m-d g:i a'));
+        $this->assertInstanceOf(DateTime::class, $this->sut->doorsOpen());
+        $this->assertEquals('2024-10-19 4:00 pm', $this->sut->doorsOpen()->format('Y-m-d g:i a'));
     }
 
     public function testDoorsOpenFailsGracefully(): void
@@ -84,7 +88,7 @@ class PerformanceTest extends testCase
 
     public function testFacilityId(): void
     {
-        $this->assertIsInt($this->_sut->facilityId());
+        $this->assertIsInt($this->sut->facilityId());
     }
 
     public function testFacilityIdValid(): void
@@ -107,8 +111,8 @@ class PerformanceTest extends testCase
 
     public function testStartTime(): void
     {
-        $this->assertInstanceOf(DateTime::class, $this->_sut->startTime());
-        $this->assertEquals('2024-10-19 7:30 pm', $this->_sut->startTime()->format('Y-m-d g:i a'));
+        $this->assertInstanceOf(DateTime::class, $this->sut->startTime());
+        $this->assertEquals('2024-10-19 7:30 pm', $this->sut->startTime()->format('Y-m-d g:i a'));
     }
 
     public function testStartTimeWhenValidReturnsCorrectDateTime(): void
@@ -133,12 +137,12 @@ class PerformanceTest extends testCase
 
     public function testStatusId(): void
     {
-        $this->assertIsInt($this->_sut->statusId());
+        $this->assertIsInt($this->sut->statusId());
     }
 
     public function testFacilityDescriptionReturnsString(): void
     {
-        $this->assertIsString($this->_sut->facilityDescription());
+        $this->assertIsString($this->sut->facilityDescription());
     }
 
     public function testFacilityDescriptionValid(): void
@@ -150,6 +154,10 @@ class PerformanceTest extends testCase
     public function testFacilityDescriptionHandlesMissingKey(): void
     {
         $sut = new Performance(['Facility' => []]);
-        $this->assertEquals('', $sut->facilityDescription(), 'facilityDescription should return an empty string when the key is missing.');
+        $this->assertEquals(
+            '',
+            $sut->facilityDescription(),
+            'facilityDescription should return an empty string when the key is missing.'
+        );
     }
 }
