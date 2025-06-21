@@ -49,6 +49,7 @@ class ProductionSeason extends Base
                 if ($result === false) {
                     throw new Exception("Invalid date format for FirstPerformanceDate");
                 }
+
                 return $result;
             } catch (Throwable $e) {
                 throw new Exception("Unable to parse FirstPerformanceDate: " . $e->getMessage());
@@ -76,6 +77,7 @@ class ProductionSeason extends Base
                 if ($result === false) {
                     throw new Exception("Invalid date format for LastPerformanceDate");
                 }
+
                 return $result;
             } catch (Throwable $e) {
                 throw new Exception("Unable to parse LastPerformanceDate: " . $e->getMessage());

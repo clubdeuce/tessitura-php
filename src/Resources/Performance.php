@@ -6,7 +6,6 @@ use Clubdeuce\Tessitura\Base\Base;
 use DateTime;
 use DateTimeZone;
 use Exception;
-use Throwable;
 
 class Performance extends Base
 {
