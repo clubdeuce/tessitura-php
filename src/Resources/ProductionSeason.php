@@ -23,7 +23,7 @@ class ProductionSeason extends Base
     /**
      * Get the response data for this production season.
      *
-     * @return array The response data
+     * @return mixed[] The response data
      */
     public function response(): array
     {
