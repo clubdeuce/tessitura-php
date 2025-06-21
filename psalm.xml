@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="6"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="false"
+>
+    <projectFiles>
+        <directory name="src" />
+        <directory name="tests" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <directory name="var" />
+            <file name="tests/bootstrap.php" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <!-- Allow some magic method usage for API flexibility -->
+        <UndefinedMagicMethod errorLevel="info" />
+        <UndefinedMagicPropertyFetch errorLevel="info" />
+        
+        <!-- Allow trigger_error for backward compatibility -->
+        <ForbiddenCode>
+            <errorLevel type="suppress">
+                <referencedFunction name="trigger_error" />
+            </errorLevel>
+        </ForbiddenCode>
+    </issueHandlers>
+</psalm>

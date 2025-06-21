@@ -1,4 +1,5 @@
 <?php
+
 namespace Clubdeuce\Tessitura\Resources;
 
 use Clubdeuce\Tessitura\Base\Base;
@@ -6,9 +7,10 @@ use DateTime;
 use DateTimeZone;
 use Throwable;
 
-class Season extends Base {
-
-    public function getCreatedDateTime(string $timezone = 'America/New_York') : ?DateTime {
+class Season extends Base
+{
+    public function getCreatedDateTime(string $timezone = 'America/New_York'): ?DateTime
+    {
 
         // Check if 'CreatedDateTime' is present in the extra args
         if (!isset($this->extraArgs()['CreatedDateTime'])) {
@@ -29,7 +31,7 @@ class Season extends Base {
         return (string)$this->extraArgs()['Description'];
     }
 
-    public function getEndDateTime(string $timezone = 'America/New_York') : ?DateTime
+    public function getEndDateTime(string $timezone = 'America/New_York'): ?DateTime
     {
         // Check if 'EndDateTime' is present in the extra args
         if (!isset($this->extraArgs()['EndDateTime'])) {
@@ -50,7 +52,7 @@ class Season extends Base {
         return intval($this->extraArgs()['Id']);
     }
 
-    public function getStartDateTime(string $timezone = 'America/New_York') : ?\DateTime
+    public function getStartDateTime(string $timezone = 'America/New_York'): ?\DateTime
     {
         // Check if 'StartDateTime' is present in the extra args
         if (!isset($this->extraArgs()['StartDateTime'])) {

@@ -6,7 +6,18 @@ use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 
 class ArrayCache implements CacheInterface
 {
+    /**
+     * Cached values
+     *
+     * @var mixed[]
+     */
     private array $cache = [];
+
+    /**
+     * Expiration times for cached values
+     *
+     * @var int[]
+     */
     private array $expiration = [];
 
     /**
@@ -24,6 +35,7 @@ class ArrayCache implements CacheInterface
         // Check if expired
         if (isset($this->expiration[$key]) && $this->expiration[$key] < time()) {
             unset($this->cache[$key], $this->expiration[$key]);
+
             return null;
         }
 
@@ -44,6 +56,7 @@ class ArrayCache implements CacheInterface
         if ($ttl > 0) {
             $this->expiration[$key] = time() + $ttl;
         }
+
         return true;
     }
 
@@ -58,13 +71,14 @@ class ArrayCache implements CacheInterface
         if (!array_key_exists($key, $this->cache)) {
             return false;
         }
-        
+
         // Check if expired
         if (isset($this->expiration[$key]) && $this->expiration[$key] < time()) {
             unset($this->cache[$key], $this->expiration[$key]);
+
             return false;
         }
-        
+
         return true;
     }
 
@@ -77,6 +91,7 @@ class ArrayCache implements CacheInterface
     public function delete(string $key): bool
     {
         unset($this->cache[$key], $this->expiration[$key]);
+
         return true;
     }
 
@@ -87,8 +102,9 @@ class ArrayCache implements CacheInterface
      */
     public function clear(): bool
     {
-        $this->cache = [];
+        $this->cache      = [];
         $this->expiration = [];
+
         return true;
     }
 }

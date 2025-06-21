@@ -2,14 +2,49 @@
 
 namespace Clubdeuce\Tessitura\Base;
 
-class Base {
+/**
+ * Base class for Tessitura API resources.
+ *
+ * Provides a foundation for API resources with explicit getter methods
+ * for better IDE support and type safety. Magic methods are still supported
+ * for backward compatibility but are deprecated for common properties.
+ *
+ * @package Clubdeuce\Tessitura\Base
+ */
+class Base
+{
+    /**
+     * Holds the state of the object.
+     *
+     * This property is used to store the values of the object's properties
+     * that are set through the constructor or other methods.
+     *
+     * @var mixed[]
+     */
     protected array $_extraArgs = [];
 
+    /**
+     * Base constructor.
+     *
+     * Initializes the object with the provided arguments.
+     *
+     * @param mixed[] $args
+     */
     public function __construct(array $args = [])
     {
         $this->setState($args);
     }
 
+    /**
+     * Sets the state of the object based on the provided arguments.
+     *
+     * This method updates the object's properties based on the keys in the
+     * provided array. If a key corresponds to a property that exists in the
+     * object, it will be set. Otherwise, it will be stored in the `_extraArgs`
+     * array for later use.
+     *
+     * @param mixed[] $args
+     */
     protected function setState(array $args = []): void
     {
         foreach ($args as $key => $value) {
@@ -17,14 +52,34 @@ class Base {
 
             if (property_exists($this, $property)) {
                 $this->{$property} = $value;
-            } else {
-                $this->_extraArgs[$key] = $value;
+
+                continue;
             }
+
+            $this->_extraArgs[$key] = $value;
         }
     }
 
+    /**
+     * Magic method to access properties dynamically.
+     *
+     * @param string $name
+     * @param mixed[] $args
+     * @return mixed
+     */
     public function __call(string $name, array $args = []): mixed
     {
+        // Add deprecation warning for magic method usage
+        // This helps encourage developers to use explicit getter methods
+        $commonMethods = ['id', 'name', 'description'];
+        if (in_array(strtolower($name), $commonMethods)) {
+            $methodName = 'get' . ucfirst($name);
+            trigger_error(
+                "Magic method $name() is deprecated. Use explicit method $methodName() instead.",
+                E_USER_DEPRECATED
+            );
+        }
+
         $property = "_{$name}";
 
         if (property_exists($this, $property)) {
@@ -38,6 +93,13 @@ class Base {
         return false;
     }
 
+    /**
+     * Parses the provided arguments and fills in defaults.
+     *
+     * @param mixed[] $args
+     * @param mixed[] $defaults
+     * @return mixed[]
+     */
     public function parseArgs(array $args = [], array $defaults = []): array
     {
         foreach ($defaults as $key => $value) {
@@ -49,8 +111,47 @@ class Base {
         return $args;
     }
 
+    /**
+     * @return mixed[]
+     */
     public function extraArgs(): array
     {
         return $this->_extraArgs;
+    }
+
+    /**
+     * Get ID value if it exists
+     *
+     * @return int The ID value or 0 if not found
+     */
+    public function getId(): int
+    {
+        $id = $this->extraArgs()['id'] ?? 0;
+
+        return intval($id);
+    }
+
+    /**
+     * Get name value if it exists
+     *
+     * @return string The name value or empty string if not found
+     */
+    public function getName(): string
+    {
+        $name = $this->extraArgs()['name'] ?? '';
+
+        return (string)$name;
+    }
+
+    /**
+     * Get description value if it exists
+     *
+     * @return string The description value or empty string if not found
+     */
+    public function getDescription(): string
+    {
+        $description = $this->extraArgs()['description'] ?? '';
+
+        return (string)$description;
     }
 }

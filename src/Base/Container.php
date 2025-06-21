@@ -4,11 +4,9 @@ namespace Clubdeuce\Tessitura\Base;
 
 use Clubdeuce\Tessitura\Helpers;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
-use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
 use Clubdeuce\Tessitura\Resources;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
@@ -21,19 +19,19 @@ use Psr\Log\NullLogger;
 class Container
 {
     /**
-     * @var array
+     * @var mixed[]
      */
     private array $services = [];
 
     /**
-     * @var array
+     * @var mixed[]
      */
     private array $parameters = [];
 
     /**
      * Container constructor.
      *
-     * @param array $parameters Configuration parameters
+     * @param mixed[] $parameters Configuration parameters
      */
     public function __construct(array $parameters = [])
     {
@@ -129,12 +127,12 @@ class Container
     /**
      * Create an HTTP client.
      *
-     * @return ClientInterface
+     * @return Client
      */
-    private function createHttpClient(): ClientInterface
+    private function createHttpClient(): Client
     {
         $baseRoute = $this->getParameter('base_route', '');
-        
+
         return new Client([
             'baseRoute' => $baseRoute,
             'timeout'   => $this->getParameter('timeout', 10.0),
@@ -161,11 +159,11 @@ class Container
     {
         $args = [
             'base_route' => $this->getParameter('base_route', ''),
-            'machine' => $this->getParameter('machine', ''),
-            'password' => $this->getParameter('password', ''),
-            'usergroup' => $this->getParameter('usergroup', ''),
-            'username' => $this->getParameter('username', ''),
-            'version' => $this->getParameter('version', '16'),
+            'machine'    => $this->getParameter('machine', ''),
+            'password'   => $this->getParameter('password', ''),
+            'usergroup'  => $this->getParameter('usergroup', ''),
+            'username'   => $this->getParameter('username', ''),
+            'version'    => $this->getParameter('version', '16'),
         ];
 
         return new Helpers\Api(

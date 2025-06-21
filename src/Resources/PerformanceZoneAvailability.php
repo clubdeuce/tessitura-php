@@ -4,7 +4,8 @@ namespace Clubdeuce\Tessitura\Resources;
 
 use Clubdeuce\Tessitura\Base\Resource;
 
-class PerformanceZoneAvailability extends Resource {
+class PerformanceZoneAvailability extends Resource
+{
     /**
      * @var int
      */
@@ -13,23 +14,24 @@ class PerformanceZoneAvailability extends Resource {
     protected int $_performanceId = 0;
 
     /**
-     * @var null|string[]
+     * @var string[]
      */
     protected array $_zone;
 
     /**
      * @return int
      */
-    public function availableCount() : int {
+    public function availableCount(): int
+    {
 
         return intval($this->_availableCount);
-
     }
 
     /**
      * @return object
      */
-    public function zone() : object {
+    public function zone(): object
+    {
 
         $zone = new \stdClass();
 
@@ -44,7 +46,5 @@ class PerformanceZoneAvailability extends Resource {
         $zone->zoneGroup        = $this->_zone['ZoneGroup'];
 
         return $zone;
-
     }
-
 }
