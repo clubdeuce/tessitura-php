@@ -40,7 +40,12 @@ class PerformancesTest extends testCase
     {
         $api = $this->createMock(Api::class);
         $api->method('post')
-            ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'), 'associative'));
+            ->willReturn(
+                json_decode(
+                    file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'),
+                    'associative'
+                )
+            );
 
         $sut = new Performances($api);
         $result = $sut->search();
@@ -56,7 +61,12 @@ class PerformancesTest extends testCase
     {
         $api = $this->createMock(Api::class);
         $api->method('post')
-            ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'), 'associative'));
+            ->willReturn(
+                json_decode(
+                    file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'),
+                    'associative'
+                )
+            );
 
         $sut = new Performances($api);
 
@@ -69,8 +79,16 @@ class PerformancesTest extends testCase
         $previous = $result[array_key_first($result)];
 
         foreach ($result as $index => $current) {
-            $this->assertEquals($index, $current->date()->getTimestamp(), 'The array index is not the performance timestamp.');
-            $this->assertGreaterThanOrEqual($previous->date()->getTimestamp(), $index, 'The performance array is not sorted correctly.');
+            $this->assertEquals(
+                $index,
+                $current->date()->getTimestamp(),
+                'The array index is not the performance timestamp.'
+            );
+            $this->assertGreaterThanOrEqual(
+                $previous->date()->getTimestamp(),
+                $index,
+                'The performance array is not sorted correctly.'
+            );
             $previous = $current;
         }
     }
@@ -83,7 +101,14 @@ class PerformancesTest extends testCase
     {
         $api = $this->createMock(Api::class);
         $api->method('post')
-            ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performances.json'), 'associative'));
+            ->willReturn(
+                json_decode(
+                    file_get_contents(
+                        dirname(__DIR__) . '/fixtures/performances.json'
+                    ),
+                    'associative'
+                )
+            );
 
         $sut      = new Performances($api);
         $upcoming = $sut->getPerformancesForProductionSeason(35);
@@ -138,7 +163,14 @@ class PerformancesTest extends testCase
         try {
             $api = $this->createMock(Api::class);
             $api->method('get')
-                ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performance-zones.json'), true));
+                ->willReturn(
+                    json_decode(
+                        file_get_contents(
+                            dirname(__DIR__) . '/fixtures/performance-zones.json'
+                        ),
+                        true
+                    )
+                );
 
             $sut = new Performances($api);
             $result = $sut->getPerformanceZoneAvailabilities(12345);
@@ -170,7 +202,10 @@ class PerformancesTest extends testCase
 //        try {
 //            $api = $this->createMock(Api::class);
 //            $api->method('get')
-//                ->willReturn(json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true));
+//                ->willReturn(
+//                  json_decode(
+//                      file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true)
+//                  );
 //
 //            $sut    = new Performances($api);
 //            $prices = $sut->getPricesForPerformance(12345);
