@@ -9,7 +9,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(PriceSummary::class)]
 class PriceSummaryTest extends testCase
 {
-    protected PriceSummary $_sut;
+    protected PriceSummary $sut;
 
     public function setUp(): void
     {
@@ -22,22 +22,22 @@ class PriceSummaryTest extends testCase
         $this->assertIsArray($data);
         $this->assertNotEmpty($data);
 
-        $this->_sut = new PriceSummary($data[0]);
+        $this->sut = new PriceSummary($data[0]);
     }
 
     public function testPriceSummary()
     {
-        $this->assertEquals(809, $this->_sut->zoneId(), 'Zone ID is not 809');
-        $this->assertEquals(260, $this->_sut->price(), 'Price is not 260');
+        $this->assertEquals(809, $this->sut->zoneId(), 'Zone ID is not 809');
+        $this->assertEquals(260, $this->sut->price(), 'Price is not 260');
     }
 
     public function testPriceSummaryEnabled()
     {
-        $this->assertTrue($this->_sut->enabled());
+        $this->assertTrue($this->sut->enabled());
     }
 
     public function testPerformanceId()
     {
-        $this->assertEquals(15027, $this->_sut->performanceId());
+        $this->assertEquals(15027, $this->sut->performanceId());
     }
 }
