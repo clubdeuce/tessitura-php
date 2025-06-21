@@ -39,8 +39,8 @@ class ApiTest extends testCase
         $this->assertArrayHasKey('timeout', $result, 'Args contains timeout key');
         $this->assertArrayHasKey('headers', $result, 'Args contains headers key');
         $this->assertIsArray($result['headers'], 'Api::getRequestArgs()["header"] is an array');
-        $this->assertArrayHasKey('Authorization', $result['headers'], 'Api::getRequestArgs Authorization header is set');
-        $this->assertIsString($result['headers']['Authorization'], 'Api::getRequestArgs Authorization header is a string');
+        $this->assertArrayHasKey('Authorization', $result['headers'], 'Authorization header is set');
+        $this->assertIsString($result['headers']['Authorization'], 'Authorization header is a string');
     }
 
     public function testGetAuthorizationHeaderValue(): void
