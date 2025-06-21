@@ -5,6 +5,7 @@ namespace Clubdeuce\Tessitura\Tests\Unit;
 use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Tests\testCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use DateTime;
 
 #[CoversClass(Performance::class)]
 class PerformanceTest extends testCase

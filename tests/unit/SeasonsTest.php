@@ -1,15 +1,19 @@
 <?php
 
+namespace Clubdeuce\Tessitura\Tests\Unit;
+
 use Clubdeuce\Tessitura\Base\Base;
 use Clubdeuce\Tessitura\Resources\Season;
 use Clubdeuce\Tessitura\Resources\Seasons;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\InvalidArgumentException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 use Clubdeuce\Tessitura\Tests\testCase;
+use Exception;
 
 #[CoversClass(Seasons::class)]
 #[UsesClass(Base::class)]
@@ -24,7 +28,7 @@ class SeasonsTest extends testCase
              */
             $mock = new MockHandler([
                 new Response(200, [], file_get_contents(dirname(__DIR__) . '/fixtures/season.json')),
-                new GuzzleHttp\Exception\InvalidArgumentException('Mock error', 400)
+                new InvalidArgumentException('Mock error', 400)
             ]);
 
             $sut = new Seasons(new Client(['handler' => HandlerStack::create($mock)]));
@@ -46,7 +50,7 @@ class SeasonsTest extends testCase
     {
         $mock = new MockHandler([
             new Response(200, [], file_get_contents(dirname(__DIR__) . '/fixtures/seasons.json')),
-            new GuzzleHttp\Exception\InvalidArgumentException('Mock error', 400)
+            new InvalidArgumentException('Mock error', 400)
         ]);
 
         $sut = new Seasons(new Client(['handler' => HandlerStack::create($mock)]));

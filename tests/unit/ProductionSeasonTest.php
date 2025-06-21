@@ -5,6 +5,7 @@ namespace Clubdeuce\Tessitura\Tests\Unit;
 use Clubdeuce\Tessitura\Resources\ProductionSeason;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Tests\testCase;
+use DateTime;
 
 #[CoversClass(ProductionSeason::class)]
 class ProductionSeasonTest extends testCase
