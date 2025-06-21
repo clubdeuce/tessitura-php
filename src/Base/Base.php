@@ -43,9 +43,10 @@ class Base
 
             if (property_exists($this, $property)) {
                 $this->{$property} = $value;
-            } else {
-                $this->_extraArgs[$key] = $value;
+                continue;
             }
+
+            $this->_extraArgs[$key] = $value;
         }
     }
 
