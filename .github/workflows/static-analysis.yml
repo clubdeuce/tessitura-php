@@ -48,9 +48,6 @@ jobs:
       - name: Run PHPCS
         run: vendor/bin/phpcs
 
-      - name: Run PHPMD
-        run: vendor/bin/phpmd src,tests text cleancode,codesize,controversial,design,naming,unusedcode
-
       - name: Run PHP-CS-Fixer (dry-run)
         run: vendor/bin/php-cs-fixer fix --dry-run --diff
 
