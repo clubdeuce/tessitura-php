@@ -22,6 +22,7 @@ class Season extends Base
             return $createdDateTime;
         } catch (\Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
+
             return null;
         }
     }
@@ -44,6 +45,7 @@ class Season extends Base
             return $endDateTime;
         } catch (\Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
+
             return null;
         }
     }
@@ -66,6 +68,7 @@ class Season extends Base
             return $startDateTime;
         } catch (\Exception $e) {
             trigger_error($e->getMessage(), E_USER_WARNING);
+
             return null;
         }
     }

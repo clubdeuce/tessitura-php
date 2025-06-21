@@ -2,11 +2,11 @@
 
 namespace Clubdeuce\Tessitura\Tests;
 
+use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Resources\Performances;
 use Clubdeuce\Tessitura\Resources\PerformanceZoneAvailability;
 use Clubdeuce\Tessitura\Resources\PriceSummary;
-use Clubdeuce\Tessitura\Helpers\Api;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\UsesClass;
@@ -26,7 +26,7 @@ class PerformancesTest extends testCase
         $api = $this->createMock(Api::class);
         $api->method('post')->willReturn([]);
 
-        $sut = new Performances($api);
+        $sut    = new Performances($api);
         $result = $sut->search();
 
         $this->assertIsArray($result);
@@ -47,7 +47,7 @@ class PerformancesTest extends testCase
                 )
             );
 
-        $sut = new Performances($api);
+        $sut    = new Performances($api);
         $result = $sut->search();
 
         $this->assertIsArray($result);
@@ -92,7 +92,6 @@ class PerformancesTest extends testCase
             $previous = $current;
         }
     }
-
 
     /**
      * @throws Exception
@@ -152,7 +151,7 @@ class PerformancesTest extends testCase
         $sut  = new Performances($api);
 
         $reflection = new ReflectionMethod($sut, 'makeNewZoneAvailability');
-        $zone = $reflection->invokeArgs($sut, [$data[0]]);
+        $zone       = $reflection->invokeArgs($sut, [$data[0]]);
 
         $this->assertInstanceOf(PerformanceZoneAvailability::class, $zone);
     }
@@ -172,7 +171,7 @@ class PerformancesTest extends testCase
                     )
                 );
 
-            $sut = new Performances($api);
+            $sut    = new Performances($api);
             $result = $sut->getPerformanceZoneAvailabilities(12345);
 
             $this->assertIsArray($result);
@@ -188,7 +187,7 @@ class PerformancesTest extends testCase
             $api->method('get')
                 ->willThrowException(new \Exception('Mock error', 400));
 
-            $sut = new Performances($api);
+            $sut    = new Performances($api);
             $result = $sut->getPerformanceZoneAvailabilities(12345);
 
             $this->assertIsArray($result);
@@ -198,23 +197,23 @@ class PerformancesTest extends testCase
         }
     }
 
-//    public function testGetPricesForPerformance() {
-//        try {
-//            $api = $this->createMock(Api::class);
-//            $api->method('get')
-//                ->willReturn(
-//                  json_decode(
-//                      file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true)
-//                  );
-//
-//            $sut    = new Performances($api);
-//            $prices = $sut->getPricesForPerformance(12345);
-//
-//            $this->assertIsArray($prices);
-//            $this->assertNotEmpty($prices);
-//            $this->assertContainsOnly(PriceSummary::class, $prices);
-//        } catch (Exception $e) {
-//            trigger_error($e->getMessage());
-//        }
-//    }
+    //    public function testGetPricesForPerformance() {
+    //        try {
+    //            $api = $this->createMock(Api::class);
+    //            $api->method('get')
+    //                ->willReturn(
+    //                  json_decode(
+    //                      file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true)
+    //                  );
+    //
+    //            $sut    = new Performances($api);
+    //            $prices = $sut->getPricesForPerformance(12345);
+    //
+    //            $this->assertIsArray($prices);
+    //            $this->assertNotEmpty($prices);
+    //            $this->assertContainsOnly(PriceSummary::class, $prices);
+    //        } catch (Exception $e) {
+    //            trigger_error($e->getMessage());
+    //        }
+    //    }
 }

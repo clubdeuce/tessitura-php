@@ -19,7 +19,7 @@ class ApiTest extends testCase
         $sut = new Api(['base_route' => 'https://api.tessitura.com'], $this->createMock(Client::class));
 
         $reflection = new \ReflectionMethod($sut::class, 'getUri');
-        $result = $reflection->invoke($sut, 'test-endpoint');
+        $result     = $reflection->invoke($sut, 'test-endpoint');
 
         $this->assertEquals('https://api.tessitura.com/test-endpoint', $result);
     }
@@ -54,22 +54,22 @@ class ApiTest extends testCase
         $this->assertMatchesRegularExpression('/^Basic (.+)$/', $result);
     }
 
-//    public function testGetGuzzleError(): void {
-//        try {
-//            $client = $this->createMock(Client::class);
-//            $client->method('get')->willThrowException(new ClientException('Sample Error',
-//                new Request('get', 'https://api.tessitura.com/test-endpoint', [], ''),
-//                new Response(404,  [],'Error')
-//            ));
-//
-//            $sut = new Api([], $client);
-//
-//            $this->expectException(ClientException::class);
-//            $sut->get('test-endpoint');
-//        } catch (\Exception $e) {
-//        } catch (Exception $e) {
-//        }
-//    }
+    //    public function testGetGuzzleError(): void {
+    //        try {
+    //            $client = $this->createMock(Client::class);
+    //            $client->method('get')->willThrowException(new ClientException('Sample Error',
+    //                new Request('get', 'https://api.tessitura.com/test-endpoint', [], ''),
+    //                new Response(404,  [],'Error')
+    //            ));
+    //
+    //            $sut = new Api([], $client);
+    //
+    //            $this->expectException(ClientException::class);
+    //            $sut->get('test-endpoint');
+    //        } catch (\Exception $e) {
+    //        } catch (Exception $e) {
+    //        }
+    //    }
 
     /**
      * Tests the logger functionality of the Api class.
@@ -96,7 +96,7 @@ class ApiTest extends testCase
     public function testClient(): void
     {
         $mockClient = $this->createMock(Client::class);
-        $sut = new Api([], $mockClient);
+        $sut        = new Api([], $mockClient);
 
         $this->assertSame($mockClient, $sut->getClient(), 'Client was not set correctly.');
     }
@@ -123,7 +123,7 @@ class ApiTest extends testCase
     public function testBaseRoute(): void
     {
         $baseRoute = 'https://api.example.com';
-        $sut = new Api([], $this->createMock(Client::class));
+        $sut       = new Api([], $this->createMock(Client::class));
 
         $sut->setBaseRoute($baseRoute);
         $this->assertSame($baseRoute, $sut->getBaseRoute(), 'Base route was not set correctly.');
@@ -136,7 +136,7 @@ class ApiTest extends testCase
     public function testSetPassword(): void
     {
         $password = 'TestPassword123';
-        $sut = new Api([], $this->createMock(Client::class));
+        $sut      = new Api([], $this->createMock(Client::class));
 
         $sut->setPassword($password);
         $this->assertSame($password, $sut->getPassword(), 'Password was not set correctly.');
@@ -149,7 +149,7 @@ class ApiTest extends testCase
     public function testSetUsername(): void
     {
         $username = 'TestUsername';
-        $sut = new Api([], $this->createMock(Client::class));
+        $sut      = new Api([], $this->createMock(Client::class));
 
         $sut->setUsername($username);
         $this->assertSame($username, $sut->getUsername(), 'Username was not set correctly.');
@@ -176,8 +176,8 @@ class ApiTest extends testCase
     public function testGetUsergroup(): void
     {
         $usergroup = 'TestUsergroup';
-        $sut = new Api([
-            'usergroup' => $usergroup
+        $sut       = new Api([
+            'usergroup' => $usergroup,
         ], $this->createMock(Client::class));
 
         $this->assertSame($usergroup, $sut->getUsergroup(), 'Usergroup getter did not return correct value.');

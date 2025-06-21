@@ -20,7 +20,7 @@ class ApiTest extends TestCase
     public function testGet(): void
     {
         $response = new Response(200, [], file_get_contents(dirname(__DIR__) . '/fixtures/season.json'));
-        $client = $this->createMock(Client::class);
+        $client   = $this->createMock(Client::class);
 
         $client->method('get')->willReturn($response);
 

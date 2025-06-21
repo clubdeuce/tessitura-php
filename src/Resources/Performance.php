@@ -3,7 +3,6 @@
 namespace Clubdeuce\Tessitura\Resources;
 
 use Clubdeuce\Tessitura\Base\Base;
-use DateInterval;
 use DateTime;
 use DateTimeZone;
 use Exception;
@@ -43,6 +42,7 @@ class Performance extends Base
             return new DateTime($this->_extraArgs['DoorsOpen']);
         } catch (Exception $e) {
             trigger_error($e->getMessage(), E_USER_NOTICE);
+
             return null;
         }
     }

@@ -24,7 +24,7 @@ class ApiCacheIntegrationTest extends testCase
 
         // Create mock HTTP client that should only be called once
         $response = new Response(200, [], file_get_contents(dirname(__DIR__) . '/fixtures/season.json'));
-        $client = $this->createMock(Client::class);
+        $client   = $this->createMock(Client::class);
         $client->expects($this->once())
                ->method('get')
                ->willReturn($response);
@@ -56,7 +56,7 @@ class ApiCacheIntegrationTest extends testCase
         $cache = new ArrayCache();
 
         $response = new Response(200, [], '{"test": "data"}');
-        $client = $this->createMock(Client::class);
+        $client   = $this->createMock(Client::class);
         $client->method('get')->willReturn($response);
 
         $api = new Api(
@@ -75,7 +75,7 @@ class ApiCacheIntegrationTest extends testCase
     public function testApiCacheGettersSetters(): void
     {
         $cache = new ArrayCache();
-        $api = new Api(['baseRoute' => 'https://api.tessitura.com/']);
+        $api   = new Api(['baseRoute' => 'https://api.tessitura.com/']);
 
         // Test cache setter and getter
         $this->assertNull($api->getCache());

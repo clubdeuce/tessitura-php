@@ -16,7 +16,7 @@ class SeasonTest extends testCase
 
     public function setUp(): void
     {
-        $data = json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/season.json'), 'associative');
+        $data      = json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/season.json'), 'associative');
         $this->sut = new Season($data);
     }
 

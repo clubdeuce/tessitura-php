@@ -153,6 +153,7 @@ class Api extends Base implements
 
             if ($cachedResponse !== null) {
                 $this->logEvent('Cache hit for endpoint: ' . $endpoint);
+
                 return $cachedResponse;
             }
         }
@@ -210,9 +211,9 @@ class Api extends Base implements
 
         $args = $this->parseArgs($args, [
             'cache_expiration' => self::CACHE_EXPIRATION_DEFAULT,
-            'headers'          => [],
-            'body'             => '',
-            'timeout'          => 10.0,
+            'headers' => [],
+            'body' => '',
+            'timeout' => 10.0,
         ]);
 
         if (is_array($args['body'])) {
@@ -223,13 +224,13 @@ class Api extends Base implements
             }
         }
 
-        $parsedUrl = parse_url($this->baseRoute());
+        $parsedUrl       = parse_url($this->baseRoute());
         $args['headers'] = $this->parseArgs($args['headers'], [
             'Authorization' => $this->getAuthorizationHeaderValue(),
-            'Content-Type'   => 'application/json',
+            'Content-Type' => 'application/json',
             'Content-Length' => strlen($args['body']),
-            'Accept'         => 'application/json',
-            'Host'           => $parsedUrl['host'] ?? $this->baseRoute(),
+            'Accept' => 'application/json',
+            'Host' => $parsedUrl['host'] ?? $this->baseRoute(),
         ]);
 
         return array_filter($args);
@@ -438,7 +439,7 @@ class Api extends Base implements
             'endpoint' => $endpoint,
             'base_route' => $this->baseRoute(),
             'version' => $this->getVersion(),
-            'args' => $keyArgs
+            'args' => $keyArgs,
         ];
 
         return 'tessitura:' . md5(json_encode($keyData));

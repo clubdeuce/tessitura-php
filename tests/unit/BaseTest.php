@@ -3,8 +3,8 @@
 namespace Clubdeuce\Tessitura\Tests\unit;
 
 use Clubdeuce\Tessitura\Base\Base;
-use PHPUnit\Framework\Attributes\CoversClass;
 use Clubdeuce\Tessitura\Tests\testCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Base::class)]
 class BaseTest extends testCase

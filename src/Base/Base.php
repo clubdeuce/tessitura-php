@@ -52,6 +52,7 @@ class Base
 
             if (property_exists($this, $property)) {
                 $this->{$property} = $value;
+
                 continue;
             }
 
@@ -126,6 +127,7 @@ class Base
     public function getId(): int
     {
         $id = $this->extraArgs()['id'] ?? 0;
+
         return intval($id);
     }
 
@@ -137,6 +139,7 @@ class Base
     public function getName(): string
     {
         $name = $this->extraArgs()['name'] ?? '';
+
         return (string)$name;
     }
 
@@ -148,6 +151,7 @@ class Base
     public function getDescription(): string
     {
         $description = $this->extraArgs()['description'] ?? '';
+
         return (string)$description;
     }
 }

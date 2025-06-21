@@ -25,7 +25,7 @@ class ContainerTest extends TestCase
      */
     public function testCreateServiceHttpClient(): void
     {
-        $container = new Container(['timeout' => 5.0, 'base_route' => 'https://example.com']);
+        $container  = new Container(['timeout' => 5.0, 'base_route' => 'https://example.com']);
         $httpClient = $container->get('http_client');
 
         $this->assertInstanceOf(Client::class, $httpClient);
@@ -37,8 +37,8 @@ class ContainerTest extends TestCase
      */
     public function testCreateServiceLogger(): void
     {
-        $logger = new \Monolog\Logger('test_logger');
-        $container = new Container(['logger' => $logger]);
+        $logger          = new \Monolog\Logger('test_logger');
+        $container       = new Container(['logger' => $logger]);
         $retrievedLogger = $container->get('logger');
 
         $this->assertSame($logger, $retrievedLogger);
@@ -71,7 +71,7 @@ class ContainerTest extends TestCase
      */
     public function testCreateServicePerformances(): void
     {
-        $mockApi = $this->createMock(ApiInterface::class);
+        $mockApi   = $this->createMock(ApiInterface::class);
         $container = new Container();
         $container->set('api', $mockApi);
 
@@ -149,7 +149,7 @@ class ContainerTest extends TestCase
     public function testSetStoresServiceSuccessfully(): void
     {
         $container = new Container();
-        $service = new \ArrayObject();
+        $service   = new \ArrayObject();
 
         $container->set('array_service', $service);
 
@@ -171,7 +171,7 @@ class ContainerTest extends TestCase
     public function testGetCustomSetService(): void
     {
         $customService = new \stdClass();
-        $container = new Container();
+        $container     = new Container();
         $container->set('custom_service', $customService);
 
         $retrievedService = $container->get('custom_service');

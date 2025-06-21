@@ -3,8 +3,8 @@
 namespace Clubdeuce\Tessitura\Cache;
 
 use Clubdeuce\Tessitura\Interfaces\CacheInterface;
-use Predis\Client;
 use Exception;
+use Predis\Client;
 
 class RedisCache implements CacheInterface
 {
@@ -28,6 +28,7 @@ class RedisCache implements CacheInterface
             if ($value === null) {
                 return null;
             }
+
             return json_decode($value, true);
         } catch (Exception) {
             return null;

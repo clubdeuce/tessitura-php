@@ -10,6 +10,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 class PerformanceZoneAvailabilityTest extends testCase
 {
     protected PZA $sut;
+
     public function setUp(): void
     {
         $response = json_decode(file_get_contents(dirname(__DIR__) . '/fixtures/performance-zones.json'), true);
@@ -18,7 +19,7 @@ class PerformanceZoneAvailabilityTest extends testCase
 
         $this->sut = new PZA([
             'availableCount' => $response[0]['AvailableCount'],
-            'zone'           => $response[0]['Zone']
+            'zone' => $response[0]['Zone'],
         ]);
     }
 

@@ -29,7 +29,7 @@ class Performances extends Base implements ResourceInterface
     {
         try {
             $start = new DateTime();
-            $end = new DateTime("now + {$days} days");
+            $end   = new DateTime("now + {$days} days");
 
             return $this->getPerformancesBetween($start, $end);
         } catch (Exception $e) {
@@ -48,7 +48,7 @@ class Performances extends Base implements ResourceInterface
      */
     public function getPerformancesBetween(DateTime $start, DateTime $end): array
     {
-        $sorted = [];
+        $sorted       = [];
         $performances = $this->search([
             'PerformanceStartDate' => $start->format(DATE_ATOM),
             'PerformanceEndDate' => $end->format(DATE_ATOM),
@@ -66,6 +66,7 @@ class Performances extends Base implements ResourceInterface
         }
 
         ksort($sorted);
+
         return $sorted;
     }
 
@@ -87,13 +88,13 @@ class Performances extends Base implements ResourceInterface
     public function search(array $args = []): array
     {
         $endpoint = sprintf('%1$s/Search', self::RESOURCE);
-        $body = json_encode($args);
+        $body     = json_encode($args);
 
         $args = [
             'body' => $body,
             'headers' => [
                 'Content-Length' => $body ? strlen($body) : 0,
-            ]
+            ],
         ];
 
         $results = $this->_api->post($endpoint, $args);
@@ -102,7 +103,7 @@ class Performances extends Base implements ResourceInterface
             return [];
         }
 
-        return array_map(fn($item) => new Performance($item), $results);
+        return array_map(fn ($item) => new Performance($item), $results);
     }
 
     /**

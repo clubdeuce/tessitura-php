@@ -4,11 +4,9 @@ namespace Clubdeuce\Tessitura\Base;
 
 use Clubdeuce\Tessitura\Helpers;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
-use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
 use Clubdeuce\Tessitura\Resources;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
@@ -137,7 +135,7 @@ class Container
 
         return new Client([
             'baseRoute' => $baseRoute,
-            'timeout'   => $this->getParameter('timeout', 10.0),
+            'timeout' => $this->getParameter('timeout', 10.0),
         ]);
     }
 

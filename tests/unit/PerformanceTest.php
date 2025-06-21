@@ -4,8 +4,8 @@ namespace Clubdeuce\Tessitura\Tests\Unit;
 
 use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Tests\testCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 use DateTime;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Performance::class)]
 class PerformanceTest extends testCase
@@ -14,7 +14,7 @@ class PerformanceTest extends testCase
 
     public function setUp(): void
     {
-        $json = file_get_contents(dirname(__DIR__) . '/fixtures/performance.json');
+        $json      = file_get_contents(dirname(__DIR__) . '/fixtures/performance.json');
         $this->sut = new Performance(json_decode($json, true));
     }
 
@@ -118,7 +118,7 @@ class PerformanceTest extends testCase
     public function testStartTimeWhenValidReturnsCorrectDateTime(): void
     {
         $date = '2025-12-15 6:45 pm';
-        $sut = new Performance(['PerformanceDate' => $date]);
+        $sut  = new Performance(['PerformanceDate' => $date]);
         $this->assertInstanceOf(DateTime::class, $sut->startTime());
         $this->assertEquals($date, $sut->startTime()->format('Y-m-d g:i a'));
     }

@@ -35,6 +35,7 @@ class ArrayCache implements CacheInterface
         // Check if expired
         if (isset($this->expiration[$key]) && $this->expiration[$key] < time()) {
             unset($this->cache[$key], $this->expiration[$key]);
+
             return null;
         }
 
@@ -55,6 +56,7 @@ class ArrayCache implements CacheInterface
         if ($ttl > 0) {
             $this->expiration[$key] = time() + $ttl;
         }
+
         return true;
     }
 
@@ -73,6 +75,7 @@ class ArrayCache implements CacheInterface
         // Check if expired
         if (isset($this->expiration[$key]) && $this->expiration[$key] < time()) {
             unset($this->cache[$key], $this->expiration[$key]);
+
             return false;
         }
 
@@ -88,6 +91,7 @@ class ArrayCache implements CacheInterface
     public function delete(string $key): bool
     {
         unset($this->cache[$key], $this->expiration[$key]);
+
         return true;
     }
 
@@ -98,8 +102,9 @@ class ArrayCache implements CacheInterface
      */
     public function clear(): bool
     {
-        $this->cache = [];
+        $this->cache      = [];
         $this->expiration = [];
+
         return true;
     }
 }

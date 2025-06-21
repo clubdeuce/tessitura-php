@@ -35,7 +35,7 @@ class ApiCacheTest extends testCase
 
         // Create mock HTTP client
         $response = new Response(200, [], file_get_contents(dirname(__DIR__) . '/fixtures/season.json'));
-        $client = $this->createMock(Client::class);
+        $client   = $this->createMock(Client::class);
         $client->method('get')->willReturn($response);
 
         // Create API instance with cache
@@ -96,7 +96,7 @@ class ApiCacheTest extends testCase
 
         // Create mock HTTP client
         $response = new Response(200, [], '{"success": true}');
-        $client = $this->createMock(Client::class);
+        $client   = $this->createMock(Client::class);
         $client->method('post')->willReturn($response);
 
         // Create API instance with cache
@@ -118,7 +118,7 @@ class ApiCacheTest extends testCase
         $api = new Api(['baseRoute' => 'https://api.tessitura.com/']);
 
         $reflection = new \ReflectionClass($api);
-        $method = $reflection->getMethod('generateCacheKey');
+        $method     = $reflection->getMethod('generateCacheKey');
         $method->setAccessible(true);
 
         // Test with basic endpoint
