@@ -1,3 +1,4 @@
+php
 <?php
 
 use Robo\Result;
@@ -10,6 +11,7 @@ use Robo\Result;
 class RoboFile extends \Robo\Tasks
 {
     // define public methods as commands
+
     /**
      * Run PHPStan static analysis.
      */
@@ -37,12 +39,21 @@ class RoboFile extends \Robo\Tasks
     }
 
     /**
+     * Run PHP CS Fixer.
+     */
+    public function phpcsf(): Result
+    {
+        return $this->taskExec('vendor/bin/php-cs-fixer fix src --diff --dry-run')->run();
+    }
+
+    /**
      * Run all quality checks.
      */
     public function quality(): void
     {
         $this->phpstan();
         $this->phpcs();
+        $this->phpcsf();
         $this->phpunit();
     }
 }
