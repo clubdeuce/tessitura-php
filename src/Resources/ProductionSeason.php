@@ -26,7 +26,7 @@ class ProductionSeason extends Base
     /**
      * @throws InvalidArgumentException
      */
-    public function first_performance_date(string $timezone = 'America/New_York'): DateTime|bool
+    public function firstPerformanceDate(string $timezone = 'America/New_York'): DateTime|bool
     {
         try {
             $timezone = new DateTimeZone($timezone);
@@ -34,7 +34,8 @@ class ProductionSeason extends Base
             throw new InvalidArgumentException($e->getMessage());
         }
 
-        if ($date = isset($this->response()['FirstPerformanceDate']) ? $this->response()['FirstPerformanceDate'] : false) {
+        $date = isset($this->response()['FirstPerformanceDate']) ? $this->response()['FirstPerformanceDate'] : false;
+        if ($date) {
             try {
                 return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
             } catch (Exception $e) {
@@ -48,7 +49,7 @@ class ProductionSeason extends Base
     /**
      * @throws InvalidArgumentException
      */
-    public function last_performance_date(string $timezone = 'America/New_York'): DateTime|bool
+    public function lastPerformanceDate(string $timezone = 'America/New_York'): DateTime|bool
     {
         try {
             $timezone = new DateTimeZone($timezone);
@@ -56,7 +57,8 @@ class ProductionSeason extends Base
             throw new InvalidArgumentException($e->getMessage());
         }
 
-        if ($date = isset($this->response()['LastPerformanceDate']) ? $this->response()['LastPerformanceDate'] : false) {
+        $date = isset($this->response()['LastPerformanceDate']) ? $this->response()['LastPerformanceDate'] : false;
+        if ($date) {
             try {
                 return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
             } catch (Exception $e) {

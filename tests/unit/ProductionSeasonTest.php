@@ -27,8 +27,8 @@ class ProductionSeasonTest extends testCase
     public function testFirstPerformance(): void
     {
         try {
-            $this->assertInstanceOf(DateTime::class, $this->sut->first_performance_date());
-            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->first_performance_date()->format('Y-m-d g:i A'));
+            $this->assertInstanceOf(DateTime::class, $this->sut->firstPerformanceDate());
+            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->firstPerformanceDate()->format('Y-m-d g:i A'));
         } catch (\Exception $e) {
             trigger_error($e->getMessage());
         }
@@ -37,8 +37,8 @@ class ProductionSeasonTest extends testCase
     public function testLastPerformance(): void
     {
         try {
-            $this->assertInstanceOf(DateTime::class, $this->sut->last_performance_date());
-            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->first_performance_date()->format('Y-m-d g:i A'));
+            $this->assertInstanceOf(DateTime::class, $this->sut->lastPerformanceDate());
+            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->firstPerformanceDate()->format('Y-m-d g:i A'));
         } catch (\Exception $e) {
             trigger_error($e->getMessage());
         }
@@ -47,25 +47,25 @@ class ProductionSeasonTest extends testCase
     public function testFirstPerformanceIsFalse(): void
     {
         $production_season = new ProductionSeason();
-        $this->assertFalse($production_season->first_performance_date());
+        $this->assertFalse($production_season->firstPerformanceDate());
     }
 
     public function testLastPerformanceIsFalse(): void
     {
         $production_season = new ProductionSeason();
-        $this->assertFalse($production_season->last_performance_date());
+        $this->assertFalse($production_season->lastPerformanceDate());
     }
 
     public function testFirstPerformanceBadTimezone(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->sut->first_performance_date('kjdjfwjnewkf');
+        $this->sut->firstPerformanceDate('kjdjfwjnewkf');
     }
 
     public function testLastPerformanceBadTimezone(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->sut->last_performance_date('asdasdsadfadsf');
+        $this->sut->lastPerformanceDate('asdasdsadfadsf');
     }
 
     public function testPerformances(): void

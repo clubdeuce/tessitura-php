@@ -21,10 +21,10 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 - [x] Standardize method naming conventions (choose either camelCase or snake_case consistently)
 - [ ] Add comprehensive PHPDoc comments to all classes and methods
 - [ ] Fix the version inconsistency in the Api class (property is '15', constructor default is '16')
-- [ ] Improve error handling by using exceptions instead of trigger_error
+- [ ] **_Improve error handling by using exceptions instead of trigger_error_**
 - [x] Add type declarations to all method parameters and return types
 - [ ] Implement proper null handling throughout the codebase
-- [ ] Remove magic methods where possible to improve IDE support and type safety
+- [ ] **_Remove magic methods where possible to improve IDE support and type safety_**
 - [ ] Add validation for API credentials and other critical configuration
 - [ ] Implement proper input validation for all public methods
 
@@ -42,7 +42,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 ## Documentation
 
 - [ ] Create comprehensive API documentation with examples
-- [ ] Add a getting started guide with installation and basic usage
+- [ ] **_Add a getting started guide with installation and basic usage_**
 - [ ] Document all available API endpoints and their parameters
 - [ ] Add a troubleshooting guide for common issues
 - [ ] Create a changelog to track version changes
