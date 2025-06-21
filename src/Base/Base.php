@@ -4,11 +4,11 @@ namespace Clubdeuce\Tessitura\Base;
 
 /**
  * Base class for Tessitura API resources.
- * 
+ *
  * Provides a foundation for API resources with explicit getter methods
  * for better IDE support and type safety. Magic methods are still supported
  * for backward compatibility but are deprecated for common properties.
- * 
+ *
  * @package Clubdeuce\Tessitura\Base
  */
 class Base
@@ -74,7 +74,7 @@ class Base
         if (in_array(strtolower($name), $commonMethods)) {
             $methodName = 'get' . ucfirst($name);
             trigger_error(
-                "Magic method $name() is deprecated. Use explicit method $methodName() instead for better IDE support and type safety.",
+                "Magic method $name() is deprecated. Use explicit method $methodName() instead.",
                 E_USER_DEPRECATED
             );
         }
@@ -125,7 +125,8 @@ class Base
      */
     public function getId(): int
     {
-        return intval($this->get('Id', $this->get('id', 0)));
+        $id = $this->extraArgs()['id'] ?? 0;
+        return intval($id);
     }
 
     /**
@@ -135,7 +136,8 @@ class Base
      */
     public function getName(): string
     {
-        return (string)$this->get('Name', $this->get('name', ''));
+        $name = $this->extraArgs()['name'] ?? '';
+        return (string)$name;
     }
 
     /**
@@ -145,6 +147,7 @@ class Base
      */
     public function getDescription(): string
     {
-        return (string)$this->get('Description', $this->get('description', ''));
+        $description = $this->extraArgs()['description'] ?? '';
+        return (string)$description;
     }
 }
