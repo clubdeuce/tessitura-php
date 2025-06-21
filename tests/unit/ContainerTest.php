@@ -51,11 +51,11 @@ class ContainerTest extends TestCase
     {
         $parameters = [
             'base_route' => 'https://api.example.com',
-            'machine' => 'machine_name',
-            'password' => 'password123',
-            'usergroup' => 'group1',
-            'username' => 'user1',
-            'version' => '16',
+            'machine'    => 'machine_name',
+            'password'   => 'password123',
+            'usergroup'  => 'group1',
+            'username'   => 'user1',
+            'version'    => '16',
         ];
         $container = new Container($parameters);
         $container->set('http_client', $this->createMock(Client::class));

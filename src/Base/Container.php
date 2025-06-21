@@ -135,7 +135,7 @@ class Container
 
         return new Client([
             'baseRoute' => $baseRoute,
-            'timeout' => $this->getParameter('timeout', 10.0),
+            'timeout'   => $this->getParameter('timeout', 10.0),
         ]);
     }
 
@@ -159,11 +159,11 @@ class Container
     {
         $args = [
             'base_route' => $this->getParameter('base_route', ''),
-            'machine' => $this->getParameter('machine', ''),
-            'password' => $this->getParameter('password', ''),
-            'usergroup' => $this->getParameter('usergroup', ''),
-            'username' => $this->getParameter('username', ''),
-            'version' => $this->getParameter('version', '16'),
+            'machine'    => $this->getParameter('machine', ''),
+            'password'   => $this->getParameter('password', ''),
+            'usergroup'  => $this->getParameter('usergroup', ''),
+            'username'   => $this->getParameter('username', ''),
+            'version'    => $this->getParameter('version', '16'),
         ];
 
         return new Helpers\Api(

@@ -51,7 +51,7 @@ class Performances extends Base implements ResourceInterface
         $sorted       = [];
         $performances = $this->search([
             'PerformanceStartDate' => $start->format(DATE_ATOM),
-            'PerformanceEndDate' => $end->format(DATE_ATOM),
+            'PerformanceEndDate'   => $end->format(DATE_ATOM),
         ]);
 
         foreach ($performances as $performance) {
@@ -91,7 +91,7 @@ class Performances extends Base implements ResourceInterface
         $body     = json_encode($args);
 
         $args = [
-            'body' => $body,
+            'body'    => $body,
             'headers' => [
                 'Content-Length' => $body ? strlen($body) : 0,
             ],
@@ -130,17 +130,17 @@ class Performances extends Base implements ResourceInterface
     protected function makeNewZoneAvailability(array $data): PerformanceZoneAvailability
     {
         $data = $this->parseArgs($data, [
-            'AvailableCount' => 0,
-            'Id' => 0,
-            'Inactive' => false,
-            'PerformanceId' => 0,
+            'AvailableCount'   => 0,
+            'Id'               => 0,
+            'Inactive'         => false,
+            'PerformanceId'    => 0,
             'SectionSummaries' => null,
-            'Zone' => null,
+            'Zone'             => null,
         ]);
 
         return new PerformanceZoneAvailability([
             'availableCount' => $data['AvailableCount'],
-            'zone' => $data['Zone'],
+            'zone'           => $data['Zone'],
         ]);
     }
 }

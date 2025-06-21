@@ -19,7 +19,7 @@ class PerformanceZoneAvailabilityTest extends testCase
 
         $this->sut = new PZA([
             'availableCount' => $response[0]['AvailableCount'],
-            'zone' => $response[0]['Zone'],
+            'zone'           => $response[0]['Zone'],
         ]);
     }
 
