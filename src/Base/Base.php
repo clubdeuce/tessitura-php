@@ -63,6 +63,7 @@ class Base
     /**
      * Magic method to access properties dynamically.
      *
+     * @deprecated Use explicit getter methods instead.
      * @param string $name
      * @param mixed[] $args
      * @return mixed
@@ -103,7 +104,7 @@ class Base
     public function parseArgs(array $args = [], array $defaults = []): array
     {
         foreach ($defaults as $key => $value) {
-            if (!isset($args[$key])) {
+            if (!array_key_exists($key, $args)) {
                 $args[$key] = $value;
             }
         }
