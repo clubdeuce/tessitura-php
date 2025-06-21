@@ -7,6 +7,7 @@ use DateTime;
 use DateTimeZone;
 use Exception;
 use InvalidArgumentException;
+use Throwable;
 
 class ProductionSeason extends Base
 {
@@ -44,9 +45,14 @@ class ProductionSeason extends Base
         $date = isset($this->response()['FirstPerformanceDate']) ? $this->response()['FirstPerformanceDate'] : false;
         if ($date) {
             try {
-                return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
-            } catch (Exception $e) {
-                trigger_error($e->getMessage(), E_USER_ERROR);
+                $result = DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
+                if ($result === false) {
+                    throw new Exception("Invalid date format for FirstPerformanceDate");
+                }
+
+                return $result;
+            } catch (Throwable $e) {
+                throw new Exception("Unable to parse FirstPerformanceDate: " . $e->getMessage());
             }
         }
 
@@ -67,9 +73,14 @@ class ProductionSeason extends Base
         $date = isset($this->response()['LastPerformanceDate']) ? $this->response()['LastPerformanceDate'] : false;
         if ($date) {
             try {
-                return DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
-            } catch (Exception $e) {
-                trigger_error($e->getMessage(), E_USER_ERROR);
+                $result = DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
+                if ($result === false) {
+                    throw new Exception("Invalid date format for LastPerformanceDate");
+                }
+
+                return $result;
+            } catch (Throwable $e) {
+                throw new Exception("Unable to parse LastPerformanceDate: " . $e->getMessage());
             }
         }
 

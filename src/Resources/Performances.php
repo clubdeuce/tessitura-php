@@ -7,6 +7,7 @@ use Clubdeuce\Tessitura\Interfaces\ApiInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
 use DateTime;
 use Exception;
+use Throwable;
 
 class Performances extends Base implements ResourceInterface
 {
@@ -32,11 +33,9 @@ class Performances extends Base implements ResourceInterface
             $end   = new DateTime("now + {$days} days");
 
             return $this->getPerformancesBetween($start, $end);
-        } catch (Exception $e) {
-            trigger_error($e->getMessage(), E_USER_WARNING);
+        } catch (Throwable $e) {
+            throw new Exception("Unable to get upcoming performances: " . $e->getMessage());
         }
-
-        return [];
     }
 
     /**
@@ -60,8 +59,9 @@ class Performances extends Base implements ResourceInterface
                 if (!is_null($date)) {
                     $sorted[$date->getTimestamp()] = $performance;
                 }
-            } catch (Exception $e) {
-                trigger_error($e->getMessage(), E_USER_WARNING);
+            } catch (Throwable $e) {
+                // Skip performances with invalid dates rather than stopping the entire operation
+                continue;
             }
         }
 
