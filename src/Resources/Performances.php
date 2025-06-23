@@ -9,6 +9,9 @@ use DateTime;
 use Exception;
 use Throwable;
 
+/**
+ * Class to interact with performance data from a backend API.
+ */
 class Performances extends Base implements ResourceInterface
 {
     public const RESOURCE = 'TXN/Performances';
@@ -25,6 +28,7 @@ class Performances extends Base implements ResourceInterface
      *
      * @param int $days Number of days to look ahead for performances. Defaults to thirty days.
      * @return Performance[]
+     * @throws Exception
      */
     public function getUpcomingPerformances(int $days = 30): array
     {
@@ -117,6 +121,8 @@ class Performances extends Base implements ResourceInterface
 
             return array_map([$this, 'makeNewZoneAvailability'], $data);
         } catch (Exception $e) {
+            error_log("Exception in getPerformanceZoneAvailabilities: " . $e->getMessage());
+
             return [];
         }
     }
