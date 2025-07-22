@@ -7,12 +7,12 @@ use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Tests\testCase;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\Exception;
 
 #[CoversClass(Api::class)]
-#[CoversClass(RedisCache::class)]
 class ApiCacheTest extends testCase
 {
     /**
@@ -86,6 +86,7 @@ class ApiCacheTest extends testCase
 
     /**
      * @throws Exception
+     * @throws GuzzleException
      */
     public function testPostRequestsNotCached(): void
     {
@@ -113,6 +114,9 @@ class ApiCacheTest extends testCase
         $this->assertIsArray($result);
     }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function testCacheKeyGeneration(): void
     {
         $api = new Api(['baseRoute' => 'https://api.tessitura.com/']);
