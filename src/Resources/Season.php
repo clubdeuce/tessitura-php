@@ -11,10 +11,8 @@ class Season extends Base
 {
     public function getCreatedDateTime(string $timezone = 'America/New_York'): ?DateTime
     {
-
-        // Check if 'CreatedDateTime' is present in the extra args
         if (!isset($this->extraArgs()['CreatedDateTime'])) {
-            return null; // or throw an exception if required
+            return null;
         }
 
         try {
@@ -33,7 +31,6 @@ class Season extends Base
 
     public function getEndDateTime(string $timezone = 'America/New_York'): ?DateTime
     {
-        // Check if 'EndDateTime' is present in the extra args
         if (!isset($this->extraArgs()['EndDateTime'])) {
             return null;
         }
@@ -54,9 +51,8 @@ class Season extends Base
 
     public function getStartDateTime(string $timezone = 'America/New_York'): ?\DateTime
     {
-        // Check if 'StartDateTime' is present in the extra args
         if (!isset($this->extraArgs()['StartDateTime'])) {
-            return null; // or throw an exception if required
+            return null;
         }
 
         try {

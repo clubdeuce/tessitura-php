@@ -22,24 +22,13 @@ class Api extends Base implements
 {
     protected const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
 
-    /**
-     * @var string The base path to the Tessitura API
-     */
+    // These are the parameters that are required to connect to the Tessitura API.
     protected string $_base_route = '';
 
-    /**
-     * @var string The machine name required for authentication.
-     */
     protected string $_machine;
 
-    /**
-     * @var string The password required for authentication.
-     */
     protected string $_password;
 
-    /**
-     * @var string The username required for authentication.
-     */
     protected string $_username;
 
     /**

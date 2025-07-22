@@ -28,7 +28,6 @@ class Performance extends Base
 
     public function description(): string
     {
-
         return (string)$this->_extraArgs['PerformanceDescription'];
     }
 
