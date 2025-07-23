@@ -32,13 +32,6 @@ class ArrayCache implements CacheInterface
             return null;
         }
 
-        // Check if expired
-        if (isset($this->expiration[$key]) && $this->expiration[$key] < time()) {
-            unset($this->cache[$key], $this->expiration[$key]);
-
-            return null;
-        }
-
         return $this->cache[$key];
     }
 
