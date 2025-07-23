@@ -177,6 +177,7 @@ class PerformancesTest extends testCase
             $this->assertIsArray($result);
             $this->assertContainsOnly(PerformanceZoneAvailability::class, $result);
         } catch (Exception $e) {
+            $this->fail('Exception was thrown: ' . $e->getMessage());
         }
     }
 
@@ -193,27 +194,7 @@ class PerformancesTest extends testCase
             $this->assertIsArray($result);
             $this->assertEmpty($result);
         } catch (Exception $e) {
-            trigger_error($e->getMessage());
+            $this->fail('Exception was thrown: ' . $e->getMessage());
         }
     }
-
-    //    public function testGetPricesForPerformance() {
-    //        try {
-    //            $api = $this->createMock(Api::class);
-    //            $api->method('get')
-    //                ->willReturn(
-    //                  json_decode(
-    //                      file_get_contents(dirname(__DIR__) . '/fixtures/performance-prices.json'), true)
-    //                  );
-    //
-    //            $sut    = new Performances($api);
-    //            $prices = $sut->getPricesForPerformance(12345);
-    //
-    //            $this->assertIsArray($prices);
-    //            $this->assertNotEmpty($prices);
-    //            $this->assertContainsOnly(PriceSummary::class, $prices);
-    //        } catch (Exception $e) {
-    //            trigger_error($e->getMessage());
-    //        }
-    //    }
 }
