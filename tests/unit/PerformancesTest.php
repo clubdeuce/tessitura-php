@@ -6,7 +6,6 @@ use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Resources\Performance;
 use Clubdeuce\Tessitura\Resources\Performances;
 use Clubdeuce\Tessitura\Resources\PerformanceZoneAvailability;
-use Clubdeuce\Tessitura\Resources\PriceSummary;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\UsesClass;

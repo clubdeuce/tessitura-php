@@ -15,6 +15,7 @@ class ArrayCacheTest extends testCase
     {
         $this->cache = new ArrayCache();
     }
+
     public function testArrayCacheCanStoreAndRetrieveValues(): void
     {
         $this->assertTrue($this->cache->set('key1', 'value1'));

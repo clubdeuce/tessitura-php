@@ -2,7 +2,6 @@
 
 namespace Clubdeuce\Tessitura\Tests\Unit;
 
-use Clubdeuce\Tessitura\Cache\RedisCache;
 use Clubdeuce\Tessitura\Helpers\Api;
 use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Tests\testCase;
