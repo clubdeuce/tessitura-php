@@ -93,40 +93,4 @@ class Base
     {
         return $this->_extraArgs;
     }
-
-    /**
-     * Get ID value if it exists
-     *
-     * @return int The ID value or 0 if not found
-     */
-    public function getId(): int
-    {
-        $id = $this->extraArgs()['id'] ?? 0;
-
-        return intval($id);
-    }
-
-    /**
-     * Get name value if it exists
-     *
-     * @return string The name value or empty string if not found
-     */
-    public function getName(): string
-    {
-        $name = $this->extraArgs()['name'] ?? '';
-
-        return (string)$name;
-    }
-
-    /**
-     * Get description value if it exists
-     *
-     * @return string The description value or empty string if not found
-     */
-    public function getDescription(): string
-    {
-        $description = $this->extraArgs()['description'] ?? '';
-
-        return (string)$description;
-    }
 }
