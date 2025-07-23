@@ -148,11 +148,11 @@ class Api extends Base implements
         }
 
         // Use the appropriate HTTP method
-        if ($method === 'POST') {
-            $response = $this->_client->post($this->getUri($endpoint), $args);
-        } else {
-            $response = $this->_client->get($this->getUri($endpoint), $args);
-        }
+        $response = match ($method) {
+            'POST'  => $this->_client->post($this->getUri($endpoint), $args),
+            'GET'   => $this->_client->get($this->getUri($endpoint), $args),
+            default => throw new Exception("Unsupported HTTP method: {$method}"),
+        };
 
         if (200 === $response->getStatusCode()) {
             $data = json_decode($response->getBody(), true);
