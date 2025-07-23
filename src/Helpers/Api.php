@@ -184,12 +184,8 @@ class Api extends Base implements
             'timeout'          => 10.0,
         ]);
 
-        if (is_array($args['body'])) {
-            if (empty($args['body'])) {
-                $args['body'] = null;
-            } else {
-                $args['body'] = json_encode($args['body']);
-            }
+        if (is_array($args['body']) && !empty($args['body'])) {
+            $args['body'] = json_encode($args['body']);
         }
 
         $parsedUrl       = parse_url($this->baseRoute());
@@ -289,11 +285,6 @@ class Api extends Base implements
     public function getLogger(): ?LoggerInterface
     {
         return $this->logger;
-    }
-
-    public function logger(): ?LoggerInterface
-    {
-        return $this->getLogger();
     }
 
     public function setClient(Client $client): void
