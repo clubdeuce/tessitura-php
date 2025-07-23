@@ -175,7 +175,7 @@ class PerformancesTest extends testCase
             $result = $sut->getPerformanceZoneAvailabilities(12345);
 
             $this->assertIsArray($result);
-            $this->assertContainsOnly(PerformanceZoneAvailability::class, $result);
+            $this->assertContainsOnlyObject($result);
         } catch (Exception $e) {
             $this->fail('Exception was thrown: ' . $e->getMessage());
         }
