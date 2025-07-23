@@ -19,6 +19,7 @@ class RedisCacheTest extends testCase
 
     public function testGetReturnsValueWhenKeyExists(): void
     {
+        $this->cache->set('foo', 'bar');
         $this->assertEquals('bar', $this->cache->get('foo'));
     }
 
