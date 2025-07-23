@@ -65,46 +65,6 @@ class Base
     }
 
     /**
-     * Magic method to access properties dynamically.
-     *
-     * @deprecated Use explicit getter methods instead.
-     * @param string $name
-     * @param mixed[] $args
-     * @return mixed
-     */
-    public function __call(string $name, array $args = []): mixed
-    {
-        // Add deprecation warning for magic method usage
-        // This helps encourage developers to use explicit getter methods
-        $commonMethods = ['id', 'name', 'description'];
-        if (in_array(strtolower($name), $commonMethods)) {
-            $methodName = 'get' . ucfirst($name);
-            trigger_error(
-                "Magic method $name() is deprecated. Use explicit method $methodName() instead.",
-                E_USER_DEPRECATED
-            );
-        }
-
-        $property = "_{$name}";
-
-        if (property_exists($this, $property)) {
-            return $this->{$property};
-        }
-
-        /**
-         * Retrieves the value of an extra argument by name.
-         *
-         * @param string $name The name of the extra argument to retrieve.
-         * @return mixed The value of the extra argument if set, or false if not found.
-         */
-        if (isset($this->_extraArgs[$name])) {
-            return $this->_extraArgs[$name];
-        }
-
-        return false;
-    }
-
-    /**
      * Parses the provided arguments and fills in defaults.
      *
      * For each key in $defaults that is not present in $args, the default value is added to $args.
