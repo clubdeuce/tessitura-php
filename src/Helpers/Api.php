@@ -69,11 +69,11 @@ class Api extends Base implements
         ]);
 
         if ($logger) {
-            $this->setLogger($logger);
+            $args['logger'] = $logger;
         }
 
         if ($cache) {
-            $this->setCache($cache);
+            $args['cache'] = $cache;
         }
 
         if (!$client && !empty($args['baseRoute'])) {
