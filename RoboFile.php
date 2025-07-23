@@ -43,7 +43,7 @@ class RoboFile extends \Robo\Tasks
      */
     public function phpcsf(): Result
     {
-        return $this->taskExec('vendor/bin/php-cs-fixer fix src --diff --dry-run')->run();
+        return $this->taskExec('vendor/bin/php-cs-fixer fix --diff')->run();
     }
 
     /**
