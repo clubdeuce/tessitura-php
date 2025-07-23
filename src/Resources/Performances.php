@@ -121,7 +121,7 @@ class Performances extends Base implements ResourceInterface
 
             return array_map([$this, 'makeNewZoneAvailability'], $data);
         } catch (Exception $e) {
-            error_log("Exception in getPerformanceZoneAvailabilities: " . $e->getMessage());
+            //trigger_error("Exception in getPerformanceZoneAvailabilities: " . $e->getMessage());
 
             return [];
         }
