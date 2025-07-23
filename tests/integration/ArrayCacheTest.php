@@ -1,4 +1,5 @@
 <?php
+
 namespace Clubdeuce\Tessitura\Tests\integration;
 
 use Clubdeuce\Tessitura\Cache\ArrayCache;
