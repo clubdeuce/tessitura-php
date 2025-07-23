@@ -22,39 +22,21 @@ class Api extends Base implements
 {
     protected const CACHE_EXPIRATION_DEFAULT = 10 * 60; // 10 minutes
 
-    // These are the parameters that are required to connect to the Tessitura API.
-    protected string $_base_route = '';
+    protected string $base_route = '';
 
-    protected string $_machine;
+    protected string $machine;
 
-    protected string $_password;
+    protected string $password;
 
-    protected string $_username;
+    protected string $username;
 
-    /**
-     * @var string The usergroup required for authentication
-     */
-    protected string $_usergroup;
+    protected string $usergroup;
 
-    /**
-     * @var string The Tessitura API version to use with this library
-     */
-    protected string $_version = '15';
+    protected string $version = '15';
 
-    /**
-     * @var Client GuzzleHttp client
-     */
-    protected Client $_client;
-
-    /**
-     * @var LoggerInterface|null
-     */
-    protected ?LoggerInterface $_logger = null;
-
-    /**
-     * @var CacheInterface|null
-     */
-    protected ?CacheInterface $_cache = null;
+    protected Client $client;
+    protected ?LoggerInterface $logger = null;
+    protected ?CacheInterface $cache   = null;
 
     /**
      * API constructor.
@@ -110,7 +92,7 @@ class Api extends Base implements
      * @param string $resource
      * @param mixed[] $args
      * @return mixed
-     * @throws Exception
+     * @throws GuzzleException
      */
     public function get(string $resource, array $args = []): mixed
     {
@@ -137,8 +119,8 @@ class Api extends Base implements
         $cacheKey = $this->generateCacheKey($endpoint, $args);
 
         // Only cache GET requests
-        if ($method === 'GET' && $this->_cache) {
-            $cachedResponse = $this->_cache->get($cacheKey);
+        if ($method === 'GET' && $this->cache) {
+            $cachedResponse = $this->cache->get($cacheKey);
 
             if ($cachedResponse !== null) {
                 $this->logEvent('Cache hit for endpoint: ' . $endpoint);
@@ -149,8 +131,8 @@ class Api extends Base implements
 
         // Use the appropriate HTTP method
         $response = match ($method) {
-            'POST'  => $this->_client->post($this->getUri($endpoint), $args),
-            'GET'   => $this->_client->get($this->getUri($endpoint), $args),
+            'POST'  => $this->client->post($this->getUri($endpoint), $args),
+            'GET'   => $this->client->get($this->getUri($endpoint), $args),
             default => throw new Exception("Unsupported HTTP method: {$method}"),
         };
 
@@ -158,9 +140,9 @@ class Api extends Base implements
             $data = json_decode($response->getBody(), true);
 
             // Cache successful GET responses
-            if ($method === 'GET' && $this->_cache) {
+            if ($method === 'GET' && $this->cache) {
                 $cacheExpiration = $args['cache_expiration'] ?? self::CACHE_EXPIRATION_DEFAULT;
-                $this->_cache->set($cacheKey, $data, $cacheExpiration);
+                $this->cache->set($cacheKey, $data, $cacheExpiration);
                 $this->logEvent('Cached response for endpoint: ' . $endpoint);
             }
 
@@ -183,7 +165,7 @@ class Api extends Base implements
 
     public function getVersion(): string
     {
-        return $this->_version;
+        return $this->version;
     }
 
     /**
@@ -197,7 +179,6 @@ class Api extends Base implements
      */
     protected function getRequestArgs(array $args = []): array
     {
-
         $args = $this->parseArgs($args, [
             'cache_expiration' => self::CACHE_EXPIRATION_DEFAULT,
             'headers'          => [],
@@ -230,7 +211,6 @@ class Api extends Base implements
      */
     protected function getAuthorizationHeaderValue(): string
     {
-
         $auth_key = sprintf(
             '%1$s:%2$s:%3$s:%4$s',
             $this->getUsername(),
@@ -249,7 +229,6 @@ class Api extends Base implements
      */
     protected function getUri(string $endpoint): string
     {
-
         return "{$this->baseRoute()}/{$endpoint}";
     }
 
@@ -301,7 +280,7 @@ class Api extends Base implements
      */
     public function setLogger(LoggerInterface $logger): void
     {
-        $this->_logger = $logger;
+        $this->logger = $logger;
     }
 
     /**
@@ -311,7 +290,7 @@ class Api extends Base implements
      */
     public function getLogger(): ?LoggerInterface
     {
-        return $this->_logger;
+        return $this->logger;
     }
 
     public function logger(): ?LoggerInterface
@@ -321,72 +300,72 @@ class Api extends Base implements
 
     public function setClient(Client $client): void
     {
-        $this->_client = $client;
+        $this->client = $client;
     }
 
     public function getClient(): Client
     {
-        return $this->_client;
+        return $this->client;
     }
 
     public function baseRoute(): string
     {
-        return $this->_base_route;
+        return $this->base_route;
     }
 
     public function setBaseRoute(string $baseRoute): void
     {
-        $this->_base_route = $baseRoute;
+        $this->base_route = $baseRoute;
     }
 
     public function setMachine(string $machine): void
     {
-        $this->_machine = $machine;
+        $this->machine = $machine;
     }
 
     public function setPassword(string $password): void
     {
-        $this->_password = $password;
+        $this->password = $password;
     }
 
     public function setUsername(string $username): void
     {
-        $this->_username = $username;
+        $this->username = $username;
     }
 
     public function setUsergroup(string $usergroup): void
     {
-        $this->_usergroup = $usergroup;
+        $this->usergroup = $usergroup;
     }
 
     public function setVersion(string $version): void
     {
-        $this->_version = $version;
+        $this->version = $version;
     }
 
     public function getBaseRoute(): string
     {
-        return $this->_base_route;
+        return $this->base_route;
     }
 
     public function getMachine(): string
     {
-        return $this->_machine;
+        return $this->machine;
     }
 
     public function getPassword(): string
     {
-        return $this->_password;
+        return $this->password;
     }
 
     public function getUsergroup(): string
     {
-        return $this->_usergroup;
+        return $this->usergroup;
     }
 
     public function getUsername(): string
     {
-        return $this->_username;
+        return $this->username;
     }
 
     /**
@@ -397,7 +376,7 @@ class Api extends Base implements
      */
     public function setCache(CacheInterface $cache): void
     {
-        $this->_cache = $cache;
+        $this->cache = $cache;
     }
 
     /**
@@ -407,7 +386,7 @@ class Api extends Base implements
      */
     public function getCache(): ?CacheInterface
     {
-        return $this->_cache;
+        return $this->cache;
     }
 
     /**

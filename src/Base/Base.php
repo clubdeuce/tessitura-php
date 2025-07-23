@@ -56,6 +56,10 @@ class Base
                 continue;
             }
 
+            if (property_exists($this, $key)) {
+                $this->{$key} = $value;
+            }
+
             $this->_extraArgs[$key] = $value;
         }
     }
