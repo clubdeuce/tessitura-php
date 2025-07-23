@@ -8,21 +8,21 @@ class PriceSummary extends Resource
 {
     public function price(): float
     {
-        return floatval($this->_extraArgs['Price']);
+        return floatval($this->extraArgs['Price']);
     }
 
     public function zoneId(): int
     {
-        return intval($this->_extraArgs['ZoneId']);
+        return intval($this->extraArgs['ZoneId']);
     }
 
     public function enabled(): bool
     {
-        return (bool)$this->_extraArgs['Enabled'];
+        return (bool)$this->extraArgs['Enabled'];
     }
 
     public function performanceId(): int
     {
-        return intval($this->_extraArgs['PerformanceId']);
+        return intval($this->extraArgs['PerformanceId']);
     }
 }

@@ -21,7 +21,7 @@ class Base
      *
      * @var mixed[]
      */
-    protected array $_extraArgs = [];
+    protected array $extraArgs = [];
 
     /**
      * Base constructor.
@@ -60,7 +60,7 @@ class Base
                 $this->{$key} = $value;
             }
 
-            $this->_extraArgs[$key] = $value;
+            $this->extraArgs[$key] = $value;
         }
     }
 
@@ -91,6 +91,6 @@ class Base
      */
     public function extraArgs(): array
     {
-        return $this->_extraArgs;
+        return $this->extraArgs;
     }
 }
