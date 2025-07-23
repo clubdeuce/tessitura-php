@@ -111,9 +111,7 @@ class Api extends Base implements
      */
     protected function makeRequest(string $endpoint, array $args): array
     {
-        $args = $this->parseArgs($args, [
-            'method' => 'GET',
-        ]);
+        $args = $this->parseArgs($args, $this->getRequestArgs());
 
         $method   = $args['method'];
         $cacheKey = $this->generateCacheKey($endpoint, $args);
