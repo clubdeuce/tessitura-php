@@ -11,17 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Static Analysis
 
-    services:
-      redis:
-        image: redis:latest
-        ports:
-          - 6379:6379
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 3
-
     strategy:
       matrix:
         php-version: ['8.2', '8.3', '8.4']
@@ -63,9 +52,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Tests
 
+    services:
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 3
+
     strategy:
       matrix:
-        php-version: ['8.2', '8.3']
+        php-version: ['8.2', '8.3', '8.4']
 
     steps:
       - name: Checkout code
