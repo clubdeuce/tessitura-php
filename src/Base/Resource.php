@@ -4,9 +4,9 @@ namespace Clubdeuce\Tessitura\Base;
 
 class Resource extends Base
 {
-    public function getId(): string
+    public function getId(): int
     {
-        return $this->extraArgs['Id'] ?? '';
+        return intval($this->extraArgs['Id'] ?? '');
     }
 
     public function setId(string $id): void

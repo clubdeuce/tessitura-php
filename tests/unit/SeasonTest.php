@@ -60,12 +60,18 @@ class SeasonTest extends testCase
     {
         $season = new Season();
         $this->assertNull($season->getCreatedDateTime());
+
+        $season->setCreatedDateTime('alskdfnlk2njnlkwnflknwoifn');
+        $this->assertNull($season->getCreatedDateTime());
     }
 
     public function testStartDateTimeIsNull()
     {
         $season = new Season();
         $this->assertNull($season->getStartDateTime());
+
+        $season->setStartDateTime('alskdfnlk2njnlkwnflknwoifn');
+        $this->assertNull($season->getCreatedDateTime());
     }
 
     public function testEndDateTimeIsNull()

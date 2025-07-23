@@ -27,7 +27,7 @@ class ResourceTest extends testCase
 
     public function testGetId(): void
     {
-        $this->assertIsString($this->sut->getId());
+        $this->assertIsInt($this->sut->getId());
         $this->assertEquals(194, $this->sut->getId());
     }
 
