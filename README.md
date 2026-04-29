@@ -7,3 +7,8 @@ A PHP library for the Tessitura API.
 
 This is not an exhaustive implementation, but rather a subset of functionality necessary to implement projects for
 past and present clients. Functionality is added on an as-needed basis, but contributions are welcome.
+
+## Documentation
+
+- [Getting Started](docs/getting-started.md) — installation and basic usage
+- [Caching](docs/caching.md) — reduce API calls with Redis or in-memory caching
