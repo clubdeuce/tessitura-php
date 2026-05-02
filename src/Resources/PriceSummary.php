@@ -8,7 +8,7 @@ class PriceSummary extends Resource
 {
     public function price(): float
     {
-        return floatval($this->extraArgs['Price'] ?? 0.0);
+        return floatval($this->extraArgs['Price'] ?? 0);
     }
 
     public function zoneId(): int
