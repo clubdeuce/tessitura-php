@@ -7,6 +7,7 @@ use DateTime;
 use DateTimeZone;
 use Exception;
 use InvalidArgumentException;
+use Throwable;
 
 class ProductionSeason extends Base
 {
@@ -37,8 +38,8 @@ class ProductionSeason extends Base
     {
         try {
             $timezone = new DateTimeZone($timezone);
-        } catch (Exception $e) {
-            throw new InvalidArgumentException($e->getMessage());
+        } catch (Throwable $e) {
+            throw new InvalidArgumentException($e->getMessage(), 0, $e);
         }
 
         $date = isset($this->response()['FirstPerformanceDate']) ? $this->response()['FirstPerformanceDate'] : false;
@@ -58,8 +59,8 @@ class ProductionSeason extends Base
     {
         try {
             $timezone = new DateTimeZone($timezone);
-        } catch (Exception $e) {
-            throw new InvalidArgumentException($e->getMessage());
+        } catch (Throwable $e) {
+            throw new InvalidArgumentException($e->getMessage(), 0, $e);
         }
 
         $date = isset($this->response()['LastPerformanceDate']) ? $this->response()['LastPerformanceDate'] : false;
