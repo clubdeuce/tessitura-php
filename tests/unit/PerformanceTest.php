@@ -34,7 +34,25 @@ class PerformanceTest extends testCase
         try {
             $this->assertInstanceOf(DateTime::class, $this->sut->date());
             $this->assertEquals('2024-10-19 7:30 pm', $this->sut->date()->format('Y-m-d g:i a'));
-            $this->assertEquals('2024-10-19 7:30 pm', $this->sut->date('America/Los_Angeles')->format('Y-m-d g:i a'));
+            $this->assertEquals('America/New_York', $this->sut->date()->getTimezone()->getName());
+            $this->assertEquals('2024-10-19 4:30 pm', $this->sut->date('America/Los_Angeles')->format('Y-m-d g:i a'));
+            $this->assertEquals('America/Los_Angeles', $this->sut->date('America/Los_Angeles')->getTimezone()->getName());
+        } catch (Exception $e) {
+            trigger_error($e->getMessage());
+        }
+    }
+
+    public function testDateTimezoneCallOrderIndependence(): void
+    {
+        try {
+            // Request LA first, then NY — call order must not affect either result.
+            $la = $this->sut->date('America/Los_Angeles');
+            $ny = $this->sut->date('America/New_York');
+
+            $this->assertEquals('2024-10-19 4:30 pm', $la->format('Y-m-d g:i a'));
+            $this->assertEquals('America/Los_Angeles', $la->getTimezone()->getName());
+            $this->assertEquals('2024-10-19 7:30 pm', $ny->format('Y-m-d g:i a'));
+            $this->assertEquals('America/New_York', $ny->getTimezone()->getName());
         } catch (Exception $e) {
             trigger_error($e->getMessage());
         }
