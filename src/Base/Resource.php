@@ -16,7 +16,7 @@ class Resource extends Base
 
     public function getDescription(): string
     {
-        return $this->extraArgs['Description'];
+        return $this->extraArgs['Description'] ?? '';
     }
 
     public function setDescription(string $description): void
