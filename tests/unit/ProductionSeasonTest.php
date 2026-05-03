@@ -26,22 +26,14 @@ class ProductionSeasonTest extends testCase
 
     public function testFirstPerformance(): void
     {
-        try {
-            $this->assertInstanceOf(DateTime::class, $this->sut->firstPerformanceDate());
-            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->firstPerformanceDate()->format('Y-m-d g:i A'));
-        } catch (\Exception $e) {
-            trigger_error($e->getMessage());
-        }
+        $this->assertInstanceOf(DateTime::class, $this->sut->firstPerformanceDate());
+        $this->assertEquals('2024-10-19 7:30 PM', $this->sut->firstPerformanceDate()->format('Y-m-d g:i A'));
     }
 
     public function testLastPerformance(): void
     {
-        try {
-            $this->assertInstanceOf(DateTime::class, $this->sut->lastPerformanceDate());
-            $this->assertEquals('2024-10-19 7:30 PM', $this->sut->firstPerformanceDate()->format('Y-m-d g:i A'));
-        } catch (\Exception $e) {
-            trigger_error($e->getMessage());
-        }
+        $this->assertInstanceOf(DateTime::class, $this->sut->lastPerformanceDate());
+        $this->assertEquals('2024-10-27 2:30 PM', $this->sut->lastPerformanceDate()->format('Y-m-d g:i A'));
     }
 
     public function testFirstPerformanceIsFalse(): void

@@ -38,22 +38,15 @@ class ProductionSeason extends Base
     {
         try {
             $timezone = new DateTimeZone($timezone);
-        } catch (Exception $e) {
-            throw new InvalidArgumentException($e->getMessage());
+        } catch (Throwable $e) {
+            throw new InvalidArgumentException($e->getMessage(), 0, $e);
         }
 
         $date = isset($this->response()['FirstPerformanceDate']) ? $this->response()['FirstPerformanceDate'] : false;
         if ($date) {
-            try {
-                $result = DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
-                if ($result === false) {
-                    throw new Exception("Invalid date format for FirstPerformanceDate");
-                }
+            $result = (new DateTime($date))->setTimezone($timezone);
 
-                return $result;
-            } catch (Throwable $e) {
-                throw new Exception("Unable to parse FirstPerformanceDate: " . $e->getMessage());
-            }
+            return $result;
         }
 
         return false;
@@ -66,22 +59,15 @@ class ProductionSeason extends Base
     {
         try {
             $timezone = new DateTimeZone($timezone);
-        } catch (Exception $e) {
-            throw new InvalidArgumentException($e->getMessage());
+        } catch (Throwable $e) {
+            throw new InvalidArgumentException($e->getMessage(), 0, $e);
         }
 
         $date = isset($this->response()['LastPerformanceDate']) ? $this->response()['LastPerformanceDate'] : false;
         if ($date) {
-            try {
-                $result = DateTime::createFromFormat(' Y-m-d\TG:i:sp', $date, $timezone);
-                if ($result === false) {
-                    throw new Exception("Invalid date format for LastPerformanceDate");
-                }
+            $result = (new DateTime($date))->setTimezone($timezone);
 
-                return $result;
-            } catch (Throwable $e) {
-                throw new Exception("Unable to parse LastPerformanceDate: " . $e->getMessage());
-            }
+            return $result;
         }
 
         return false;
