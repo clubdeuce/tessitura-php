@@ -3,13 +3,13 @@
 namespace Clubdeuce\Tessitura\Helpers;
 
 use Clubdeuce\Tessitura\Base\Base;
+use Clubdeuce\Tessitura\Exceptions\ApiException;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
 use Clubdeuce\Tessitura\Interfaces\CacheInterface;
 use Clubdeuce\Tessitura\Interfaces\LoggerAwareInterface;
 use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Psr7\Stream;
+use GuzzleHttp\Exception\RequestException;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -92,7 +92,7 @@ class Api extends Base implements
      * @param string $resource
      * @param mixed[] $args
      * @return mixed
-     * @throws GuzzleException
+     * @throws ApiException
      */
     public function get(string $resource, array $args = []): mixed
     {
@@ -107,7 +107,7 @@ class Api extends Base implements
      * @param string  $endpoint
      * @param mixed[] $args
      * @return mixed[]
-     * @throws Exception|GuzzleException
+     * @throws Exception|ApiException
      */
     protected function makeRequest(string $endpoint, array $args): array
     {
@@ -128,11 +128,21 @@ class Api extends Base implements
         }
 
         // Use the appropriate HTTP method
-        $response = match ($method) {
-            'POST'  => $this->client->post($this->getUri($endpoint), $args),
-            'GET'   => $this->client->get($this->getUri($endpoint), $args),
-            default => throw new Exception("Unsupported HTTP method: {$method}"),
-        };
+        try {
+            $response = match ($method) {
+                'POST'  => $this->client->post($this->getUri($endpoint), $args),
+                'GET'   => $this->client->get($this->getUri($endpoint), $args),
+                default => throw new Exception("Unsupported HTTP method: {$method}"),
+            };
+        } catch (RequestException $e) {
+            $statusCode   = $e->getResponse() ? $e->getResponse()->getStatusCode() : 0;
+            $bodyContents = $e->getResponse() ? (string) $e->getResponse()->getBody() : '';
+            $message      = $bodyContents !== '' ? $bodyContents : $e->getMessage();
+
+            $this->logEvent("Error response from endpoint: {$endpoint}. {$message}");
+
+            throw new ApiException($message, $statusCode, $e);
+        }
 
         if (200 === $response->getStatusCode()) {
             $data = json_decode($response->getBody(), true);
@@ -147,18 +157,12 @@ class Api extends Base implements
             return $data;
         }
 
-        // We have successfully gotten a response from the API, but not a 200 status code.
-        /**
-         * @var Stream $body
-         */
-        $body = $response->getBody();
+        // We have a response from the API but not a 200 status code.
+        $bodyContents = (string) $response->getBody();
 
-        $this->logEvent("Error response from endpoint: {$endpoint}. {$body->getContents()}");
+        $this->logEvent("Error response from endpoint: {$endpoint}. {$bodyContents}");
 
-        throw new Exception(
-            $body->getContents(),
-            $response->getStatusCode()
-        );
+        throw new ApiException($bodyContents, $response->getStatusCode());
     }
 
     public function getVersion(): string
@@ -230,7 +234,7 @@ class Api extends Base implements
      * @param string $endpoint
      * @param mixed[] $args
      * @return Exception|mixed[]
-     * @throws GuzzleException
+     * @throws ApiException
      */
     public function post(string $endpoint, array $args = []): array|Exception
     {
