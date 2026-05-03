@@ -30,6 +30,7 @@ class ContainerTest extends TestCase
 
         $this->assertInstanceOf(Client::class, $httpClient);
         $this->assertSame(5.0, $httpClient->getConfig('timeout'));
+        $this->assertSame('https://example.com', (string) $httpClient->getConfig('base_uri'));
     }
 
     /**

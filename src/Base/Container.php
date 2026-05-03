@@ -146,8 +146,8 @@ class Container
         $baseRoute = $this->getParameter('base_route', '');
 
         return new Client([
-            'baseRoute' => $baseRoute,
-            'timeout'   => $this->getParameter('timeout', 10.0),
+            'base_uri' => $baseRoute,
+            'timeout'  => $this->getParameter('timeout', 10.0),
         ]);
     }
 
