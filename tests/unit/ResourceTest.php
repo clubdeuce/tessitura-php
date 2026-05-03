@@ -48,4 +48,11 @@ class ResourceTest extends testCase
         $this->sut->setDescription('New Description');
         $this->assertEquals('New Description', $this->sut->getDescription());
     }
+
+    public function testGetDescriptionDefaultsToEmptyStringWhenMissing(): void
+    {
+        $sut = new Resource([]);
+        $this->assertIsString($sut->getDescription());
+        $this->assertEquals('', $sut->getDescription());
+    }
 }

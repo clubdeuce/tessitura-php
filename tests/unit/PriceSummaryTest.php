@@ -40,4 +40,32 @@ class PriceSummaryTest extends testCase
     {
         $this->assertEquals(15027, $this->sut->performanceId());
     }
+
+    public function testPriceDefaultsToZeroWhenMissing(): void
+    {
+        $sut = new PriceSummary([]);
+        $this->assertIsFloat($sut->price());
+        $this->assertEquals(0.0, $sut->price());
+    }
+
+    public function testZoneIdDefaultsToZeroWhenMissing(): void
+    {
+        $sut = new PriceSummary([]);
+        $this->assertIsInt($sut->zoneId());
+        $this->assertEquals(0, $sut->zoneId());
+    }
+
+    public function testEnabledDefaultsToFalseWhenMissing(): void
+    {
+        $sut = new PriceSummary([]);
+        $this->assertIsBool($sut->enabled());
+        $this->assertFalse($sut->enabled());
+    }
+
+    public function testPerformanceIdDefaultsToZeroWhenMissing(): void
+    {
+        $sut = new PriceSummary([]);
+        $this->assertIsInt($sut->performanceId());
+        $this->assertEquals(0, $sut->performanceId());
+    }
 }

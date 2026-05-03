@@ -106,6 +106,6 @@ class Performance extends Base
 
     public function statusId(): int
     {
-        return intval($this->extraArgs['PerformanceStatus']['Id']);
+        return intval($this->extraArgs['PerformanceStatus']['Id'] ?? 0);
     }
 }

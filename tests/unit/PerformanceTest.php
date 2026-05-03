@@ -160,4 +160,24 @@ class PerformanceTest extends testCase
             'facilityDescription should return an empty string when the key is missing.'
         );
     }
+
+    public function testStatusIdReturnsIntWhenPresent(): void
+    {
+        $this->assertIsInt($this->sut->statusId());
+        $this->assertEquals(1, $this->sut->statusId());
+    }
+
+    public function testStatusIdReturnsZeroWhenPerformanceStatusMissing(): void
+    {
+        $sut = new Performance([]);
+        $this->assertIsInt($sut->statusId());
+        $this->assertEquals(0, $sut->statusId());
+    }
+
+    public function testStatusIdReturnsZeroWhenIdKeyMissing(): void
+    {
+        $sut = new Performance(['PerformanceStatus' => ['Description' => 'On Sale']]);
+        $this->assertIsInt($sut->statusId());
+        $this->assertEquals(0, $sut->statusId());
+    }
 }
