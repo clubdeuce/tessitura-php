@@ -15,11 +15,34 @@ use Throwable;
 class Performances extends Base implements ResourceInterface
 {
     public const RESOURCE = 'TXN/Performances';
-    protected ApiInterface $_api;
 
-    public function __construct(ApiInterface $api)
-    {
-        $this->_api = $api;
+    /** Tessitura "Mode of Sale" ID for web sales. */
+    public const MODE_OF_SALE_WEB = 5;
+
+    /** Tessitura PriceTypeId for the standard "Single Ticket" price. */
+    public const PRICE_TYPE_SINGLE = 1;
+
+    /**
+     * Cache TTL (seconds) for price/zone/SeatFees lookups.
+     *
+     * 5 minutes is the compromise between compliance freshness and listing-page
+     * performance when iterating many performances. Override via the DSO filter
+     * `dso_tessitura_price_lookup_cache_ttl` if needed.
+     */
+    public const PRICE_LOOKUP_CACHE_TTL = 5 * 60;
+
+    protected ApiInterface $_api;
+    protected ?ProductKeywords $_productKeywords;
+    protected ?PriceTypes $_priceTypes;
+
+    public function __construct(
+        ApiInterface $api,
+        ?ProductKeywords $productKeywords = null,
+        ?PriceTypes $priceTypes = null
+    ) {
+        $this->_api            = $api;
+        $this->_productKeywords = $productKeywords;
+        $this->_priceTypes     = $priceTypes;
         parent::__construct();
     }
 
@@ -64,7 +87,6 @@ class Performances extends Base implements ResourceInterface
                     $sorted[$date->getTimestamp()] = $performance;
                 }
             } catch (Throwable $e) {
-                // Skip performances with invalid dates rather than stopping the entire operation
                 continue;
             }
         }
@@ -72,6 +94,19 @@ class Performances extends Base implements ResourceInterface
         ksort($sorted);
 
         return $sorted;
+    }
+
+    /**
+     * Get performances on a specific day.
+     *
+     * @return Performance[]
+     */
+    public function getPerformancesOn(DateTime $day): array
+    {
+        return $this->search([
+            'PerformanceStartDate' => $day->format(DATE_ATOM),
+            'PerformanceEndDate'   => (clone $day)->setTime(23, 59, 59)->format(DATE_ATOM),
+        ]);
     }
 
     /**
@@ -107,7 +142,7 @@ class Performances extends Base implements ResourceInterface
             return [];
         }
 
-        return array_map(fn ($item) => new Performance($item), $results);
+        return array_map(fn($item) => $this->makePerformance($item), $results);
     }
 
     /**
@@ -117,14 +152,231 @@ class Performances extends Base implements ResourceInterface
     public function getPerformanceZoneAvailabilities(int $performanceId): array
     {
         try {
-            $data = $this->_api->get(sprintf('%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId));
+            $data = $this->_api->get(
+                sprintf('%1$s/Zones?performanceIds=%2$s', self::RESOURCE, $performanceId),
+                ['cache_expiration' => self::PRICE_LOOKUP_CACHE_TTL]
+            );
 
             return array_map([$this, 'makeNewZoneAvailability'], $data);
         } catch (Exception $e) {
-            //trigger_error("Exception in getPerformanceZoneAvailabilities: " . $e->getMessage());
-
             return [];
         }
+    }
+
+    /**
+     * Get base prices for a performance.
+     *
+     * @param  int     $performanceId
+     * @param  mixed[] $args
+     * @return PriceSummary[]
+     */
+    public function getPricesForPerformance(int $performanceId, array $args = []): array
+    {
+        try {
+            $data = $this->_api->get(self::RESOURCE . '/Prices', array_merge($args, [
+                'body' => [
+                    'performanceIds'       => $performanceId,
+                    'includeOnlyBasePrice' => 'true',
+                ],
+            ]));
+
+            return array_map(fn($item) => new PriceSummary($item), is_array($data) ? $data : []);
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
+    /**
+     * Get prices for a specific zone, with the IsBase row sorted first.
+     *
+     * @param  int     $performanceId
+     * @param  int     $zoneId
+     * @param  mixed[] $args
+     * @return mixed[]
+     */
+    public function getPerformancePricesForZone(int $performanceId, int $zoneId, array $args = []): array
+    {
+        $prices = [];
+
+        $requestOpts = [];
+        if (array_key_exists('cache_expiration', $args)) {
+            $requestOpts['cache_expiration'] = $args['cache_expiration'];
+            unset($args['cache_expiration']);
+        }
+
+        $params = http_build_query(array_merge([
+            'performanceIds' => $performanceId,
+            'modeOfSaleId'   => self::MODE_OF_SALE_WEB,
+            'priceTypeIds'   => self::PRICE_TYPE_SINGLE,
+        ], $args));
+
+        try {
+            $response = $this->_api->get(
+                sprintf('%s/Prices?%s', self::RESOURCE, $params),
+                $requestOpts
+            );
+
+            if (!is_array($response)) {
+                return [];
+            }
+
+            $baseRow    = null;
+            $otherRows  = [];
+
+            foreach ($response as $item) {
+                if ($zoneId !== (int)($item['ZoneId'] ?? -1)) {
+                    continue;
+                }
+
+                $description = '';
+                if ($this->_priceTypes !== null) {
+                    try {
+                        $priceType   = $this->_priceTypes->get((int)$item['PriceTypeId']);
+                        $description = $priceType->getDescription();
+                    } catch (\Exception $e) {
+                        // description stays empty
+                    }
+                }
+
+                $row = [
+                    'price_type_id' => (int)($item['PriceTypeId'] ?? 0),
+                    'description'   => $description,
+                    'price'         => (float)($item['Price'] ?? 0),
+                    'is_base'       => !empty($item['IsBase']),
+                    'enabled'       => !empty($item['Enabled']),
+                ];
+
+                if (null === $baseRow && $row['is_base'] && $row['enabled']) {
+                    $baseRow = $row;
+                } else {
+                    $otherRows[] = $row;
+                }
+            }
+
+            if (null === $baseRow && !empty($otherRows)) {
+                $baseRow = array_shift($otherRows);
+            }
+
+            if (null !== $baseRow) {
+                $prices[] = $baseRow;
+            }
+            foreach ($otherRows as $row) {
+                $prices[] = $row;
+            }
+        } catch (Exception $e) {
+            // return empty
+        }
+
+        return $prices;
+    }
+
+    /**
+     * Sum of per-ticket fees for a zone, or null if the lookup fails.
+     */
+    public function getSeatFeesForZone(int $performanceId, int $zoneId): ?float
+    {
+        $params   = http_build_query([
+            'modeOfSaleId' => self::MODE_OF_SALE_WEB,
+            'priceTypeIds' => self::PRICE_TYPE_SINGLE,
+        ]);
+        $endpoint = sprintf('%s/%d/SeatFees?%s', self::RESOURCE, $performanceId, $params);
+
+        try {
+            $response = $this->_api->get(
+                $endpoint,
+                ['cache_expiration' => self::PRICE_LOOKUP_CACHE_TTL]
+            );
+
+            if (!is_array($response)) {
+                return null;
+            }
+
+            $matched   = false;
+            $feeTotal  = 0.0;
+
+            foreach ($response as $row) {
+                if (!isset($row['ZoneId']) || $zoneId !== (int)$row['ZoneId']) {
+                    continue;
+                }
+                $matched   = true;
+                $feeTotal += isset($row['FeeAmount']) ? (float)$row['FeeAmount'] : 0.0;
+            }
+
+            return $matched ? $feeTotal : null;
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
+    /**
+     * Compute the all-in "starting at" price for a performance.
+     *
+     * Walks all available zones, picks the lowest IsBase price, adds seat fees.
+     * Returns 0.0 when no zones are on sale. Falls back to 0.0 (not an error)
+     * when SeatFees returns no data; callers that need a WP fee fallback (e.g.
+     * DSO's Fees::ticket_fees()) should subclass and override this method.
+     *
+     * @param  mixed[] $args
+     */
+    public function getTicketsStartAt(int $performanceId, array $args = []): float
+    {
+        $bestPrice = 0.0;
+        $bestZone  = 0;
+        $zones     = $this->getPerformanceZoneAvailabilities($performanceId);
+
+        if (!array_key_exists('cache_expiration', $args)) {
+            $args['cache_expiration'] = self::PRICE_LOOKUP_CACHE_TTL;
+        }
+
+        foreach ($zones as $zone) {
+            if (!$zone->availableCount()) {
+                continue;
+            }
+
+            $prices = $this->getPerformancePricesForZone($performanceId, $zone->zone()->id, $args);
+
+            if (isset($prices[0]['price'])) {
+                $p = (float)$prices[0]['price'];
+                if (0.0 === $bestPrice || $p < $bestPrice) {
+                    $bestPrice = $p;
+                    $bestZone  = $zone->zone()->id;
+                }
+            }
+        }
+
+        if (0.0 === $bestPrice) {
+            return 0.0;
+        }
+
+        $fees = $this->getSeatFeesForZone($performanceId, $bestZone);
+
+        return $bestPrice + ($fees ?? 0.0);
+    }
+
+    /**
+     * Returns true if the performance has any of the keywords in $keywords.
+     * When no ProductKeywords service was injected, always returns false.
+     *
+     * @param  string[]|int[] $keywords Description or ID values to match against.
+     */
+    public function filterPerformanceByKeywords(Performance $performance, array $keywords): bool
+    {
+        if ($this->_productKeywords === null) {
+            return false;
+        }
+
+        $results = $this->_productKeywords->get([$performance->id()]);
+
+        foreach ($results as $result) {
+            foreach ($result->keywords() as $keyword) {
+                if (in_array($keyword['Description'] ?? null, $keywords, true)
+                    || in_array($keyword['Id'] ?? null, $keywords, true)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -148,5 +400,16 @@ class Performances extends Base implements ResourceInterface
             'availableCount' => $data['AvailableCount'],
             'zone'           => $data['Zone'],
         ]);
+    }
+
+    /**
+     * Factory method for creating Performance objects.
+     * Override in a subclass to produce enriched performance instances.
+     *
+     * @param  mixed[] $data
+     */
+    protected function makePerformance(array $data): Performance
+    {
+        return new Performance($data);
     }
 }
