@@ -10,8 +10,6 @@ use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
-// phpcs:disable Generic.Files.LineLength
-
 /**
  * Class Container
  * @package Clubdeuce\Tessitura
@@ -32,6 +30,26 @@ use Psr\Log\NullLogger;
  */
 class Container
 {
+    /**
+     * @var array<string, string>
+     */
+    private const SERVICE_FACTORY_METHODS = [
+        'http_client'              => 'createHttpClient',
+        'logger'                   => 'createLogger',
+        'api'                      => 'createApi',
+        'performances'             => 'createPerformances',
+        'sessions'                 => 'createSessions',
+        'constituents'             => 'createConstituents',
+        'constituent_types'        => 'createConstituentTypes',
+        'original_sources'         => 'createOriginalSources',
+        'electronic_address_types' => 'createElectronicAddressTypes',
+        'address_types'            => 'createAddressTypes',
+        'price_types'              => 'createPriceTypes',
+        'product_keywords'         => 'createProductKeywords',
+        'web_contents'             => 'createWebContents',
+        'production_seasons'       => 'createProductionSeasons',
+    ];
+
     /**
      * @var mixed[] Array of registered services.
      */
@@ -112,7 +130,7 @@ class Container
      */
     public function has(string $id): bool
     {
-        return isset($this->services[$id]) || method_exists($this, 'create' . ucfirst($id));
+        return isset($this->services[$id]) || array_key_exists($id, self::SERVICE_FACTORY_METHODS);
     }
 
     /**
@@ -124,38 +142,13 @@ class Container
      */
     private function createService(string $id): mixed
     {
-        switch ($id) {
-            case 'http_client':
-                return $this->createHttpClient();
-            case 'logger':
-                return $this->createLogger();
-            case 'api':
-                return $this->createApi();
-            case 'performances':
-                return $this->createPerformances();
-            case 'sessions':
-                return $this->createSessions();
-            case 'constituents':
-                return $this->createConstituents();
-            case 'constituent_types':
-                return $this->createConstituentTypes();
-            case 'original_sources':
-                return $this->createOriginalSources();
-            case 'electronic_address_types':
-                return $this->createElectronicAddressTypes();
-            case 'address_types':
-                return $this->createAddressTypes();
-            case 'price_types':
-                return $this->createPriceTypes();
-            case 'product_keywords':
-                return $this->createProductKeywords();
-            case 'web_contents':
-                return $this->createWebContents();
-            case 'production_seasons':
-                return $this->createProductionSeasons();
-            default:
-                throw new \Exception(sprintf('Service "%s" not found', $id));
+        $factory = self::SERVICE_FACTORY_METHODS[$id] ?? null;
+
+        if (null === $factory) {
+            throw new \Exception(sprintf('Service "%s" not found', $id));
         }
+
+        return $this->{$factory}();
     }
 
     /**
