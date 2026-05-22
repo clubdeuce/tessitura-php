@@ -9,7 +9,12 @@ class Session extends Base
     public function isLoggedIn(): bool
     {
         $info = $this->loginInfo();
-        return 764007 !== ($info['ConstituentId'] ?? 764007);
+
+        if (array_key_exists('IsLoggedIn', $info)) {
+            return !empty($info['IsLoggedIn']);
+        }
+
+        return !empty($info['ConstituentId'] ?? null);
     }
 
     public function isCartEmpty(): bool
