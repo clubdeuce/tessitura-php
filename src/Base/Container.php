@@ -10,6 +10,8 @@ use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
+// phpcs:disable Generic.Files.LineLength
+
 /**
  * Class Container
  * @package Clubdeuce\Tessitura
@@ -131,6 +133,26 @@ class Container
                 return $this->createApi();
             case 'performances':
                 return $this->createPerformances();
+            case 'sessions':
+                return $this->createSessions();
+            case 'constituents':
+                return $this->createConstituents();
+            case 'constituent_types':
+                return $this->createConstituentTypes();
+            case 'original_sources':
+                return $this->createOriginalSources();
+            case 'electronic_address_types':
+                return $this->createElectronicAddressTypes();
+            case 'address_types':
+                return $this->createAddressTypes();
+            case 'price_types':
+                return $this->createPriceTypes();
+            case 'product_keywords':
+                return $this->createProductKeywords();
+            case 'web_contents':
+                return $this->createWebContents();
+            case 'production_seasons':
+                return $this->createProductionSeasons();
             default:
                 throw new \Exception(sprintf('Service "%s" not found', $id));
         }
@@ -193,6 +215,66 @@ class Container
      */
     private function createPerformances(): ResourceInterface
     {
-        return new Resources\Performances($this->get('api'));
+        return new Resources\Performances(
+            $this->get('api'),
+            $this->get('product_keywords'),
+            $this->get('price_types')
+        );
+    }
+
+    private function createSessions(): ResourceInterface
+    {
+        return new Resources\Sessions($this->get('api'));
+    }
+
+    private function createConstituents(): ResourceInterface
+    {
+        return new Resources\Constituents(
+            $this->get('api'),
+            $this->get('original_sources'),
+            $this->get('constituent_types'),
+            $this->get('address_types'),
+            $this->get('electronic_address_types')
+        );
+    }
+
+    private function createConstituentTypes(): ResourceInterface
+    {
+        return new Resources\ConstituentTypes($this->get('api'));
+    }
+
+    private function createOriginalSources(): ResourceInterface
+    {
+        return new Resources\OriginalSources($this->get('api'));
+    }
+
+    private function createElectronicAddressTypes(): ResourceInterface
+    {
+        return new Resources\ElectronicAddressTypes($this->get('api'));
+    }
+
+    private function createAddressTypes(): ResourceInterface
+    {
+        return new Resources\AddressTypes($this->get('api'));
+    }
+
+    private function createPriceTypes(): ResourceInterface
+    {
+        return new Resources\PriceTypes($this->get('api'));
+    }
+
+    private function createProductKeywords(): ResourceInterface
+    {
+        return new Resources\ProductKeywords($this->get('api'));
+    }
+
+    private function createWebContents(): ResourceInterface
+    {
+        return new Resources\WebContents($this->get('api'));
+    }
+
+    private function createProductionSeasons(): ResourceInterface
+    {
+        return new Resources\ProductionSeasons($this->get('api'));
     }
 }
