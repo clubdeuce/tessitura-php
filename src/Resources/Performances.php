@@ -26,8 +26,7 @@ class Performances extends Base implements ResourceInterface
      * Cache TTL (seconds) for price/zone/SeatFees lookups.
      *
      * 5 minutes is the compromise between compliance freshness and listing-page
-     * performance when iterating many performances. Override via the DSO filter
-     * `dso_tessitura_price_lookup_cache_ttl` if needed.
+     * performance when iterating many performances.
      */
     public const PRICE_LOOKUP_CACHE_TTL = 5 * 60;
 
@@ -172,13 +171,22 @@ class Performances extends Base implements ResourceInterface
      */
     public function getPricesForPerformance(int $performanceId, array $args = []): array
     {
+        $requestOpts = [];
+        if (array_key_exists('cache_expiration', $args)) {
+            $requestOpts['cache_expiration'] = $args['cache_expiration'];
+            unset($args['cache_expiration']);
+        }
+
+        $params = http_build_query(array_merge($args, [
+            'performanceIds'       => $performanceId,
+            'includeOnlyBasePrice' => 'true',
+        ]));
+
         try {
-            $data = $this->_api->get(self::RESOURCE . '/Prices', array_merge($args, [
-                'body' => [
-                    'performanceIds'       => $performanceId,
-                    'includeOnlyBasePrice' => 'true',
-                ],
-            ]));
+            $data = $this->_api->get(
+                sprintf('%s/Prices?%s', self::RESOURCE, $params),
+                $requestOpts
+            );
 
             return array_map(fn($item) => new PriceSummary($item), $data);
         } catch (Exception $e) {
@@ -197,6 +205,7 @@ class Performances extends Base implements ResourceInterface
     public function getPerformancePricesForZone(int $performanceId, int $zoneId, array $args = []): array
     {
         $prices = [];
+        $priceTypeDescriptions = [];
 
         $requestOpts = [];
         if (array_key_exists('cache_expiration', $args)) {
@@ -211,6 +220,12 @@ class Performances extends Base implements ResourceInterface
         ], $args));
 
         try {
+            if ($this->_priceTypes !== null) {
+                foreach ($this->_priceTypes->getAll() as $priceType) {
+                    $priceTypeDescriptions[$priceType->getId()] = $priceType->getDescription();
+                }
+            }
+
             $response = $this->_api->get(
                 sprintf('%s/Prices?%s', self::RESOURCE, $params),
                 $requestOpts
@@ -224,18 +239,11 @@ class Performances extends Base implements ResourceInterface
                     continue;
                 }
 
-                $description = '';
-                if ($this->_priceTypes !== null) {
-                    try {
-                        $priceType   = $this->_priceTypes->get((int)$item['PriceTypeId']);
-                        $description = $priceType->getDescription();
-                    } catch (\Exception $e) {
-                        // description stays empty
-                    }
-                }
+                $priceTypeId = (int)($item['PriceTypeId'] ?? 0);
+                $description = $priceTypeDescriptions[$priceTypeId] ?? '';
 
                 $row = [
-                    'price_type_id' => (int)($item['PriceTypeId'] ?? 0),
+                    'price_type_id' => $priceTypeId,
                     'description'   => $description,
                     'price'         => (float)($item['Price'] ?? 0),
                     'is_base'       => !empty($item['IsBase']),
@@ -325,13 +333,15 @@ class Performances extends Base implements ResourceInterface
                 continue;
             }
 
-            $prices = $this->getPerformancePricesForZone($performanceId, $zone->zone()->id, $args);
+            $zoneInfo = $zone->zone();
+            $zoneId   = $zoneInfo->id;
+            $prices   = $this->getPerformancePricesForZone($performanceId, $zoneId, $args);
 
             if (isset($prices[0]['price'])) {
                 $p = (float)$prices[0]['price'];
                 if (0.0 === $bestPrice || $p < $bestPrice) {
                     $bestPrice = $p;
-                    $bestZone  = $zone->zone()->id;
+                    $bestZone  = $zoneId;
                 }
             }
         }
@@ -361,8 +371,10 @@ class Performances extends Base implements ResourceInterface
 
         foreach ($results as $result) {
             foreach ($result->keywords() as $keyword) {
-                if (in_array($keyword['Description'] ?? null, $keywords, true)
-                    || in_array($keyword['Id'] ?? null, $keywords, true)) {
+                if (
+                    in_array($keyword['Description'] ?? null, $keywords, true)
+                    || in_array($keyword['Id'] ?? null, $keywords, true)
+                ) {
                     return true;
                 }
             }
