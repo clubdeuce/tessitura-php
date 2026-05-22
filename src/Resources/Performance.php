@@ -130,4 +130,14 @@ class Performance extends Base
     {
         return intval($this->extraArgs['PerformanceStatus']['Id'] ?? 0);
     }
+
+    public function isCancelled(): bool
+    {
+        return 4 === $this->statusId();
+    }
+
+    public function isOnSale(): bool
+    {
+        return in_array($this->statusId(), [1, 5]);
+    }
 }
