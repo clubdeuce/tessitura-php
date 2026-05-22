@@ -10,7 +10,9 @@ class ProductionSeasons extends Base implements ResourceInterface
 {
     public const RESOURCE = 'TXN/ProductionSeasons';
 
+    // phpcs:disable PSR2.Classes.PropertyDeclaration.Underscore
     protected ApiInterface $_api;
+    // phpcs:enable PSR2.Classes.PropertyDeclaration.Underscore
 
     public function __construct(ApiInterface $api)
     {

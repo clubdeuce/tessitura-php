@@ -10,7 +10,9 @@ class AddressTypes extends Base implements ResourceInterface
 {
     public const RESOURCE = 'ReferenceData/AddressTypes';
 
+    // phpcs:disable PSR2.Classes.PropertyDeclaration.Underscore
     protected ApiInterface $_api;
+    // phpcs:enable PSR2.Classes.PropertyDeclaration.Underscore
 
     public function __construct(ApiInterface $api)
     {
