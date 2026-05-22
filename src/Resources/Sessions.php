@@ -26,7 +26,7 @@ class Sessions extends Base implements ResourceInterface
                 ['cache_expiration' => 10]
             );
 
-            return is_array($data) ? new Session($data) : null;
+            return new Session($data);
         } catch (\Exception $e) {
             return null;
         }

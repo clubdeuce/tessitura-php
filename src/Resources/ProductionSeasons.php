@@ -39,7 +39,7 @@ class ProductionSeasons extends Base implements ResourceInterface
         try {
             $data = $this->_api->get(self::RESOURCE . $query);
 
-            return is_array($data) ? $data : [];
+            return $data;
         } catch (\Exception $e) {
             return [];
         }
@@ -50,7 +50,7 @@ class ProductionSeasons extends Base implements ResourceInterface
         try {
             $data = $this->_api->get(sprintf('%s/%d', self::RESOURCE, $id));
 
-            return is_array($data) ? new ProductionSeason($data) : null;
+            return new ProductionSeason($data);
         } catch (\Exception $e) {
             return null;
         }
@@ -81,6 +81,9 @@ class ProductionSeasons extends Base implements ResourceInterface
         }
     }
 
+    /**
+     * @return mixed[]
+     */
     public function getSeasonsForProduction(int $productionId): array
     {
         return $this->getAll(['productionIds' => $productionId]);

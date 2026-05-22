@@ -21,11 +21,17 @@ class Constituent extends Base
         return $this->extraArgs['LastName'] ?? '';
     }
 
+    /**
+     * @return mixed[]
+     */
     public function addresses(): array
     {
         return $this->extraArgs['Addresses'] ?? [];
     }
 
+    /**
+     * @return mixed[]
+     */
     public function electronicAddresses(): array
     {
         return $this->extraArgs['ElectronicAddresses'] ?? [];

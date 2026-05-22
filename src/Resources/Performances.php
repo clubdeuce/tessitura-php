@@ -180,7 +180,7 @@ class Performances extends Base implements ResourceInterface
                 ],
             ]));
 
-            return array_map(fn($item) => new PriceSummary($item), is_array($data) ? $data : []);
+            return array_map(fn($item) => new PriceSummary($item), $data);
         } catch (Exception $e) {
             return [];
         }
@@ -215,10 +215,6 @@ class Performances extends Base implements ResourceInterface
                 sprintf('%s/Prices?%s', self::RESOURCE, $params),
                 $requestOpts
             );
-
-            if (!is_array($response)) {
-                return [];
-            }
 
             $baseRow    = null;
             $otherRows  = [];
@@ -286,10 +282,6 @@ class Performances extends Base implements ResourceInterface
                 $endpoint,
                 ['cache_expiration' => self::PRICE_LOOKUP_CACHE_TTL]
             );
-
-            if (!is_array($response)) {
-                return null;
-            }
 
             $matched   = false;
             $feeTotal  = 0.0;

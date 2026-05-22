@@ -18,16 +18,16 @@ class Constituents extends Base implements ResourceInterface
 
     public function __construct(
         ApiInterface $api,
-        OriginalSources $originalSources,
-        ConstituentTypes $constituentTypes,
-        AddressTypes $addressTypes,
-        ElectronicAddressTypes $electronicAddressTypes
+        ?OriginalSources $originalSources = null,
+        ?ConstituentTypes $constituentTypes = null,
+        ?AddressTypes $addressTypes = null,
+        ?ElectronicAddressTypes $electronicAddressTypes = null
     ) {
         $this->_api                    = $api;
-        $this->_originalSources        = $originalSources;
-        $this->_constituentTypes       = $constituentTypes;
-        $this->_addressTypes           = $addressTypes;
-        $this->_electronicAddressTypes = $electronicAddressTypes;
+        $this->_originalSources        = $originalSources ?? new OriginalSources($api);
+        $this->_constituentTypes       = $constituentTypes ?? new ConstituentTypes($api);
+        $this->_addressTypes           = $addressTypes ?? new AddressTypes($api);
+        $this->_electronicAddressTypes = $electronicAddressTypes ?? new ElectronicAddressTypes($api);
         parent::__construct();
     }
 
@@ -122,7 +122,7 @@ class Constituents extends Base implements ResourceInterface
         try {
             $data = $this->_api->get(sprintf('%s/%d/Detail', self::RESOURCE, $id));
 
-            return is_array($data) ? new Constituent($data) : null;
+            return new Constituent($data);
         } catch (\Exception $e) {
             return null;
         }

@@ -33,11 +33,17 @@ class Session extends Base
         return true;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function loginInfo(): array
     {
         return $this->extraArgs['LoginInfo'] ?? [];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function cartInfo(): array
     {
         return $this->extraArgs['CartInfo'] ?? [];
