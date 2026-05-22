@@ -256,6 +256,7 @@ class PerformancesTest extends testCase
                     return [
                         ['ZoneId' => 812, 'PriceTypeId' => 1, 'Price' => 40.00, 'IsBase' => true, 'Enabled' => true],
                         ['ZoneId' => 813, 'PriceTypeId' => 1, 'Price' => 30.00, 'IsBase' => true, 'Enabled' => true],
+                        ['ZoneId' => 814, 'PriceTypeId' => 1, 'Price' => 10.00, 'IsBase' => true, 'Enabled' => true],
                     ];
                 }
             );
