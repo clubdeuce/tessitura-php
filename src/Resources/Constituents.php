@@ -5,16 +5,35 @@ namespace Clubdeuce\Tessitura\Resources;
 use Clubdeuce\Tessitura\Base\Base;
 use Clubdeuce\Tessitura\Interfaces\ApiInterface;
 use Clubdeuce\Tessitura\Interfaces\ResourceInterface;
+use InvalidArgumentException;
 
 class Constituents extends Base implements ResourceInterface
 {
     public const RESOURCE = 'CRM/Constituents';
+    private const REQUIRED_CREATE_FIELDS = [
+        'first_name',
+        'last_name',
+        'email',
+        'original_source_id',
+        'constituent_type_id',
+        'electronic_address_type_id',
+    ];
+    private const OPTIONAL_ADDRESS_FIELDS = [
+        'address_type_id',
+        'street1',
+        'city',
+        'postal_code',
+        'country',
+        'state',
+    ];
 
+    // phpcs:disable PSR2.Classes.PropertyDeclaration.Underscore
     protected ApiInterface $_api;
     protected OriginalSources $_originalSources;
     protected ConstituentTypes $_constituentTypes;
     protected AddressTypes $_addressTypes;
     protected ElectronicAddressTypes $_electronicAddressTypes;
+    // phpcs:enable PSR2.Classes.PropertyDeclaration.Underscore
 
     public function __construct(
         ApiInterface $api,
@@ -41,18 +60,22 @@ class Constituents extends Base implements ResourceInterface
      *     @type int    $original_source_id
      *     @type int    $constituent_type_id
      *     @type int    $electronic_address_type_id
+     *     @type int    $address_type_id
      *     @type string $street1
      *     @type string $city
      *     @type string $postal_code
+     *     @type mixed[] $country
+     *     @type mixed[] $state
      * }
      * @return int The new constituent ID
      * @throws \Exception On API failure or when the response contains no Id.
      */
     public function create(array $data): int
     {
+        $this->validateRequiredFields($data, self::REQUIRED_CREATE_FIELDS);
+
         $source          = $this->_originalSources->sourceById((int)$data['original_source_id']);
         $constituentType = $this->_constituentTypes->getById((int)$data['constituent_type_id']);
-        $addressType     = $this->_addressTypes->getById(3);
         $electronicType  = $this->_electronicAddressTypes->typeById((int)$data['electronic_address_type_id']);
 
         $electronicAddress = [
@@ -65,26 +88,6 @@ class Constituents extends Base implements ResourceInterface
             'PrimaryIndicator'      => true,
         ];
 
-        $address = [
-            'AddressType'      => $addressType->rawResponse(),
-            'City'             => $data['city'],
-            'Country'          => ['Description' => 'USA', 'Id' => 1, 'Inactive' => false],
-            'Inactive'         => false,
-            'Label'            => true,
-            'Months'           => 'YYYYYYYYYYYY',
-            'PostalCode'       => $data['postal_code'],
-            'PrimaryIndicator' => true,
-            'State'            => [
-                'Description' => 'Texas',
-                'StateCode'   => 'TX',
-                'Id'          => 67,
-                'Inactive'    => false,
-                'Label'       => true,
-                'Country'     => ['Description' => 'USA', 'Id' => 1, 'Inactive' => false],
-            ],
-            'Street1'          => $data['street1'],
-        ];
-
         $constituent = [
             'FirstName'           => $data['first_name'],
             'LastName'            => $data['last_name'],
@@ -92,8 +95,12 @@ class Constituents extends Base implements ResourceInterface
             'ElectronicAddresses' => [$electronicAddress],
             'ConstituentType'     => $constituentType->rawResponse(),
             'OriginalSource'      => $source->rawResponse(),
-            'Addresses'           => [$address],
         ];
+
+        $address = $this->buildAddress($data);
+        if (null !== $address) {
+            $constituent['Addresses'] = [$address];
+        }
 
         $body     = json_encode(array_filter($constituent));
         $response = $this->_api->post(self::RESOURCE . '/Detail', [
@@ -106,6 +113,87 @@ class Constituents extends Base implements ResourceInterface
         }
 
         return (int)$response['Id'];
+    }
+
+    /**
+     * @param mixed[] $data
+     * @return mixed[]|null
+     */
+    private function buildAddress(array $data): ?array
+    {
+        if (!$this->hasAddressData($data)) {
+            return null;
+        }
+
+        $this->validateRequiredFields($data, self::OPTIONAL_ADDRESS_FIELDS);
+
+        if (!is_array($data['country'])) {
+            throw new InvalidArgumentException('The "country" field must be an array.');
+        }
+
+        if (!is_array($data['state'])) {
+            throw new InvalidArgumentException('The "state" field must be an array.');
+        }
+
+        $addressType = $this->_addressTypes->getById((int)$data['address_type_id']);
+        $state       = $data['state'];
+
+        if (!isset($state['Country'])) {
+            $state['Country'] = $data['country'];
+        }
+
+        return [
+            'AddressType'      => $addressType->rawResponse(),
+            'City'             => $data['city'],
+            'Country'          => $data['country'],
+            'Inactive'         => false,
+            'Label'            => true,
+            'Months'           => 'YYYYYYYYYYYY',
+            'PostalCode'       => $data['postal_code'],
+            'PrimaryIndicator' => true,
+            'State'            => $state,
+            'Street1'          => $data['street1'],
+        ];
+    }
+
+    /**
+     * @param mixed[] $data
+     * @param string[] $fields
+     */
+    private function validateRequiredFields(array $data, array $fields): void
+    {
+        $missing = [];
+
+        foreach ($fields as $field) {
+            if (
+                !array_key_exists($field, $data)
+                || null === $data[$field]
+                || '' === $data[$field]
+                || (is_array($data[$field]) && [] === $data[$field])
+            ) {
+                $missing[] = $field;
+            }
+        }
+
+        if ([] !== $missing) {
+            throw new InvalidArgumentException(
+                sprintf('Missing required constituent field(s): %s', implode(', ', $missing))
+            );
+        }
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    private function hasAddressData(array $data): bool
+    {
+        foreach (self::OPTIONAL_ADDRESS_FIELDS as $field) {
+            if (array_key_exists($field, $data)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
