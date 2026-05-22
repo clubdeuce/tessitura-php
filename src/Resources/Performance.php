@@ -138,6 +138,6 @@ class Performance extends Base
 
     public function isOnSale(): bool
     {
-        return in_array($this->statusId(), [1, 5]);
+        return in_array($this->statusId(), [1, 5], true);
     }
 }

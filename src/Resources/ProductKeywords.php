@@ -10,7 +10,9 @@ class ProductKeywords extends Base implements ResourceInterface
 {
     public const RESOURCE = 'TXN/ProductKeywords';
 
+    // phpcs:disable PSR2.Classes.PropertyDeclaration.Underscore
     protected ApiInterface $_api;
+    // phpcs:enable PSR2.Classes.PropertyDeclaration.Underscore
 
     public function __construct(ApiInterface $api)
     {
@@ -24,6 +26,10 @@ class ProductKeywords extends Base implements ResourceInterface
      */
     public function get(array $elementIds = []): array
     {
+        if ([] === $elementIds) {
+            return [];
+        }
+
         try {
             $data = $this->_api->get(
                 sprintf('%s?productionElementIds=%s', self::RESOURCE, implode(',', $elementIds))

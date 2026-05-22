@@ -10,7 +10,9 @@ class WebContents extends Base implements ResourceInterface
 {
     public const RESOURCE = 'TXN/WebContents';
 
+    // phpcs:disable PSR2.Classes.PropertyDeclaration.Underscore
     protected ApiInterface $_api;
+    // phpcs:enable PSR2.Classes.PropertyDeclaration.Underscore
 
     public function __construct(ApiInterface $api)
     {
@@ -24,6 +26,10 @@ class WebContents extends Base implements ResourceInterface
      */
     public function get(array $elementIds = []): array
     {
+        if ([] === $elementIds) {
+            return [];
+        }
+
         try {
             $items = [];
             $data  = $this->_api->get(
