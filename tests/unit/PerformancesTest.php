@@ -196,4 +196,74 @@ class PerformancesTest extends testCase
             $this->fail('Exception was thrown: ' . $e->getMessage());
         }
     }
+
+    /**
+     * @throws Exception
+     */
+    public function testGetSeatFeesForZoneAggregatesFeesForMatchingZone(): void
+    {
+        $api = $this->createMock(Api::class);
+        $api->expects($this->once())
+            ->method('get')
+            ->willReturn([
+                ['ZoneId' => 812, 'FeeAmount' => 2.50],
+                ['ZoneId' => 812, 'FeeAmount' => 1.25],
+                ['ZoneId' => 813, 'FeeAmount' => 9.99],
+            ]);
+
+        $sut = new Performances($api);
+
+        $result = $sut->getSeatFeesForZone(15027, 812);
+
+        $this->assertSame(3.75, $result);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testGetTicketsStartAtSelectsLowestAvailableZoneAndAddsFees(): void
+    {
+        $api = $this->createMock(Api::class);
+        $api->method('get')
+            ->willReturnCallback(
+                function (string $endpoint): array {
+                    if (str_contains($endpoint, '/Zones?')) {
+                        return [
+                            [
+                                'Id' => 1,
+                                'Zone' => ['Id' => 812],
+                                'AvailableCount' => 10,
+                            ],
+                            [
+                                'Id' => 2,
+                                'Zone' => ['Id' => 813],
+                                'AvailableCount' => 5,
+                            ],
+                            [
+                                'Id' => 3,
+                                'Zone' => ['Id' => 814],
+                                'AvailableCount' => 0,
+                            ],
+                        ];
+                    }
+
+                    if (str_contains($endpoint, '/SeatFees?')) {
+                        return [
+                            ['ZoneId' => 813, 'FeeAmount' => 4.00],
+                        ];
+                    }
+
+                    return [
+                        ['ZoneId' => 812, 'PriceTypeId' => 1, 'Price' => 40.00, 'IsBase' => true, 'Enabled' => true],
+                        ['ZoneId' => 813, 'PriceTypeId' => 1, 'Price' => 30.00, 'IsBase' => true, 'Enabled' => true],
+                    ];
+                }
+            );
+
+        $sut = new Performances($api);
+
+        $result = $sut->getTicketsStartAt(15027);
+
+        $this->assertSame(34.0, $result);
+    }
 }
