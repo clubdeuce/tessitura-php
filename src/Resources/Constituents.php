@@ -41,6 +41,9 @@ class Constituents extends Base implements ResourceInterface
      *     @type int    $original_source_id
      *     @type int    $constituent_type_id
      *     @type int    $electronic_address_type_id
+     *     @type string $street1
+     *     @type string $city
+     *     @type string $postal_code
      * }
      * @return int The new constituent ID
      * @throws \Exception On API failure or when the response contains no Id.
@@ -64,12 +67,12 @@ class Constituents extends Base implements ResourceInterface
 
         $address = [
             'AddressType'      => $addressType->rawResponse(),
-            'City'             => 'DALLAS',
+            'City'             => $data['city'],
             'Country'          => ['Description' => 'USA', 'Id' => 1, 'Inactive' => false],
             'Inactive'         => false,
             'Label'            => true,
             'Months'           => 'YYYYYYYYYYYY',
-            'PostalCode'       => '75201',
+            'PostalCode'       => $data['postal_code'],
             'PrimaryIndicator' => true,
             'State'            => [
                 'Description' => 'Texas',
@@ -79,7 +82,7 @@ class Constituents extends Base implements ResourceInterface
                 'Label'       => true,
                 'Country'     => ['Description' => 'USA', 'Id' => 1, 'Inactive' => false],
             ],
-            'Street1'          => 'UNKNOWN',
+            'Street1'          => $data['street1'],
         ];
 
         $constituent = [
