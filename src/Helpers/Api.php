@@ -32,7 +32,7 @@ class Api extends Base implements
 
     protected string $usergroup;
 
-    protected string $version = '15';
+    protected string $version = '16';
 
     protected Client $client;
     protected ?LoggerInterface $logger = null;
@@ -111,7 +111,7 @@ class Api extends Base implements
      */
     protected function makeRequest(string $endpoint, array $args): array
     {
-        $args = $this->parseArgs($args, $this->getRequestArgs());
+        $args = array_merge($args, $this->getRequestArgs());
 
         $method   = $args['method'];
         $cacheKey = $this->generateCacheKey($endpoint, $args);
@@ -238,7 +238,6 @@ class Api extends Base implements
      */
     public function post(string $endpoint, array $args = []): array|Exception
     {
-
         $args = array_merge($args, [
             'method' => 'POST',
         ]);

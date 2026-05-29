@@ -140,4 +140,14 @@ class Performance extends Base
     {
         return in_array($this->statusId(), [1, 5], true);
     }
+
+    public function duration(): int
+    {
+        return intval($this->extraArgs['Duration'] ?? 0);
+    }
+
+    public function toArray(): array
+    {
+        return $this->extraArgs;
+    }
 }
