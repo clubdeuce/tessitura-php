@@ -5,11 +5,13 @@ This project uses several static analysis tools to maintain code quality and con
 ## Available Tools
 
 ### PHPStan
+
 Static analysis tool that finds bugs in your code without running it.
 
 **Configuration:** `phpstan.neon`
 
 **Run manually:**
+
 ```bash
 vendor/bin/phpstan analyse --memory-limit=2G
 # or
@@ -17,28 +19,33 @@ make phpstan
 ```
 
 ### PHP CodeSniffer (PHPCS)
+
 Detects violations of a defined set of coding standards.
 
 **Configuration:** `phpcs.xml`
 
 **Run manually:**
+
 ```bash
 vendor/bin/phpcs
-# or  
+# or
 make phpcs
 ```
 
 **Auto-fix issues:**
+
 ```bash
 vendor/bin/phpcbf
 ```
 
 ### PHP-CS-Fixer
+
 Automatically fixes PHP coding standards issues.
 
 **Configuration:** `.php-cs-fixer.php`
 
 **Run manually (dry-run):**
+
 ```bash
 vendor/bin/php-cs-fixer fix --dry-run --diff
 # or
@@ -46,6 +53,7 @@ make php-cs-fixer
 ```
 
 **Auto-fix issues:**
+
 ```bash
 vendor/bin/php-cs-fixer fix
 # or
@@ -53,9 +61,11 @@ make fix
 ```
 
 ### PHPMD (PHP Mess Detector)
+
 Looks for potential problems in your code.
 
 **Run manually:**
+
 ```bash
 vendor/bin/phpmd src,tests text cleancode,codesize,controversial,design,naming,unusedcode
 # or
@@ -77,17 +87,18 @@ make test
 # Auto-fix code style issues
 make fix
 
-# Clean cache
-make clean
+# Validate setup
+make validate
 ```
 
 ## Continuous Integration
 
 All tools run automatically on:
+
 - Push to `main` or `develop` branches
 - Pull requests to `main` or `develop` branches
 
-The CI pipeline tests against PHP versions 8.0, 8.1, 8.2, and 8.3.
+The CI pipeline runs static analysis and tests against PHP 8.2, 8.3, and 8.4.
 
 ## Configuration Notes
 

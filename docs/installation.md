@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide will help you install and set up the tessitura-php project.
+This guide will help you install and set up the `clubdeuce/tessitura` project for local development.
 
 ## Prerequisites
 
@@ -10,57 +10,84 @@ This guide will help you install and set up the tessitura-php project.
 
 ## 1. Clone the Repository
 
-```
+```bash
 git clone <repository-url>
-cd tessitura-php
+cd tessitura
 ```
 
 ## 2. Install Dependencies
 
-Use Composer to install PHP dependencies:
+Use the project Make target (preferred):
 
+```bash
+make install
 ```
+
+Or run Composer directly:
+
+```bash
 composer install
 ```
 
 ## 3. Configuration
 
-- Copy any example configuration files (if provided) and update them as needed.
-- Review `phpstan.neon`, `psalm.xml`, and `phpcs.xml` for static analysis and coding standards configuration.
+- Provide Tessitura API settings in your application code:
+  - `base_route`
+  - `username`
+  - `password`
+  - `machine`
+  - `usergroup`
+  - `version` (optional, defaults to `16`)
+
+You can use either `Base\Container` or the `Tessitura` facade to initialize services.
 
 ## 4. Running Tests
 
-To run the test suite:
+Run the full suite:
 
+```bash
+make test
 ```
-cd tests
-../vendor/bin/phpunit
+
+Or run PHPUnit directly:
+
+```bash
+vendor/bin/phpunit -c tests/phpunit.xml.dist
+```
+
+Run a single test file:
+
+```bash
+vendor/bin/phpunit -c tests/phpunit.xml.dist tests/unit/ApiTest.php
 ```
 
 ## 5. Code Quality Tools
 
-- **PHPStan:**
-  ```
-  vendor/bin/phpstan analyse src
-  ```
-- **PHPCS:**
-  ```
-  vendor/bin/phpcs src
-  ```
-- **PHP CS Fixer**
-  ```
-  vendor/bin/php-cs-fixer fix src --dry-run
-  ```
+Preferred commands:
+
+```bash
+make static-analysis
+make phpstan
+make phpcs
+make phpmd
+make php-cs-fixer
+make fix
+make validate
+```
 
 ## 6. Caching
 
 If you plan to use Redis caching, ensure Redis is running and accessible. Configure connection details as needed in your application.
 
+Note: only successful `GET` responses are cached when a cache implementation is provided.
+
 ## 7. Additional Resources
 
-- See other documentation in the `docs/` directory for advanced topics.
+- [Getting Started](getting-started.md)
+- [Caching](caching.md)
+- [Static Analysis](static-analysis.md)
+- [Magic Methods Migration](magic-methods-migration.md)
 
 ---
 
 For further help, consult the README.md or open an issue in the repository.
-

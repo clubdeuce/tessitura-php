@@ -53,7 +53,7 @@ $cache = new RedisCache($redis);
 // Create API instance with cache
 $api = new Api(
     [
-        'baseRoute' => 'https://api.tessitura.com/',
+        'base_route' => 'https://api.tessitura.com/',
         'username' => 'your_username',
         'password' => 'your_password',
         'machine' => 'your_machine',
@@ -122,6 +122,7 @@ $api = $container->get('api');
 ### Cache Key Generation
 
 Cache keys are generated based on:
+
 - API endpoint
 - Base route
 - API version
@@ -155,17 +156,22 @@ class MyCustomCache implements CacheInterface
     {
         // Your implementation
     }
-    
+
     public function set(string $key, mixed $value, int $ttl = 3600): bool
     {
         // Your implementation
     }
-    
+
     // ... implement other methods
 }
 ```
 
 ## Configuration
+
+### Config Key Naming
+
+Most container-based usage uses `base_route`. Some internals and legacy call sites still accept `baseRoute`.
+When writing new code, prefer `base_route` so examples and container usage stay consistent.
 
 ### Default Cache Expiration
 
@@ -188,6 +194,7 @@ $redis = new Client([
 ## Error Handling
 
 Cache operations are designed to fail gracefully:
+
 - If cache is unavailable, requests go directly to the API
 - Cache errors are silently ignored
 - Failed cache operations don't prevent API calls
@@ -205,8 +212,8 @@ The library includes both unit and integration tests for cache functionality:
 
 ```bash
 # Run cache-related tests
-vendor/bin/phpunit tests/unit/ApiCacheTest.php
-vendor/bin/phpunit tests/integration/ApiCacheIntegrationTest.php
+vendor/bin/phpunit -c tests/phpunit.xml.dist tests/unit/ApiCacheTest.php
+vendor/bin/phpunit -c tests/phpunit.xml.dist tests/integration/ApiCacheIntegrationTest.php
 ```
 
 ## Dependencies
