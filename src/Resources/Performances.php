@@ -65,7 +65,9 @@ class Performances extends Base implements ResourceInterface
     }
 
     /**
-     * Get performances between two dates.
+     * Get performances between two dates. This returns a mutil-dimesional array of performances,
+     * sorted by date. The first level of the array is keyed by the timestamp of the performance start date and time,
+     * and the second level is an array of Performance objects for that date and time.
      *
      * @param DateTime $start
      * @param DateTime $end
@@ -83,7 +85,7 @@ class Performances extends Base implements ResourceInterface
             try {
                 $date = $performance->date();
                 if (!is_null($date)) {
-                    $sorted[$date->getTimestamp()] = $performance;
+                    $sorted[$date->getTimestamp()][] = $performance;
                 }
             } catch (Throwable $e) {
                 continue;
