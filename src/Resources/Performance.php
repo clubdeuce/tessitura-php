@@ -89,14 +89,15 @@ class Performance extends Base
      *
      * @throws Exception
      */
-    public function date(string $timezone = 'America/New_York'): ?DateTime
+    public function date(string $timezone = null): ?DateTime
     {
-        if (isset($this->_date)) {
-            try {
-                $clone = clone $this->_date;
-                $clone->setTimezone(new DateTimeZone($timezone));
+        if (isset($this->_date))
+            $clone = clone $this->_date;
 
-                return $clone;
+
+        if (isset($this->extraArgs['PerformanceDate'])) {
+            try {
+                $clone = new DateTime($this->extraArgs['PerformanceDate']);
             } catch (Exception $e) {
                 throw new Exception(
                     "Unable to convert performance date into DateTime object: {$e->getMessage()}",
@@ -105,22 +106,12 @@ class Performance extends Base
             }
         }
 
-        if (isset($this->extraArgs['PerformanceDate'])) {
-            try {
-                // Pass $timezone so that date strings without an embedded offset are
-                // interpreted in the requested timezone.  For ISO-8601 strings that
-                // already carry an offset the constructor ignores the parameter, so
-                // setTimezone() is required to perform the actual conversion.
-                $date = new DateTime($this->extraArgs['PerformanceDate'], new DateTimeZone($timezone));
-                $date->setTimezone(new DateTimeZone($timezone));
-
-                return $date;
-            } catch (Exception $e) {
-                throw new Exception(
-                    "Unable to convert performance date into DateTime object: {$e->getMessage()}",
-                    E_USER_WARNING
-                );
+        if (isset($clone)) {
+            if ($timezone) {
+                $clone->setTimezone(new DateTimeZone($timezone));
             }
+
+            return $clone;
         }
 
         return null;
