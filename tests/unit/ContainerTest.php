@@ -82,6 +82,34 @@ class ContainerTest extends TestCase
     }
 
     /**
+     * Test creation of the newly wired resource services.
+     */
+    public function testCreateServiceResolvesNewResources(): void
+    {
+        $mockApi   = $this->createMock(ApiInterface::class);
+        $container = new Container();
+        $container->set('api', $mockApi);
+
+        $serviceIds = [
+            'sessions',
+            'constituents',
+            'constituent_types',
+            'original_sources',
+            'electronic_address_types',
+            'address_types',
+            'price_types',
+            'product_keywords',
+            'web_contents',
+            'production_seasons',
+        ];
+
+        foreach ($serviceIds as $serviceId) {
+            $this->assertTrue($container->has($serviceId));
+            $this->assertInstanceOf(ResourceInterface::class, $container->get($serviceId));
+        }
+    }
+
+    /**
      * Test that createService throws an exception for an invalid service ID.
      */
     public function testCreateServiceThrowsExceptionForInvalidService(): void

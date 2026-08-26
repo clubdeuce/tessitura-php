@@ -31,6 +31,26 @@ use Psr\Log\NullLogger;
 class Container
 {
     /**
+     * @var array<string, string>
+     */
+    private const SERVICE_FACTORY_METHODS = [
+        'http_client'              => 'createHttpClient',
+        'logger'                   => 'createLogger',
+        'api'                      => 'createApi',
+        'performances'             => 'createPerformances',
+        'sessions'                 => 'createSessions',
+        'constituents'             => 'createConstituents',
+        'constituent_types'        => 'createConstituentTypes',
+        'original_sources'         => 'createOriginalSources',
+        'electronic_address_types' => 'createElectronicAddressTypes',
+        'address_types'            => 'createAddressTypes',
+        'price_types'              => 'createPriceTypes',
+        'product_keywords'         => 'createProductKeywords',
+        'web_contents'             => 'createWebContents',
+        'production_seasons'       => 'createProductionSeasons',
+    ];
+
+    /**
      * @var mixed[] Array of registered services.
      */
     private array $services = [];
@@ -110,7 +130,7 @@ class Container
      */
     public function has(string $id): bool
     {
-        return isset($this->services[$id]) || method_exists($this, 'create' . ucfirst($id));
+        return isset($this->services[$id]) || array_key_exists($id, self::SERVICE_FACTORY_METHODS);
     }
 
     /**
@@ -122,18 +142,13 @@ class Container
      */
     private function createService(string $id): mixed
     {
-        switch ($id) {
-            case 'http_client':
-                return $this->createHttpClient();
-            case 'logger':
-                return $this->createLogger();
-            case 'api':
-                return $this->createApi();
-            case 'performances':
-                return $this->createPerformances();
-            default:
-                throw new \Exception(sprintf('Service "%s" not found', $id));
+        $factory = self::SERVICE_FACTORY_METHODS[$id] ?? null;
+
+        if (null === $factory) {
+            throw new \Exception(sprintf('Service "%s" not found', $id));
         }
+
+        return $this->{$factory}();
     }
 
     /**
@@ -193,6 +208,66 @@ class Container
      */
     private function createPerformances(): ResourceInterface
     {
-        return new Resources\Performances($this->get('api'));
+        return new Resources\Performances(
+            $this->get('api'),
+            $this->get('product_keywords'),
+            $this->get('price_types')
+        );
+    }
+
+    private function createSessions(): ResourceInterface
+    {
+        return new Resources\Sessions($this->get('api'));
+    }
+
+    private function createConstituents(): ResourceInterface
+    {
+        return new Resources\Constituents(
+            $this->get('api'),
+            $this->get('original_sources'),
+            $this->get('constituent_types'),
+            $this->get('address_types'),
+            $this->get('electronic_address_types')
+        );
+    }
+
+    private function createConstituentTypes(): ResourceInterface
+    {
+        return new Resources\ConstituentTypes($this->get('api'));
+    }
+
+    private function createOriginalSources(): ResourceInterface
+    {
+        return new Resources\OriginalSources($this->get('api'));
+    }
+
+    private function createElectronicAddressTypes(): ResourceInterface
+    {
+        return new Resources\ElectronicAddressTypes($this->get('api'));
+    }
+
+    private function createAddressTypes(): ResourceInterface
+    {
+        return new Resources\AddressTypes($this->get('api'));
+    }
+
+    private function createPriceTypes(): ResourceInterface
+    {
+        return new Resources\PriceTypes($this->get('api'));
+    }
+
+    private function createProductKeywords(): ResourceInterface
+    {
+        return new Resources\ProductKeywords($this->get('api'));
+    }
+
+    private function createWebContents(): ResourceInterface
+    {
+        return new Resources\WebContents($this->get('api'));
+    }
+
+    private function createProductionSeasons(): ResourceInterface
+    {
+        return new Resources\ProductionSeasons($this->get('api'));
     }
 }

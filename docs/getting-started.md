@@ -16,6 +16,12 @@ Install the library via Composer:
 composer require clubdeuce/tessitura
 ```
 
+For local development from this repository, use:
+
+```bash
+make install
+```
+
 ## Basic Setup
 
 ### Direct API Usage
@@ -53,6 +59,40 @@ $container = new Container([
 
 // The container lazily creates and caches services on first access.
 $api = $container->get('api');
+```
+
+Common built-in service IDs include:
+
+- `api`
+- `performances`
+- `sessions`
+- `constituents`
+- `constituent_types`
+- `address_types`
+- `electronic_address_types`
+- `original_sources`
+- `price_types`
+- `product_keywords`
+- `web_contents`
+- `production_seasons`
+
+### Using the Facade Class
+
+The package also provides a facade entry point:
+
+```php
+use Clubdeuce\Tessitura\Tessitura;
+
+$tessitura = new Tessitura([
+    'base_route' => 'https://api.example.com/TessituraService/',
+    'username'   => 'your_username',
+    'password'   => 'your_password',
+    'machine'    => 'your_machine',
+    'usergroup'  => 'your_usergroup',
+    'version'    => '16',
+]);
+
+$performances = $tessitura->performances();
 ```
 
 ## Fetching Performances
@@ -185,4 +225,5 @@ $container = new Container([
 ## Next Steps
 
 - [Caching](caching.md) — reduce API calls with Redis or in-memory caching
+- [Installation](installation.md) — full local development setup
 - [Tasks and Roadmap](tasks.md) — planned improvements to the library

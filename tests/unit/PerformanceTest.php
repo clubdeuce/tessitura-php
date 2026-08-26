@@ -35,8 +35,14 @@ class PerformanceTest extends testCase
             $this->assertInstanceOf(DateTime::class, $this->sut->date());
             $this->assertEquals('2024-10-19 7:30 pm', $this->sut->date()->format('Y-m-d g:i a'));
             $this->assertEquals('America/New_York', $this->sut->date()->getTimezone()->getName());
-            $this->assertEquals('2024-10-19 4:30 pm', $this->sut->date('America/Los_Angeles')->format('Y-m-d g:i a'));
-            $this->assertEquals('America/Los_Angeles', $this->sut->date('America/Los_Angeles')->getTimezone()->getName());
+            $this->assertEquals(
+                '2024-10-19 4:30 pm',
+                $this->sut->date('America/Los_Angeles')->format('Y-m-d g:i a')
+            );
+            $this->assertEquals(
+                'America/Los_Angeles',
+                $this->sut->date('America/Los_Angeles')->getTimezone()->getName()
+            );
         } catch (Exception $e) {
             trigger_error($e->getMessage());
         }
@@ -197,5 +203,14 @@ class PerformanceTest extends testCase
         $sut = new Performance(['PerformanceStatus' => ['Description' => 'On Sale']]);
         $this->assertIsInt($sut->statusId());
         $this->assertEquals(0, $sut->statusId());
+    }
+
+    public function testIsOnSale(): void
+    {
+        $onSale = new Performance(['PerformanceStatus' => ['Id' => 1]]);
+        $other  = new Performance(['PerformanceStatus' => ['Id' => 4]]);
+
+        $this->assertTrue($onSale->isOnSale());
+        $this->assertFalse($other->isOnSale());
     }
 }

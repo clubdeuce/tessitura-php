@@ -12,7 +12,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 - [x] Add a caching layer to reduce API calls and improve performance
 - [ ] Implement a proper logging strategy with configurable log levels
 - [ ] Create a configuration class to centralize configuration management
-- [ ] Implement a proper service container for managing dependencies
+- [x] Implement a proper service container for managing dependencies
 - [ ] Add a rate limiting mechanism to prevent API throttling
 - [ ] Implement a proper retry mechanism for failed API calls
 
@@ -42,7 +42,7 @@ This document contains a prioritized list of tasks to improve the Tessitura PHP 
 ## Documentation
 
 - [ ] Create comprehensive API documentation with examples
-- [ ] **_Add a getting started guide with installation and basic usage_**
+- [x] **_Add a getting started guide with installation and basic usage_**
 - [ ] Document all available API endpoints and their parameters
 - [ ] Add a troubleshooting guide for common issues
 - [ ] Create a changelog to track version changes
