@@ -137,13 +137,12 @@ class Performances extends Base implements ResourceInterface
             ],
         ];
 
-        $results = $this->_api->post($endpoint, $args);
-
-        if (!is_array($results)) {
+        try {
+            $results = $this->_api->post($endpoint, $args);
+            return array_map(fn($item) => $this->makePerformance($item), $results);
+        } catch (Exception $e) {
             return [];
         }
-
-        return array_map(fn($item) => $this->makePerformance($item), $results);
     }
 
     /**
